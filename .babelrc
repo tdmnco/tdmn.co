@@ -1,0 +1,4 @@
+{
+  "plugins": ["mopt"],
+  "presets": ["env"]
+}

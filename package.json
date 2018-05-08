@@ -1,0 +1,32 @@
+{
+  "author": "Kasper Tidemann",
+  "bugs": {
+    "url": "https://github.com/tdmnco/web/issues"
+  },
+  "description": "This is the official repository of the Tidemann&Co website.",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "less": "^3.0.4",
+    "mithril": "*",
+    "mopt": "*",
+    "node-sass": "^4.9.0",
+    "parcel-bundler": "^1.8.1"
+  },
+  "homepage": "https://tdmn.co",
+  "keywords": [
+    "tdmnco",
+    "website"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "name": "web",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tdmnco/web.git"
+  },
+  "scripts": {
+    "dev": "parcel src/html/index.html",
+    "dist": "rm -rf dist && parcel build src/html/index.html"
+  },
+  "version": "0.0.1"
+}
