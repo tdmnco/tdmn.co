@@ -1,8 +1,16 @@
+// Imports:
+@import '../variables/_breakpoints';
+
 // Styles:
 div.content {
   margin: 0 auto;
   padding: 4rem 0;
   width: 75%;
+
+  @media (max-width: @breakpoint-mobile) {
+    padding: 2rem 0;
+    width: 100%;
+  }
 
   p.paragraph {
     padding-bottom: 2rem;

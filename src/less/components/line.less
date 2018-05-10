@@ -1,4 +1,5 @@
-// Variables:
+// Imports:
+@import '../variables/_breakpoints';
 @import '../variables/_colors';
 
 // Styles:
@@ -7,4 +8,8 @@ div.line {
   height: 0.4rem;
   margin: 4rem auto;
   width: 10rem;
+
+  @media (max-width: @breakpoint-mobile) {
+    display: none;
+  }
 }

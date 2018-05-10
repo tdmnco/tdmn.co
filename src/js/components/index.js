@@ -1,5 +1,6 @@
 // Exports:
 export { Contact } from './contact'
+export { Footer } from './footer'
 export { Home } from './home'
 export { Journal } from './journal'
 export { Line } from './line'

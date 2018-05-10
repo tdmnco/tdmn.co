@@ -1,8 +1,13 @@
-// Variables:
+// Imports:
+@import '../variables/_breakpoints';
 @import '../variables/_colors';
 
 // Styles:
 h1.title {
   padding: 4rem 0;
   width: 100%;
+
+  @media (max-width: @breakpoint-mobile) {
+    padding: 2rem 0;
+  }
 }

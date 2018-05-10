@@ -1,6 +1,13 @@
+// Imports:
+@import '../variables/_breakpoints';
+
 // Styles:
 div.layout {
   margin: 0 auto;
   max-width: 900px;
   width: 90%;
+
+  @media (max-width: @breakpoint-mobile) {
+    width: 80%;
+  }
 }

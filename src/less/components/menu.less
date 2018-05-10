@@ -1,3 +1,6 @@
+// Imports:
+@import '../variables/_breakpoints';
+
 // Styles:
 div.menu {
   height: 3rem;
@@ -13,6 +16,7 @@ div.menu {
     background-position: left center;
     background-repeat: no-repeat;
     background-size: auto 100%;
+    cursor: pointer;
     float: left;
     width: 16rem;
   }
@@ -20,6 +24,10 @@ div.menu {
   div.links {
     float: right;
     text-align: right;
+
+    @media (max-width: @breakpoint-mobile) {
+      display: none;
+    }
 
     a {
       font-size: 1.3rem;
