@@ -15,8 +15,9 @@ class Home {
         m(Paragraph, { content: 'We invest in people. Ideas are short-lived if not for the people behind them making all the difference. We match with people who care deeply for what they do.' }),
         m(Paragraph, { content: 'All the best,' }),
         m(Paragraph, { content: [
-          'Kasper Tidemann',
-          m('span', { class: 'title' }, 'CEO, Tidemann&Co')
+          m('span', { class: 'name' }, 'Kasper Tidemann'),
+          m('span', { class: 'title' }, 'CEO, Tidemann&Co'),
+          m('div', { class: 'signature' })
         ]})
       ])
     ])
