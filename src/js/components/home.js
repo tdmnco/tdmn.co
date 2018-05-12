@@ -1,6 +1,6 @@
 // Imports:
 import m from '../../../node_modules/mithril/mithril'
-import { Line, Paragraph, Title } from './'
+import { Line, Paragraph, PostSummary, Title } from './'
 import { content, layout } from '../templates'
 
 // Classes:
@@ -8,7 +8,7 @@ class Home {
   view() {
     return layout('home', [
       m(Title, { content: 'Quality is built on love.' }),
-      m(Line),
+      m(Line, { class: 'hidden-on-mobile' }),
       content([
         m(Paragraph, { content: 'Tidemann&Co is a Copenhagen-based corporation with activities in software and investments. We believe that quality is built on proper planning, efficient execution and a genuine love for what you do.' }),
         m(Paragraph, { content: 'Our craft is software. We live and breathe the art and science of computers, because it enables us to do so many amazing things. Software breaks barriers and builds bridges in business, society and life in general.' }),
@@ -19,6 +19,10 @@ class Home {
           m('span', { class: 'title' }, 'CEO, Tidemann&Co'),
           m('div', { class: 'signature' })
         ]})
+      ]),
+      m(Line),
+      content([
+        m(PostSummary, { content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.', title: 'Proudly presenting Alefarm Brewing 2.0' })
       ])
     ])
   }
