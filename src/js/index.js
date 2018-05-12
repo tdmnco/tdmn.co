@@ -1,6 +1,6 @@
 // Imports:
 import m from '../../node_modules/mithril/mithril'
-import { Contact, Home, Journal } from './components'
+import { Contact, Home, Investments, Journal, Services } from './components'
 
 // Prefix:
 m.route.prefix('')
@@ -9,5 +9,7 @@ m.route.prefix('')
 m.route(document.body, '/', {
   '/': Home,
   '/contact': Contact,
-  '/journal': Journal
+  '/investments': Investments,
+  '/journal': Journal,
+  '/services': Services
 })

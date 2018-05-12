@@ -11,8 +11,8 @@ class Footer {
     return m('div', { class: 'footer' }, [
       m('div', { class: 'links' }, [
         m('a', { href: '/', oncreate: m.route.link }, 'HOME'),
-        m('a', { href: '/journal', oncreate: m.route.link }, 'JOURNAL'),
-        m('a', { href: '/contact', oncreate: m.route.link }, 'CONTACT')
+        m('a', { href: '/services', oncreate: m.route.link }, 'SERVICES'),
+        m('a', 'MORE')
       ]),
       m(Paragraph, { class: 'copyright', content: [
         'Copyright © ' + year + ', Tidemann&Co – All rights reserved.'

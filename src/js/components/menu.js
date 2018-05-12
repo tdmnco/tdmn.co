@@ -17,6 +17,8 @@ class Menu {
     return m('div', { class: 'menu' }, [
       m('div', { class: 'logo', onclick: showMenu }),
       m('div', { class: 'links' }, [
+        m('a', { href: '/services', oncreate: m.route.link }, 'SERVICES'),
+        m('a', { href: '/investments', oncreate: m.route.link }, 'INVESTMENTS'),
         m('a', { href: '/journal', oncreate: m.route.link }, 'JOURNAL'),
         m('a', { href: '/contact', oncreate: m.route.link }, 'CONTACT')
       ])

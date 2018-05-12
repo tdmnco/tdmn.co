@@ -1,7 +1,17 @@
 // Imports:
 import m from '../../../node_modules/mithril/mithril'
 import { Line, Paragraph, PostSummary, Title } from './'
+import { Post } from '../models'
 import { content, layout } from '../templates'
+
+// Constants:
+const post = new Post({
+  content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.',
+  id: '1',
+  title: 'Proudly presenting Alefarm Brewing 2.0'
+})
+
+post.save()
 
 // Classes:
 class Home {
@@ -22,7 +32,7 @@ class Home {
       ]),
       m(Line),
       content([
-        m(PostSummary, { content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.', title: 'Proudly presenting Alefarm Brewing 2.0' })
+        m(PostSummary, { post })
       ])
     ])
   }
