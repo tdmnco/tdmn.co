@@ -1,5 +1,5 @@
 // Imports:
-import { Model } from '../../../node_modules/tdmnco-model-js/dist'
+import { Model } from 'tdmnco-model-js'
 
 // Classes:
 class Post extends Model {}

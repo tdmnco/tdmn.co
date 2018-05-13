@@ -1,5 +1,5 @@
 // Imports:
-import m from '../../../node_modules/mithril/mithril'
+import m from 'mithril'
 import { breakpoints } from '../helpers'
 
 // Functions:

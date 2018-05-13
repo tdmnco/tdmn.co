@@ -1,5 +1,5 @@
 // Imports:
-import m from '../../../node_modules/mithril/mithril'
+import m from 'mithril'
 import { Line, Paragraph, PostSummary, Title } from './'
 import { Post } from '../models'
 import { content, layout } from '../templates'
