@@ -7,5 +7,32 @@ div.post-summary {
 
   h2 {
     margin-bottom: 2rem;
+
+    a {
+      font-family: 'Bitter', serif;
+      font-size: 2rem;
+      line-height: 3rem;
+
+      @media (max-width: @breakpoint-mobile) {
+        font-size: 1.6rem;
+        line-height: 2.6rem;
+        text-align: left;
+      }
+    }
+  }
+
+  p {
+    &.author {
+      @media (max-width: @breakpoint-mobile) {
+        font-size: 1.4rem;
+        line-height: 2.5rem;
+      }
+    }
+
+    a {
+      font-size: inherit;
+      line-height: inherit;
+      font-weight: 700;
+    }
   }
 }

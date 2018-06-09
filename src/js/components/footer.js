@@ -1,6 +1,6 @@
 // Imports:
 import m from 'mithril'
-import { Paragraph } from './'
+import { Link, Paragraph } from './'
 
 // Variables:
 let year = new Date().getFullYear()
@@ -10,8 +10,8 @@ class Footer {
   view() {
     return m('div', { class: 'footer' }, [
       m('div', { class: 'links' }, [
-        m('a', { href: '/', oncreate: m.route.link }, 'HOME'),
-        m('a', { href: '/services', oncreate: m.route.link }, 'SERVICES'),
+        m(Link, { content: 'HOME', to: '/' }),
+        m(Link, { content: 'SERVICES', to: '/services' }),
         m('a', 'MORE')
       ]),
       m(Paragraph, { class: 'copyright', content: [
