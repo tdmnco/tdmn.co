@@ -13,7 +13,7 @@ class PostSummary {
   }
 
   view(vnode) {
-    return m('div', { class: 'post-summary' }, [
+    return m('div', { class: 'post-summary ' + (vnode.attrs.class || '') }, [
       m('h2', { class: 'title' }, [
         m('a', { href: '/posts/' + post.slug }, post.title)
       ]),

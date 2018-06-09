@@ -1,12 +1,17 @@
 // Imports:
 import m from 'mithril'
-import { layout } from '../templates'
+import { Line, Paragraph, Title } from './'
+import { content, layout } from '../templates'
 
 // Classes:
 class Journal {
   view() {
     return layout('journal', [
-      m('p', 'Journal')
+      m(Title, { content: 'Journal.' }),
+      m(Line, { class: 'hidden-on-mobile' }),
+      content([
+        m(Paragraph, { content: 'Our thoughts on things.' })
+      ])
     ])
   }
 }

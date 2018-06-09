@@ -1,24 +1,9 @@
 // Imports:
 import m from 'mithril'
 import { Line, Link, Paragraph, PostSummary, Title } from './'
+import { posts } from '../helpers'
 import { Post } from '../models'
 import { content, layout } from '../templates'
-
-// Constants:
-const post = new Post({
-  author: {
-    firstname: 'Kasper',
-    id: '1',
-    lastname: 'Tidemann'
-  },
-  content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.',
-  created: new Date().toISOString(),
-  id: '1',
-  slug: 'proudly-presenting-alefarm-brewing-2-0',
-  title: 'Proudly presenting Alefarm Brewing 2.0'
-})
-
-post.save()
 
 // Classes:
 class Home {
@@ -39,7 +24,8 @@ class Home {
       ]),
       m(Line),
       content([
-        m(PostSummary, { post }),
+        m(PostSummary, { post: new Post(posts[0]) }),
+        m(PostSummary, { class: 'last-post', post: new Post(posts[1]) }),
         m(Link, { class: 'center hidden-on-mobile', content: 'READ MORE POSTS', to: '/journal' })
       ])
     ])

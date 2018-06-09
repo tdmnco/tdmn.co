@@ -1,12 +1,17 @@
 // Imports:
 import m from 'mithril'
-import { layout } from '../templates'
+import { Line, Paragraph, Title } from './'
+import { content, layout } from '../templates'
 
 // Classes:
 class Investments {
   view() {
     return layout('investments', [
-      m('p', 'Investments')
+      m(Title, { content: 'We invest in people.' }),
+      m(Line, { class: 'hidden-on-mobile' }),
+      content([
+        m(Paragraph, { content: 'That is why we invest our money where people put their hearts and hard work at.' })
+      ])
     ])
   }
 }
