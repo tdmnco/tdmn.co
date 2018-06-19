@@ -1,8 +1,6 @@
 // Imports:
 import m from 'mithril'
-import { Line, Link, Paragraph, PostSummary, Title } from './'
-import { posts } from '../helpers'
-import { Post } from '../models'
+import { Line, Paragraph, Title } from './'
 import { content, layout } from '../templates'
 
 // Classes:
@@ -21,12 +19,6 @@ class Home {
           m('span', { class: 'title' }, 'CEO, Tidemann&Co'),
           m('div')
         ]})
-      ]),
-      m(Line),
-      content([
-        m(PostSummary, { post: new Post(posts[0]) }),
-        m(PostSummary, { class: 'last-post', post: new Post(posts[1]) }),
-        m(Link, { class: 'center hidden-on-mobile', content: 'READ MORE POSTS', to: '/journal' })
       ])
     ])
   }

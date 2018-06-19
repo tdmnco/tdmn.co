@@ -1,26 +1,22 @@
 // Imports:
 import m from 'mithril'
-import { breakpoints } from '../helpers'
+import { Link } from './'
 
 // Functions:
-function showMenu() {
-  if (window.innerHeight <= breakpoints.mobile) {
-    console.log('Show menu!')
-  } else {
-    m.route.set('/')
-  }
+function home() {
+  m.route.set('/')
 }
 
 // Classes:
 class Menu {
   view() {
     return m('div', { class: 'menu' }, [
-      m('div', { class: 'logo', onclick: showMenu }),
+      m('div', { class: 'logo', onclick: home }),
       m('div', { class: 'links' }, [
-        m('a', { href: '/services', oncreate: m.route.link }, 'SERVICES'),
-        m('a', { href: '/investments', oncreate: m.route.link }, 'INVESTMENTS'),
-        m('a', { href: '/journal', oncreate: m.route.link }, 'JOURNAL'),
-        m('a', { href: '/contact', oncreate: m.route.link }, 'CONTACT')
+        m(Link, { content: 'SERVICES', to: '/services' }),
+        m(Link, { content: 'INVESTMENTS', to: '/investments' }),
+        m(Link, { content: 'JOURNAL', to: '/journal' }),
+        m(Link, { content: 'CONTACT', to: '/contact' })
       ])
     ])
   }

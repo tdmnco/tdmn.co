@@ -7,7 +7,7 @@ import { content, layout } from '../templates'
 class Services {
   view() {
     return layout('services', [
-      m(Title, { content: 'Our art and craft is yours.' }),
+      m(Title, { content: 'Our craft is yours.' }),
       m(Line, { class: 'hidden-on-mobile' }),
       content([
         m(Paragraph, { content: 'Services.' })

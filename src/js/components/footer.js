@@ -1,6 +1,6 @@
 // Imports:
 import m from 'mithril'
-import { Link, Paragraph } from './'
+import { Line, Link, Paragraph } from './'
 
 // Variables:
 let year = new Date().getFullYear()
@@ -12,7 +12,9 @@ class Footer {
       m('div', { class: 'links' }, [
         m(Link, { content: 'HOME', to: '/' }),
         m(Link, { content: 'SERVICES', to: '/services' }),
-        m('a', 'MORE')
+        m(Link, { content: 'INVESTMENTS', to: '/investments' }),
+        m(Link, { content: 'JOURNAL', to: '/journal' }),
+        m(Link, { content: 'CONTACT', to: '/contact' })
       ]),
       m(Paragraph, { class: 'copyright', content: [
         'Copyright © ' + year + ', Tidemann&Co – All rights reserved.'
