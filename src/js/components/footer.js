@@ -10,11 +10,9 @@ class Footer {
   view() {
     return m('div', { class: 'footer' }, [
       m('div', { class: 'links' }, [
-        m(Link, { content: 'HOME', to: '/' }),
-        m(Link, { content: 'SERVICES', to: '/services' }),
-        m(Link, { content: 'INVESTMENTS', to: '/investments' }),
         m(Link, { content: 'JOURNAL', to: '/journal' }),
-        m(Link, { content: 'CONTACT', to: '/contact' })
+        m(Link, { content: 'CONTACT', to: '/contact' }),
+        m(Link, { content: 'MORE', to: '/contact' })
       ]),
       m(Paragraph, { class: 'copyright', content: [
         'Copyright © ' + year + ', Tidemann&Co – All rights reserved.'
