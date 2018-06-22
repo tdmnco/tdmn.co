@@ -1,0 +1,19 @@
+// Mixin:
+.keyframes(@name; @arguments) {
+	@-moz-keyframes @name {
+    @arguments();
+  }
+  @-ms-keyframes @name {
+    @arguments();
+  }
+  @-o-keyframes @name {
+    @arguments();
+  }
+	@-webkit-keyframes @name {
+    @arguments();
+  }
+
+  @keyframes @name {
+    @arguments();
+  }
+}

@@ -1,0 +1,9 @@
+// Mixin:
+.animation(@name, @duration, @delay: 0, @iterations: 1, @timing, @direction: normal, @fillmode: both) {
+	-webkit-animation: @name @duration @delay @iterations @timing @direction @fillmode;
+	-moz-animation: @name @duration @delay @iterations @timing @direction @fillmode;
+	-ms-animation: @name @duration @delay @iterations @timing @direction @fillmode;
+	-o-animation: @name @duration @delay @iterations @timing @direction @fillmode;
+
+  animation: @name @duration @delay @iterations @timing @direction @fillmode;
+}

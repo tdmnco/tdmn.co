@@ -1,5 +1,6 @@
 // Imports:
 @import '../variables/_breakpoints';
+@import '../variables/_colors';
 
 // Styles:
 div.menu {
@@ -36,6 +37,46 @@ div.menu {
       line-height: 3rem;
       margin-left: 1.5rem;
       text-decoration: none;
+    }
+  }
+
+  div.toggle {
+    display: none;
+    float: right;
+    height: 1.4rem;
+    top: .8rem;
+    width: 1.6rem;
+
+    @media (max-width: @breakpoint-mobile) {
+      display: block;
+    }
+
+    div.toggle-line {
+      background: @orange;
+      height: .2rem;
+      right: 0;
+      position: absolute;
+      transition: all 250ms ease;
+      width: 100%;
+    }
+
+    div.toggle-line-one {
+      top: 0;
+    }
+
+    div.toggle-line-two {
+      top: .6rem;
+      width: 80%;
+    }
+
+    div.toggle-line-three {
+      top: 1.2rem;
+    }
+
+    &:hover {
+      div.toggle-line-two {
+        width: 100%;
+      }
     }
   }
 }

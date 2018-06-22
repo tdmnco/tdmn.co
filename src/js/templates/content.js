@@ -1,7 +1,7 @@
 // Imports:
-import m from '../../../node_modules/mithril/mithril'
+import m from 'mithril'
 
-// Functions:
+// Exports:
 export function content(content) {
   return m('div', { class: 'content' }, content)
 }

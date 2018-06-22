@@ -1,12 +1,23 @@
 // Imports:
-import m from '../../../node_modules/mithril/mithril'
-import { Footer, Menu } from '../components'
+import m from 'mithril'
+import { Footer, Menu, Overlay } from '../components'
+
+// Variables:
+let overlayShown = false
 
 // Functions:
+function showOverlay() {
+  overlayShown = !overlayShown
+}
+
+// Exports:
 export function layout(className, contents) {
-  return m('div', { class: 'layout ' + (className || '') }, [
-    m(Menu),
-    contents,
-    m(Footer)
-  ])
+  return [
+    m(Overlay, { overlayShown, showOverlay }),
+    m('div', { class: 'layout ' + (className || '') }, [
+      m(Menu, { showOverlay }),
+      contents,
+      m(Footer)
+    ])
+  ]
 }

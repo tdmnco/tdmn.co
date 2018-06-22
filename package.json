@@ -10,7 +10,7 @@
     "mithril": "*",
     "mopt": "*",
     "node-sass": "^4.9.0",
-    "parcel-bundler": "^1.8.1",
+    "parcel-bundler": "^1.9.2",
     "tdmnco-model-js": "^0.0.6"
   },
   "homepage": "https://tdmn.co",
@@ -26,7 +26,7 @@
     "url": "git+https://github.com/tdmnco/web.git"
   },
   "scripts": {
-    "dev": "parcel src/html/index.html",
+    "dev": "rm -rf dist && parcel --no-hmr src/html/index.html",
     "dist": "rm -rf dist && parcel build src/html/index.html"
   },
   "version": "0.0.1"
