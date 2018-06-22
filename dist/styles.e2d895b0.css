@@ -8,7 +8,7 @@ div.footer {
   width: 100%;
 }
 div.footer div.ampersand {
-  background-image: url('ampersand.b9b1fd29.svg');
+  background-image: url('ampersand-orange.2f8cebe3.svg');
   background-repeat: no-repeat;
   background-position: center center;
   background-size: auto 100%;
@@ -162,50 +162,182 @@ div.menu div.toggle div.toggle-line-three {
 div.menu div.toggle:hover div.toggle-line-two {
   width: 100%;
 }
-@-moz-keyframes overlay-shown {
+@-moz-keyframes overlay-ampersand-show {
   0% {
-    opacity: 0;
+    transform: translateX(30%);
   }
   100% {
-    opacity: 1;
+    transform: translateX(0);
   }
 }
-@-ms-keyframes overlay-shown {
+@-ms-keyframes overlay-ampersand-show {
   0% {
-    opacity: 0;
+    transform: translateX(30%);
   }
   100% {
-    opacity: 1;
+    transform: translateX(0);
   }
 }
-@-o-keyframes overlay-shown {
+@-o-keyframes overlay-ampersand-show {
   0% {
-    opacity: 0;
+    transform: translateX(30%);
   }
   100% {
-    opacity: 1;
+    transform: translateX(0);
   }
 }
-@-webkit-keyframes overlay-shown {
+@-webkit-keyframes overlay-ampersand-show {
   0% {
-    opacity: 0;
+    transform: translateX(30%);
   }
   100% {
-    opacity: 1;
+    transform: translateX(0);
   }
 }
-@keyframes overlay-shown {
+@keyframes overlay-ampersand-show {
+  0% {
+    transform: translateX(30%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@-moz-keyframes overlay-hide {
+  100% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
+@-ms-keyframes overlay-hide {
+  100% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
+@-o-keyframes overlay-hide {
+  100% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
+@-webkit-keyframes overlay-hide {
+  100% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
+@keyframes overlay-hide {
+  100% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
+@-moz-keyframes overlay-link-show {
   0% {
     opacity: 0;
+    transform: translateX(-30%);
   }
   100% {
     opacity: 1;
+    transform: translateY(0);
+  }
+}
+@-ms-keyframes overlay-link-show {
+  0% {
+    opacity: 0;
+    transform: translateX(-30%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@-o-keyframes overlay-link-show {
+  0% {
+    opacity: 0;
+    transform: translateX(-30%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@-webkit-keyframes overlay-link-show {
+  0% {
+    opacity: 0;
+    transform: translateX(-30%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes overlay-link-show {
+  0% {
+    opacity: 0;
+    transform: translateX(-30%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@-moz-keyframes overlay-show {
+  0% {
+    opacity: 0;
+    transform: translateY(-5%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@-ms-keyframes overlay-show {
+  0% {
+    opacity: 0;
+    transform: translateY(-5%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@-o-keyframes overlay-show {
+  0% {
+    opacity: 0;
+    transform: translateY(-5%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@-webkit-keyframes overlay-show {
+  0% {
+    opacity: 0;
+    transform: translateY(-5%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes overlay-show {
+  0% {
+    opacity: 0;
+    transform: translateY(-5%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 div.overlay {
   background: #f7941d;
+  display: none;
   height: 100%;
   left: 0;
+  min-height: 100%;
   position: absolute;
   top: 0;
   width: 100%;
@@ -218,34 +350,87 @@ div.overlay div.ampersand {
   background-size: auto 100%;
   height: 5rem;
   position: absolute;
-  right: 0;
+  right: 1rem;
   top: 0;
   width: 2.5rem;
   z-index: 2;
 }
+div.overlay div.ampersand.overlay-ampersand-show {
+  -webkit-animation: overlay-ampersand-show 500ms 0s 1 ease normal both;
+  -moz-animation: overlay-ampersand-show 500ms 0s 1 ease normal both;
+  -ms-animation: overlay-ampersand-show 500ms 0s 1 ease normal both;
+  -o-animation: overlay-ampersand-show 500ms 0s 1 ease normal both;
+  animation: overlay-ampersand-show 500ms 0s 1 ease normal both;
+}
 div.overlay div.links {
-  margin: 4rem;
+  margin: 4rem 3rem;
 }
 div.overlay div.links a {
+  -webkit-tap-highlight-color: white;
+  clear: both;
   color: #fff;
-  display: block;
+  float: left;
   font-size: 2rem;
   font-weight: 700;
   line-height: 3rem;
   margin-bottom: 1rem;
+  padding: 0 1rem;
+}
+div.overlay div.links a.overlay-link-one {
+  -webkit-animation: overlay-link-show 500ms 0s 1 ease normal both;
+  -moz-animation: overlay-link-show 500ms 0s 1 ease normal both;
+  -ms-animation: overlay-link-show 500ms 0s 1 ease normal both;
+  -o-animation: overlay-link-show 500ms 0s 1 ease normal both;
+  animation: overlay-link-show 500ms 0s 1 ease normal both;
+}
+div.overlay div.links a.overlay-link-two {
+  -webkit-animation: overlay-link-show 500ms 100ms 1 ease normal both;
+  -moz-animation: overlay-link-show 500ms 100ms 1 ease normal both;
+  -ms-animation: overlay-link-show 500ms 100ms 1 ease normal both;
+  -o-animation: overlay-link-show 500ms 100ms 1 ease normal both;
+  animation: overlay-link-show 500ms 100ms 1 ease normal both;
+}
+div.overlay div.links a.overlay-link-three {
+  -webkit-animation: overlay-link-show 500ms 200ms 1 ease normal both;
+  -moz-animation: overlay-link-show 500ms 200ms 1 ease normal both;
+  -ms-animation: overlay-link-show 500ms 200ms 1 ease normal both;
+  -o-animation: overlay-link-show 500ms 200ms 1 ease normal both;
+  animation: overlay-link-show 500ms 200ms 1 ease normal both;
+}
+div.overlay div.links a.overlay-link-four {
+  -webkit-animation: overlay-link-show 500ms 300ms 1 ease normal both;
+  -moz-animation: overlay-link-show 500ms 300ms 1 ease normal both;
+  -ms-animation: overlay-link-show 500ms 300ms 1 ease normal both;
+  -o-animation: overlay-link-show 500ms 300ms 1 ease normal both;
+  animation: overlay-link-show 500ms 300ms 1 ease normal both;
+}
+div.overlay div.links a.overlay-link-five {
+  -webkit-animation: overlay-link-show 500ms 400ms 1 ease normal both;
+  -moz-animation: overlay-link-show 500ms 400ms 1 ease normal both;
+  -ms-animation: overlay-link-show 500ms 400ms 1 ease normal both;
+  -o-animation: overlay-link-show 500ms 400ms 1 ease normal both;
+  animation: overlay-link-show 500ms 400ms 1 ease normal both;
 }
 div.overlay div.links a:last-child {
   margin: 0;
 }
-div.overlay.overlay-hidden {
-  display: none;
+div.overlay.overlay-hide,
+div.overlay.overlay-show {
+  display: block;
 }
-div.overlay.overlay-shown {
-  -webkit-animation: overlay-shown 500ms 0s 1 ease normal both;
-  -moz-animation: overlay-shown 500ms 0s 1 ease normal both;
-  -ms-animation: overlay-shown 500ms 0s 1 ease normal both;
-  -o-animation: overlay-shown 500ms 0s 1 ease normal both;
-  animation: overlay-shown 500ms 0s 1 ease normal both;
+div.overlay.overlay-hide {
+  -webkit-animation: overlay-hide 500ms 0s 1 ease normal both;
+  -moz-animation: overlay-hide 500ms 0s 1 ease normal both;
+  -ms-animation: overlay-hide 500ms 0s 1 ease normal both;
+  -o-animation: overlay-hide 500ms 0s 1 ease normal both;
+  animation: overlay-hide 500ms 0s 1 ease normal both;
+}
+div.overlay.overlay-show {
+  -webkit-animation: overlay-show 500ms 0s 1 ease normal both;
+  -moz-animation: overlay-show 500ms 0s 1 ease normal both;
+  -ms-animation: overlay-show 500ms 0s 1 ease normal both;
+  -o-animation: overlay-show 500ms 0s 1 ease normal both;
+  animation: overlay-show 500ms 0s 1 ease normal both;
 }
 p.paragraph {
   font-size: 1.5rem;
@@ -315,6 +500,10 @@ html {
   margin: 0;
   padding: 0;
   position: relative;
+}
+body,
+html {
+  height: 100%;
 }
 body {
   padding-bottom: 5rem;

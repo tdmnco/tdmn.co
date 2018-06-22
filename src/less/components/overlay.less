@@ -4,21 +4,54 @@
 @import '../variables/_colors';
 
 // Keyframes:
-.keyframes(overlay-shown; {
+.keyframes(overlay-ampersand-show; {
+  0% {
+    transform: translateX(30%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+});
+
+.keyframes(overlay-hide; {
+  100% {
+    opacity: 0;
+    transform: scale(.95);
+  }
+});
+
+.keyframes(overlay-link-show; {
   0% {
     opacity: 0;
+    transform: translateX(-30%);
   }
 
   100% {
     opacity: 1;
+    transform: translateY(0);
+  }
+});
+
+.keyframes(overlay-show; {
+  0% {
+    opacity: 0;
+    transform: translateY(-5%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 });
 
 // Styles:
 div.overlay {
   background: @orange;
+  display: none;
   height: 100%;
   left: 0;
+  min-height: 100%;
   position: absolute;
   top: 0;
   width: 100%;
@@ -31,22 +64,50 @@ div.overlay {
     background-size: auto 100%;
     height: 5rem;
     position: absolute;
-    right: 0;
+    right: 1rem;
     top: 0;
     width: 2.5rem;
     z-index: 2;
+
+    &.overlay-ampersand-show {
+      .animation(overlay-ampersand-show, 500ms, 0s, 1, ease);
+    }
   }
 
   div.links {
-    margin: 4rem;
+    margin: 4rem 3rem;
 
     a {
+      -webkit-tap-highlight-color: white;
+
+      clear: both;
       color: @white;
-      display: block;
+      float: left;
       font-size: 2rem;
       font-weight: 700;
       line-height: 3rem;
       margin-bottom: 1rem;
+      padding: 0 1rem;
+
+      &.overlay-link-one {
+        .animation(overlay-link-show, 500ms, 0s, 1, ease);
+      }
+
+      &.overlay-link-two {
+        .animation(overlay-link-show, 500ms, 100ms, 1, ease);
+      }
+
+      &.overlay-link-three {
+        .animation(overlay-link-show, 500ms, 200ms, 1, ease);
+      }
+
+      &.overlay-link-four {
+        .animation(overlay-link-show, 500ms, 300ms, 1, ease);
+      }
+
+      &.overlay-link-five {
+        .animation(overlay-link-show, 500ms, 400ms, 1, ease);
+      }
 
       &:last-child {
         margin: 0;
@@ -54,11 +115,15 @@ div.overlay {
     }
   }
 
-  &.overlay-hidden {
-    display: none;
+  &.overlay-hide, &.overlay-show {
+    display: block;
   }
 
-  &.overlay-shown {
-    .animation(overlay-shown, 500ms, 0s, 1, ease);
+  &.overlay-hide {
+    .animation(overlay-hide, 500ms, 0s, 1, ease);
+  }
+
+  &.overlay-show {
+    .animation(overlay-show, 500ms, 0s, 1, ease);
   }
 }

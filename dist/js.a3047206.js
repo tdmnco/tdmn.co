@@ -1398,16 +1398,20 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 // Variables:
 // Imports:
-var overlayShown = false;
+var overlayShow = false;
 
 // Functions:
-function showOverlay() {
-  overlayShown = !overlayShown;
+function toggleOverlay() {
+  overlayShow = !overlayShow;
+
+  document.body.style.overflow = overlayShow ? 'hidden' : '';
+
+  console.log('toggled overlay!', overlayShow);
 }
 
 // Exports:
 function layout(className, contents) {
-  return [(0, _mithril2.default)(_components.Overlay, { overlayShown: overlayShown, showOverlay: showOverlay }), _mithril2.default.vnode('div', undefined, { class: 'layout ' + (className || '') }, [(0, _mithril2.default)(_components.Menu, { showOverlay: showOverlay }), _mithril2.default.vnode.normalize(contents), (0, _mithril2.default)(_components.Footer)], undefined, undefined)];
+  return [overlayShow ? (0, _mithril2.default)(_components.Overlay, { overlayShow: overlayShow, toggleOverlay: toggleOverlay }) : null, _mithril2.default.vnode('div', undefined, { class: 'layout ' + (className || '') }, [(0, _mithril2.default)(_components.Menu, { toggleOverlay: toggleOverlay }), _mithril2.default.vnode.normalize(contents), (0, _mithril2.default)(_components.Footer)], undefined, undefined)];
 }
 },{"mithril":18,"../components":20}],57:[function(require,module,exports) {
 'use strict';
@@ -1897,7 +1901,7 @@ var Link = function () {
   _createClass(Link, [{
     key: 'view',
     value: function view(vnode) {
-      return (0, _mithril2.default)('a', { class: 'link ' + (vnode.attrs.class || ''), href: vnode.attrs.to, oncreate: _mithril2.default.route.link, onclick: vnode.attrs.onclick }, vnode.attrs.content);
+      return (0, _mithril2.default)('a', { class: 'link ' + (vnode.attrs.class || ''), href: vnode.attrs.to, oncreate: _mithril2.default.route.link, onmousedown: vnode.attrs.onmousedown }, vnode.attrs.content);
     }
   }]);
 
@@ -1950,7 +1954,7 @@ var Menu = function () {
         className: 'logo',
         onclick: home }, [], undefined, undefined), _mithril2.default.vnode('div', undefined, {
         className: 'toggle',
-        onclick: vnode.attrs.showOverlay }, [_mithril2.default.vnode('div', undefined, {
+        onclick: vnode.attrs.toggleOverlay }, [_mithril2.default.vnode('div', undefined, {
         className: 'toggle-line toggle-line-one'
       }, [], undefined, undefined), _mithril2.default.vnode('div', undefined, {
         className: 'toggle-line toggle-line-two'
@@ -1990,12 +1994,17 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } } // Imports:
 
 
+// Variables:
+var toggleOverlay = null;
+
 // Functions:
 function routeTo(link) {
   return function (event) {
     event.preventDefault();
 
-    console.log('hej!', link);
+    toggleOverlay();
+
+    _mithril2.default.route.set(link);
   };
 }
 
@@ -2007,15 +2016,36 @@ var Overlay = function () {
   }
 
   _createClass(Overlay, [{
+    key: 'oninit',
+    value: function oninit(vnode) {
+      toggleOverlay = vnode.attrs.toggleOverlay;
+    }
+  }, {
+    key: 'onbeforeremove',
+    value: function onbeforeremove(vnode) {
+      return new Promise(function (resolve) {
+        console.log('hallo?');
+
+        vnode.dom.classList.remove('overlay-show');
+        vnode.dom.classList.add('overlay-hide');
+
+        _mithril2.default.redraw();
+
+        setTimeout(function () {
+          resolve();
+        }, 500);
+      });
+    }
+  }, {
     key: 'view',
     value: function view(vnode) {
       return _mithril2.default.vnode('div', undefined, {
-        className: 'overlay overlay-' + (vnode.attrs.overlayShown ? 'shown' : 'hidden')
+        className: 'overlay overlay-show'
       }, [_mithril2.default.vnode('div', undefined, {
         className: 'links'
       }, [_mithril2.default.vnode('div', undefined, {
-        className: 'ampersand'
-      }, [], undefined, undefined), (0, _mithril2.default)(_.Link, { content: 'HOME', onclick: routeTo('/'), to: '/' }), (0, _mithril2.default)(_.Link, { content: 'SERVICES', onclick: routeTo('/services'), to: '/services' }), (0, _mithril2.default)(_.Link, { content: 'INVESTMENTS', onclick: routeTo('/investments'), to: '/investments' }), (0, _mithril2.default)(_.Link, { content: 'JOURNAL', onclick: routeTo('/journal'), to: '/journal' }), (0, _mithril2.default)(_.Link, { content: 'CONTACT', onclick: routeTo('/contact'), to: '/contact' })], undefined, undefined)], undefined, undefined);
+        className: 'ampersand',
+        onclick: vnode.attrs.toggleOverlay }, [], undefined, undefined), (0, _mithril2.default)(_.Link, { class: 'overlay-link-one', content: 'HOME', onmousedown: routeTo('/'), to: '/' }), (0, _mithril2.default)(_.Link, { class: 'overlay-link-two', content: 'SERVICES', onmousedown: routeTo('/services'), to: '/services' }), (0, _mithril2.default)(_.Link, { class: 'overlay-link-three', content: 'INVESTMENTS', onmousedown: routeTo('/investments'), to: '/investments' }), (0, _mithril2.default)(_.Link, { class: 'overlay-link-four', content: 'JOURNAL', onmousedown: routeTo('/journal'), to: '/journal' }), (0, _mithril2.default)(_.Link, { class: 'overlay-link-five', content: 'CONTACT', onmousedown: routeTo('/contact'), to: '/contact' })], undefined, undefined)], undefined, undefined);
     }
   }]);
 
