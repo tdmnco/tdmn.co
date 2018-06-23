@@ -1399,19 +1399,42 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 // Variables:
 // Imports:
 var overlayShow = false;
+var showAnimations = false;
 
 // Functions:
-function toggleOverlay() {
+function show(vnode) {
+  if (showAnimations) {
+    vnode.dom.classList.add('layout-show');
+
+    setTimeout(function () {
+      vnode.dom.classList.remove('layout-show');
+
+      showAnimations = false;
+    }, 500);
+  }
+}
+
+function toggleOverlay(options) {
+  if (options && options.showAnimations) {
+    showAnimations = true;
+  }
+
   overlayShow = !overlayShow;
 
-  document.body.style.overflow = overlayShow ? 'hidden' : '';
-
-  console.log('toggled overlay!', overlayShow);
+  if (overlayShow) {
+    document.body.style.overflow = 'hidden';
+    document.body.style.height = '100%';
+  } else {
+    setTimeout(function () {
+      document.body.style.overflow = '';
+      document.body.style.height = '';
+    }, 500);
+  }
 }
 
 // Exports:
 function layout(className, contents) {
-  return [overlayShow ? (0, _mithril2.default)(_components.Overlay, { overlayShow: overlayShow, toggleOverlay: toggleOverlay }) : null, _mithril2.default.vnode('div', undefined, { class: 'layout ' + (className || '') }, [(0, _mithril2.default)(_components.Menu, { toggleOverlay: toggleOverlay }), _mithril2.default.vnode.normalize(contents), (0, _mithril2.default)(_components.Footer)], undefined, undefined)];
+  return [overlayShow ? (0, _mithril2.default)(_components.Overlay, { overlayShow: overlayShow, showAnimations: showAnimations, toggleOverlay: toggleOverlay }) : null, _mithril2.default.vnode('div', undefined, { class: 'layout ' + (className || ''), oncreate: show }, [(0, _mithril2.default)(_components.Menu, { toggleOverlay: toggleOverlay }), _mithril2.default.vnode.normalize(contents), (0, _mithril2.default)(_components.Footer)], undefined, undefined)];
 }
 },{"mithril":18,"../components":20}],57:[function(require,module,exports) {
 'use strict';
@@ -1998,11 +2021,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 var toggleOverlay = null;
 
 // Functions:
-function routeTo(link) {
+function routeTo(link, vnode) {
   return function (event) {
     event.preventDefault();
 
-    toggleOverlay();
+    toggleOverlay({ showAnimations: true });
 
     _mithril2.default.route.set(link);
   };
@@ -2024,8 +2047,6 @@ var Overlay = function () {
     key: 'onbeforeremove',
     value: function onbeforeremove(vnode) {
       return new Promise(function (resolve) {
-        console.log('hallo?');
-
         vnode.dom.classList.remove('overlay-show');
         vnode.dom.classList.add('overlay-hide');
 

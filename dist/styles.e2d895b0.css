@@ -164,7 +164,7 @@ div.menu div.toggle:hover div.toggle-line-two {
 }
 @-moz-keyframes overlay-ampersand-show {
   0% {
-    transform: translateX(30%);
+    transform: translateX(15%);
   }
   100% {
     transform: translateX(0);
@@ -172,7 +172,7 @@ div.menu div.toggle:hover div.toggle-line-two {
 }
 @-ms-keyframes overlay-ampersand-show {
   0% {
-    transform: translateX(30%);
+    transform: translateX(15%);
   }
   100% {
     transform: translateX(0);
@@ -180,7 +180,7 @@ div.menu div.toggle:hover div.toggle-line-two {
 }
 @-o-keyframes overlay-ampersand-show {
   0% {
-    transform: translateX(30%);
+    transform: translateX(15%);
   }
   100% {
     transform: translateX(0);
@@ -188,7 +188,7 @@ div.menu div.toggle:hover div.toggle-line-two {
 }
 @-webkit-keyframes overlay-ampersand-show {
   0% {
-    transform: translateX(30%);
+    transform: translateX(15%);
   }
   100% {
     transform: translateX(0);
@@ -196,7 +196,7 @@ div.menu div.toggle:hover div.toggle-line-two {
 }
 @keyframes overlay-ampersand-show {
   0% {
-    transform: translateX(30%);
+    transform: translateX(15%);
   }
   100% {
     transform: translateX(0);
@@ -235,7 +235,7 @@ div.menu div.toggle:hover div.toggle-line-two {
 @-moz-keyframes overlay-link-show {
   0% {
     opacity: 0;
-    transform: translateX(-30%);
+    transform: translateX(-15%);
   }
   100% {
     opacity: 1;
@@ -245,7 +245,7 @@ div.menu div.toggle:hover div.toggle-line-two {
 @-ms-keyframes overlay-link-show {
   0% {
     opacity: 0;
-    transform: translateX(-30%);
+    transform: translateX(-15%);
   }
   100% {
     opacity: 1;
@@ -255,7 +255,7 @@ div.menu div.toggle:hover div.toggle-line-two {
 @-o-keyframes overlay-link-show {
   0% {
     opacity: 0;
-    transform: translateX(-30%);
+    transform: translateX(-15%);
   }
   100% {
     opacity: 1;
@@ -265,7 +265,7 @@ div.menu div.toggle:hover div.toggle-line-two {
 @-webkit-keyframes overlay-link-show {
   0% {
     opacity: 0;
-    transform: translateX(-30%);
+    transform: translateX(-15%);
   }
   100% {
     opacity: 1;
@@ -275,7 +275,7 @@ div.menu div.toggle:hover div.toggle-line-two {
 @keyframes overlay-link-show {
   0% {
     opacity: 0;
-    transform: translateX(-30%);
+    transform: translateX(-15%);
   }
   100% {
     opacity: 1;
@@ -456,8 +456,8 @@ div.post-summary h2 a {
 }
 @media (max-width: 450px) {
   div.post-summary h2 a {
-    font-size: 1.6rem;
-    line-height: 2.6rem;
+    font-size: 1.8rem;
+    line-height: 2.8rem;
     text-align: left;
   }
 }
@@ -501,12 +501,11 @@ html {
   padding: 0;
   position: relative;
 }
-body,
-html {
-  height: 100%;
-}
 body {
   padding-bottom: 5rem;
+}
+html {
+  height: 100%;
 }
 h1 {
   font-family: 'Bitter', serif;
@@ -516,8 +515,8 @@ h1 {
 }
 @media (max-width: 450px) {
   h1 {
-    font-size: 2rem;
-    line-height: 3rem;
+    font-size: 2.4rem;
+    line-height: 3.4rem;
     text-align: left;
   }
 }
@@ -528,8 +527,8 @@ h2 {
 }
 @media (max-width: 450px) {
   h2 {
-    font-size: 1.6rem;
-    line-height: 2.6rem;
+    font-size: 1.8rem;
+    line-height: 2.8rem;
     text-align: left;
   }
 }
@@ -550,6 +549,56 @@ div.content p.paragraph {
 div.content p.paragraph:last-child {
   padding: 0;
 }
+@-moz-keyframes layout-mobile-show {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@-ms-keyframes layout-mobile-show {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@-o-keyframes layout-mobile-show {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@-webkit-keyframes layout-mobile-show {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes layout-mobile-show {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
 div.layout {
   margin: 0 auto;
   max-width: 900px;
@@ -558,5 +607,14 @@ div.layout {
 @media (max-width: 450px) {
   div.layout {
     width: 80%;
+  }
+}
+@media (max-width: 450px) {
+  div.layout.layout-show {
+    -webkit-animation: layout-mobile-show 500ms 0s 1 ease normal both;
+    -moz-animation: layout-mobile-show 500ms 0s 1 ease normal both;
+    -ms-animation: layout-mobile-show 500ms 0s 1 ease normal both;
+    -o-animation: layout-mobile-show 500ms 0s 1 ease normal both;
+    animation: layout-mobile-show 500ms 0s 1 ease normal both;
   }
 }

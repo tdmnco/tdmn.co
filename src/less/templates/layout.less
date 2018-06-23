@@ -1,5 +1,20 @@
 // Imports:
 @import '../variables/_breakpoints';
+@import '../mixins/animation';
+@import '../mixins/keyframes';
+
+// Keyframes:
+.keyframes(layout-mobile-show; {
+  0% {
+    opacity: 0;
+    transform: scale(.95);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+});
 
 // Styles:
 div.layout {
@@ -9,5 +24,11 @@ div.layout {
 
   @media (max-width: @breakpoint-mobile) {
     width: 80%;
+  }
+
+  &.layout-show {
+    @media (max-width: @breakpoint-mobile) {
+      .animation(layout-mobile-show, 500ms, 0s, 1, ease);
+    }
   }
 }

@@ -6,11 +6,11 @@ import { Link } from './'
 let toggleOverlay = null
 
 // Functions:
-function routeTo(link) {
+function routeTo(link, vnode) {
   return (event) => {
     event.preventDefault()
 
-    toggleOverlay()
+    toggleOverlay({ showAnimations: true })
 
     m.route.set(link)
   }
@@ -24,8 +24,6 @@ class Overlay {
 
   onbeforeremove(vnode) {
     return new Promise((resolve) => {
-      console.log('hallo?')
-
       vnode.dom.classList.remove('overlay-show')
       vnode.dom.classList.add('overlay-hide')
 
