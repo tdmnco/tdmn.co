@@ -1,6 +1,6 @@
 // Imports:
 import m from 'mithril'
-import { Contact, Home, Investments, Journal, Services } from './components'
+import { Contact, Home, Investments, Journal, Software } from './components'
 
 // Prefix:
 m.route.prefix('')
@@ -11,5 +11,5 @@ m.route(document.body, '/', {
   '/contact': Contact,
   '/investments': Investments,
   '/journal': Journal,
-  '/services': Services
+  '/software': Software
 })

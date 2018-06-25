@@ -18,7 +18,7 @@ class Menu {
         m('div', { class: 'toggle-line toggle-line-three' })
       ]),
       m('div', { class: 'links' }, [
-        m(Link, { content: 'SERVICES', to: '/services' }),
+        m(Link, { content: 'SOFTWARE', to: '/software' }),
         m(Link, { content: 'INVESTMENTS', to: '/investments' }),
         m(Link, { content: 'JOURNAL', to: '/journal' }),
         m(Link, { content: 'CONTACT', to: '/contact' })

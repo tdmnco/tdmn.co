@@ -28,7 +28,6 @@ div.footer div.ampersand {
 }
 div.footer div.links a {
   font-size: 1.3rem;
-  font-weight: 700;
   line-height: 3rem;
   margin-right: 1.5rem;
 }
@@ -124,7 +123,6 @@ div.menu div.links {
 }
 div.menu div.links a {
   font-size: 1.3rem;
-  font-weight: 700;
   line-height: 3rem;
   margin-left: 1.5rem;
   text-decoration: none;
@@ -371,7 +369,6 @@ div.overlay div.links a {
   color: #fff;
   float: left;
   font-size: 2rem;
-  font-weight: 700;
   line-height: 3rem;
   margin-bottom: 1rem;
   padding: 0 1rem;
@@ -449,18 +446,6 @@ div.post-summary.last-post {
 div.post-summary h2 {
   margin-bottom: 2rem;
 }
-div.post-summary h2 a {
-  font-family: 'Bitter', serif;
-  font-size: 2rem;
-  line-height: 3rem;
-}
-@media (max-width: 450px) {
-  div.post-summary h2 a {
-    font-size: 1.8rem;
-    line-height: 2.8rem;
-    text-align: left;
-  }
-}
 @media (max-width: 450px) {
   div.post-summary p.author {
     font-size: 1.4rem;
@@ -471,6 +456,38 @@ div.post-summary p a {
   font-size: inherit;
   line-height: inherit;
   font-weight: 700;
+}
+div.software-product {
+  padding: 2rem 0;
+  min-height: 4rem;
+}
+div.software-product:last-child {
+  padding-bottom: 0;
+}
+div.software-product div.description {
+  padding-left: 8rem;
+}
+div.software-product div.icon {
+  background-position: top left;
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  height: 5rem;
+  position: absolute;
+  width: 7rem;
+  top: 2rem;
+  left: 0;
+}
+div.software-product h2 {
+  padding-bottom: 1rem;
+}
+div.software-product.content-editor div.icon {
+  background-image: url('content-editor.e1c25926.svg');
+}
+div.software-product.data-platform div.icon {
+  background-image: url('data-platform.27ef5f45.svg');
+}
+div.software-product.storage-engine div.icon {
+  background-image: url('storage-engine.5334160f.svg');
 }
 h1.title {
   padding: 4rem 0;
@@ -483,6 +500,8 @@ h1.title {
 }
 a {
   cursor: pointer;
+  font-size: inherit;
+  font-weight: 700;
   text-decoration: none;
   transition: all 500ms ease;
 }
@@ -531,6 +550,12 @@ h2 {
     line-height: 2.8rem;
     text-align: left;
   }
+}
+h2 a {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: 400;
+  line-height: inherit;
 }
 div.content {
   margin: 0 auto;

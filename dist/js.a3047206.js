@@ -1436,7 +1436,7 @@ function toggleOverlay(options) {
 function layout(className, contents) {
   return [overlayShow ? (0, _mithril2.default)(_components.Overlay, { overlayShow: overlayShow, showAnimations: showAnimations, toggleOverlay: toggleOverlay }) : null, _mithril2.default.vnode('div', undefined, { class: 'layout ' + (className || ''), oncreate: show }, [(0, _mithril2.default)(_components.Menu, { toggleOverlay: toggleOverlay }), _mithril2.default.vnode.normalize(contents), (0, _mithril2.default)(_components.Footer)], undefined, undefined)];
 }
-},{"mithril":18,"../components":20}],57:[function(require,module,exports) {
+},{"mithril":18,"../components":6}],57:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1503,7 +1503,7 @@ var Contact = function () {
 
 
 exports.Contact = Contact;
-},{"mithril":18,"./":20,"../templates":57}],32:[function(require,module,exports) {
+},{"mithril":18,"./":6,"../templates":57}],32:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1554,7 +1554,7 @@ var Footer = function () {
 
 
 exports.Footer = Footer;
-},{"mithril":18,"./":20}],33:[function(require,module,exports) {
+},{"mithril":18,"./":6}],33:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1601,7 +1601,7 @@ var Home = function () {
 
 
 exports.Home = Home;
-},{"mithril":18,"./":20,"../templates":57}],34:[function(require,module,exports) {
+},{"mithril":18,"./":6,"../templates":57}],34:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1644,7 +1644,7 @@ var Investments = function () {
 
 
 exports.Investments = Investments;
-},{"mithril":18,"./":20,"../templates":57}],65:[function(require,module,exports) {
+},{"mithril":18,"./":6,"../templates":57}],65:[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1857,7 +1857,7 @@ var Journal = function () {
 
 
 exports.Journal = Journal;
-},{"mithril":18,"./":20,"../helpers":58,"../models":59,"../templates":57}],36:[function(require,module,exports) {
+},{"mithril":18,"./":6,"../helpers":58,"../models":59,"../templates":57}],36:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1985,7 +1985,7 @@ var Menu = function () {
         className: 'toggle-line toggle-line-three'
       }, [], undefined, undefined)], undefined, undefined), _mithril2.default.vnode('div', undefined, {
         className: 'links'
-      }, [(0, _mithril2.default)(_.Link, { content: 'SERVICES', to: '/services' }), (0, _mithril2.default)(_.Link, { content: 'INVESTMENTS', to: '/investments' }), (0, _mithril2.default)(_.Link, { content: 'JOURNAL', to: '/journal' }), (0, _mithril2.default)(_.Link, { content: 'CONTACT', to: '/contact' })], undefined, undefined)], undefined, undefined);
+      }, [(0, _mithril2.default)(_.Link, { content: 'SOFTWARE', to: '/software' }), (0, _mithril2.default)(_.Link, { content: 'INVESTMENTS', to: '/investments' }), (0, _mithril2.default)(_.Link, { content: 'JOURNAL', to: '/journal' }), (0, _mithril2.default)(_.Link, { content: 'CONTACT', to: '/contact' })], undefined, undefined)], undefined, undefined);
     }
   }]);
 
@@ -1996,7 +1996,7 @@ var Menu = function () {
 
 
 exports.Menu = Menu;
-},{"mithril":18,"./":20}],77:[function(require,module,exports) {
+},{"mithril":18,"./":6}],77:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2066,7 +2066,7 @@ var Overlay = function () {
         className: 'links'
       }, [_mithril2.default.vnode('div', undefined, {
         className: 'ampersand',
-        onclick: vnode.attrs.toggleOverlay }, [], undefined, undefined), (0, _mithril2.default)(_.Link, { class: 'overlay-link-one', content: 'HOME', onmousedown: routeTo('/'), to: '/' }), (0, _mithril2.default)(_.Link, { class: 'overlay-link-two', content: 'SERVICES', onmousedown: routeTo('/services'), to: '/services' }), (0, _mithril2.default)(_.Link, { class: 'overlay-link-three', content: 'INVESTMENTS', onmousedown: routeTo('/investments'), to: '/investments' }), (0, _mithril2.default)(_.Link, { class: 'overlay-link-four', content: 'JOURNAL', onmousedown: routeTo('/journal'), to: '/journal' }), (0, _mithril2.default)(_.Link, { class: 'overlay-link-five', content: 'CONTACT', onmousedown: routeTo('/contact'), to: '/contact' })], undefined, undefined)], undefined, undefined);
+        onclick: vnode.attrs.toggleOverlay }, [], undefined, undefined), (0, _mithril2.default)(_.Link, { class: 'overlay-link-one', content: 'HOME', onmousedown: routeTo('/'), to: '/' }), (0, _mithril2.default)(_.Link, { class: 'overlay-link-two', content: 'SOFTWARE', onmousedown: routeTo('/software'), to: '/software' }), (0, _mithril2.default)(_.Link, { class: 'overlay-link-three', content: 'INVESTMENTS', onmousedown: routeTo('/investments'), to: '/investments' }), (0, _mithril2.default)(_.Link, { class: 'overlay-link-four', content: 'JOURNAL', onmousedown: routeTo('/journal'), to: '/journal' }), (0, _mithril2.default)(_.Link, { class: 'overlay-link-five', content: 'CONTACT', onmousedown: routeTo('/contact'), to: '/contact' })], undefined, undefined)], undefined, undefined);
     }
   }]);
 
@@ -2077,7 +2077,7 @@ var Overlay = function () {
 
 
 exports.Overlay = Overlay;
-},{"mithril":18,"./":20}],39:[function(require,module,exports) {
+},{"mithril":18,"./":6}],39:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2159,7 +2159,7 @@ var Post = function () {
 
 
 exports.Post = Post;
-},{"mithril":18,"./":20}],41:[function(require,module,exports) {
+},{"mithril":18,"./":6}],41:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2213,13 +2213,13 @@ var PostSummary = function () {
 
 
 exports.PostSummary = PostSummary;
-},{"mithril":18,"../helpers":58,"./":20}],42:[function(require,module,exports) {
+},{"mithril":18,"../helpers":58,"./":6}],24:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.Services = undefined;
+exports.Software = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -2237,26 +2237,88 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 
 // Classes:
-var Services = function () {
-  function Services() {
-    _classCallCheck(this, Services);
+var Software = function () {
+  function Software() {
+    _classCallCheck(this, Software);
   }
 
-  _createClass(Services, [{
+  _createClass(Software, [{
     key: 'view',
     value: function view() {
-      return (0, _templates.layout)('services', [(0, _mithril2.default)(_.Title, { content: 'Our craft is yours.' }), (0, _mithril2.default)(_.Line, { class: 'hidden-on-mobile' }), (0, _templates.content)([(0, _mithril2.default)(_.Paragraph, { content: 'Services.' })])]);
+      return (0, _templates.layout)('software', [(0, _mithril2.default)(_.Title, { content: 'Our craft is yours.' }), (0, _mithril2.default)(_.Line, { class: 'hidden-on-mobile' }), (0, _templates.content)([(0, _mithril2.default)(_.Paragraph, { content: 'Our craft is software. We live and breathe the art and science of computers, because it enables us to do so many amazing things. Software breaks barriers and builds bridges in business, society and life in general.' }), (0, _mithril2.default)(_.Paragraph, { content: 'We work with companies in a wide range of sectors, ranging from banking to food production. Our clients include local shops and high-profile enterprises that need quality software solutions to get the job done.' }), (0, _mithril2.default)(_.Paragraph, { content: ['For consulting needs, please ', (0, _mithril2.default)(_.Link, { content: 'contact us', to: '/contact' }), ' for more information - we\'re happy to hear from you. For our range of software products, read more below:'] }), _mithril2.default.vnode('div', undefined, {
+        className: 'products'
+      }, [(0, _mithril2.default)(_.SoftwareProduct, {
+        class: 'data-platform',
+        description: 'The Tidemann&Co Data Platform is a distributed, fault-tolerant platform for managing data. It supports both schemaless and schema-based data and makes scaling a breeze.',
+        title: 'Data Platform',
+        to: '/software/data-platform'
+      }), (0, _mithril2.default)(_.SoftwareProduct, {
+        class: 'storage-engine',
+        description: 'The Tidemann&Co Storage Engine is a distributed, fault-tolerant platform for storing files. Something more here, something more, something more and then some.',
+        title: 'Storage Engine',
+        to: '/software/storage-engine'
+      }), (0, _mithril2.default)(_.SoftwareProduct, {
+        class: 'content-editor',
+        description: 'The Tidemann&Co Content Editor something, something, something more. Something, something, something more. And some more. And then some more.',
+        title: 'Storage Engine',
+        to: '/software/content-editor'
+      })], undefined, undefined)])]);
     }
   }]);
 
-  return Services;
+  return Software;
 }();
 
 // Exports:
 
 
-exports.Services = Services;
-},{"mithril":18,"./":20,"../templates":57}],43:[function(require,module,exports) {
+exports.Software = Software;
+},{"mithril":18,"./":6,"../templates":57}],47:[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.SoftwareProduct = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _mithril = require('mithril');
+
+var _mithril2 = _interopRequireDefault(_mithril);
+
+var _ = require('./');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } } // Imports:
+
+
+// Classes:
+var SoftwareProduct = function () {
+  function SoftwareProduct() {
+    _classCallCheck(this, SoftwareProduct);
+  }
+
+  _createClass(SoftwareProduct, [{
+    key: 'view',
+    value: function view(vnode) {
+      return _mithril2.default.vnode('div', undefined, { class: 'software-product ' + (vnode.attrs.class || '') }, [_mithril2.default.vnode('div', undefined, {
+        className: 'icon'
+      }, [], undefined, undefined), _mithril2.default.vnode('div', undefined, {
+        className: 'description'
+      }, [_mithril2.default.vnode('h2', undefined, undefined, [(0, _mithril2.default)(_.Link, { content: vnode.attrs.title, to: vnode.attrs.to })], undefined, undefined), (0, _mithril2.default)(_.Paragraph, { content: vnode.attrs.description })], undefined, undefined)], undefined, undefined);
+    }
+  }]);
+
+  return SoftwareProduct;
+}();
+
+// Exports:
+
+
+exports.SoftwareProduct = SoftwareProduct;
+},{"mithril":18,"./":6}],43:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2295,7 +2357,7 @@ var Title = function () {
 
 
 exports.Title = Title;
-},{"mithril":18}],20:[function(require,module,exports) {
+},{"mithril":18}],6:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2410,12 +2472,21 @@ Object.defineProperty(exports, 'PostSummary', {
   }
 });
 
-var _services = require('./services');
+var _software = require('./software');
 
-Object.defineProperty(exports, 'Services', {
+Object.defineProperty(exports, 'Software', {
   enumerable: true,
   get: function () {
-    return _services.Services;
+    return _software.Software;
+  }
+});
+
+var _softwareProduct = require('./software-product');
+
+Object.defineProperty(exports, 'SoftwareProduct', {
+  enumerable: true,
+  get: function () {
+    return _softwareProduct.SoftwareProduct;
   }
 });
 
@@ -2427,7 +2498,7 @@ Object.defineProperty(exports, 'Title', {
     return _title.Title;
   }
 });
-},{"./contact":31,"./footer":32,"./home":33,"./investments":34,"./journal":35,"./line":36,"./link":37,"./menu":38,"./overlay":77,"./paragraph":39,"./post":40,"./post-summary":41,"./services":42,"./title":43}],8:[function(require,module,exports) {
+},{"./contact":31,"./footer":32,"./home":33,"./investments":34,"./journal":35,"./line":36,"./link":37,"./menu":38,"./overlay":77,"./paragraph":39,"./post":40,"./post-summary":41,"./software":24,"./software-product":47,"./title":43}],8:[function(require,module,exports) {
 'use strict';
 
 var _mithril = require('mithril');
@@ -2448,7 +2519,7 @@ _mithril2.default.route(document.body, '/', {
   '/contact': _components.Contact,
   '/investments': _components.Investments,
   '/journal': _components.Journal,
-  '/services': _components.Services
+  '/software': _components.Software
 });
-},{"mithril":18,"./components":20}]},{},[8], null)
+},{"mithril":18,"./components":6}]},{},[8], null)
 //# sourceMappingURL=/js.a3047206.map
