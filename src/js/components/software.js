@@ -20,20 +20,20 @@ class Software {
         m('div', { class: 'products' }, [
           m(SoftwareProduct, {
             class: 'data-platform',
-            description: 'The Tidemann&Co Data Platform is a distributed, fault-tolerant platform for managing data. It supports both schemaless and schema-based data and makes scaling a breeze.',
+            description: 'The Tidemann&Co Data Platform is our flagship solution for managing data. It builds upon database technologies that enable distributed, fault-tolerant operations that keep data safe and make scaling a breeze.',
             title: 'Data Platform',
             to: '/software/data-platform'
           }),
           m(SoftwareProduct, {
             class: 'storage-engine',
-            description: 'The Tidemann&Co Storage Engine is a distributed, fault-tolerant platform for storing files. Something more here, something more, something more and then some.',
+            description: 'The Tidemann&Co Storage Engine is an application for storing files. Optimized for storing large files across clusters of servers, it allows for simple access through interfaces familiar to any developer.',
             title: 'Storage Engine',
             to: '/software/storage-engine'
           }),
           m(SoftwareProduct, {
             class: 'content-editor',
-            description: 'The Tidemann&Co Content Editor something, something, something more. Something, something, something more. And some more. And then some more.',
-            title: 'Storage Engine',
+            description: 'The Tidemann&Co Content Editor puts you in control of the data stored in the Tidemann&Co stack. Upload, edit and publish any content to relevant channels in order to reach the right people.',
+            title: 'Content Editor',
             to: '/software/content-editor'
           })
         ])

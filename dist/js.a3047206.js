@@ -103,7 +103,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   // Override the current require with this new one
   return newRequire;
-})({18:[function(require,module,exports) {
+})({22:[function(require,module,exports) {
 var global = arguments[3];
 ;(function() {
 "use strict"
@@ -1362,7 +1362,7 @@ m.vnode = Vnode
 if (typeof module !== "undefined") module["exports"] = m
 else window.m = m
 }());
-},{}],63:[function(require,module,exports) {
+},{}],87:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1380,7 +1380,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function content(content) {
   return (0, _mithril2.default)('div', { class: 'content' }, content);
 } // Imports:
-},{"mithril":18}],64:[function(require,module,exports) {
+},{"mithril":22}],88:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1436,7 +1436,7 @@ function toggleOverlay(options) {
 function layout(className, contents) {
   return [overlayShow ? (0, _mithril2.default)(_components.Overlay, { overlayShow: overlayShow, showAnimations: showAnimations, toggleOverlay: toggleOverlay }) : null, _mithril2.default.vnode('div', undefined, { class: 'layout ' + (className || ''), oncreate: show }, [(0, _mithril2.default)(_components.Menu, { toggleOverlay: toggleOverlay }), _mithril2.default.vnode.normalize(contents), (0, _mithril2.default)(_components.Footer)], undefined, undefined)];
 }
-},{"mithril":18,"../components":6}],57:[function(require,module,exports) {
+},{"mithril":22,"../components":6}],77:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1460,7 +1460,7 @@ Object.defineProperty(exports, 'layout', {
     return _layout.layout;
   }
 });
-},{"./content":63,"./layout":64}],31:[function(require,module,exports) {
+},{"./content":87,"./layout":88}],47:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1503,7 +1503,7 @@ var Contact = function () {
 
 
 exports.Contact = Contact;
-},{"mithril":18,"./":6,"../templates":57}],32:[function(require,module,exports) {
+},{"mithril":22,"./":6,"../templates":77}],48:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1554,7 +1554,7 @@ var Footer = function () {
 
 
 exports.Footer = Footer;
-},{"mithril":18,"./":6}],33:[function(require,module,exports) {
+},{"mithril":22,"./":6}],49:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1601,7 +1601,7 @@ var Home = function () {
 
 
 exports.Home = Home;
-},{"mithril":18,"./":6,"../templates":57}],34:[function(require,module,exports) {
+},{"mithril":22,"./":6,"../templates":77}],50:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1644,7 +1644,7 @@ var Investments = function () {
 
 
 exports.Investments = Investments;
-},{"mithril":18,"./":6,"../templates":57}],65:[function(require,module,exports) {
+},{"mithril":22,"./":6,"../templates":77}],85:[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1654,7 +1654,7 @@ Object.defineProperty(exports, "__esModule", {
 var breakpoints = exports.breakpoints = {
   mobile: 450
 };
-},{}],66:[function(require,module,exports) {
+},{}],84:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1684,7 +1684,7 @@ var months = {
 
   return months[date.getMonth() + 1] + ' ' + date.getDate() + ' ' + date.getFullYear();
 }
-},{}],67:[function(require,module,exports) {
+},{}],86:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1714,7 +1714,7 @@ var posts = exports.posts = [{
   slug: 'investing-in-live-company',
   title: 'Investing in LIVE Company'
 }];
-},{}],58:[function(require,module,exports) {
+},{}],78:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1747,7 +1747,7 @@ Object.defineProperty(exports, 'posts', {
     return _posts.posts;
   }
 });
-},{"./breakpoints":65,"./date":66,"./posts":67}],75:[function(require,module,exports) {
+},{"./breakpoints":85,"./date":84,"./posts":86}],95:[function(require,module,exports) {
 var define;
 parcelRequire=function(e,r,n,t){function i(n,t){function o(e){return i(o.resolve(e))}function c(r){return e[n][1][r]||r}if(!r[n]){if(!e[n]){var l="function"==typeof parcelRequire&&parcelRequire;if(!t&&l)return l(n,!0);if(u)return u(n,!0);if(f&&"string"==typeof n)return f(n);var p=new Error("Cannot find module '"+n+"'");throw p.code="MODULE_NOT_FOUND",p}o.resolve=c;var a=r[n]=new i.Module(n);e[n][0].call(a.exports,o,a,a.exports,this)}return r[n].exports}function o(e){this.id=e,this.bundle=i,this.exports={}}var u="function"==typeof parcelRequire&&parcelRequire,f="function"==typeof require&&require;i.isParcelRequire=!0,i.Module=o,i.modules=e,i.cache=r,i.parent=u;for(var c=0;c<n.length;c++)i(n[c]);if(n.length){var l=i(n[n.length-1]);"object"==typeof exports&&"undefined"!=typeof module?module.exports=l:"function"==typeof define&&define.amd?define(function(){return l}):t&&(this[t]=l)}return i}({3:[function(require,module,exports) {
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0});var t=function(){function t(t,e){for(var n=0;n<e.length;n++){var r=e[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(t,r.key,r)}}return function(e,n,r){return n&&t(e.prototype,n),r&&t(e,r),e}}();function e(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}var n=[],r=!0,o={};try{localStorage.setItem("tdmnco-model-js",{}),localStorage.removeItem("tdmnco-model-js")}catch(t){console.warn("Model.js: localStorage not supported!",t),r=!1}var a=function(){function a(t){if(e(this,a),!t.id)throw new Error("Model.js: cannot create instance without an id!");Object.assign(this,t);var n=(this.constructor.prototype.modelName||this.constructor.name)+"-"+this.id;return o[n]={updates:[]},new Proxy(this,{get:function(t,e,n){return Reflect.get(t,e,n)},set:function(t,e,r){var a=o[n].updates;if(a.length){var i=!0,c=!1,s=void 0;try{for(var u,l=a[Symbol.iterator]();!(i=(u=l.next()).done);i=!0){(0,u.value)(e,t[e],r)}}catch(t){c=!0,s=t}finally{try{!i&&l.return&&l.return()}finally{if(c)throw s}}}return Reflect.set(t,e,r),!0}})}return t(a,[{key:"_cache",value:function(){var t=this._cached(),e=(new Date).toISOString();return t?(t.instance=this,t.updated=e):(t={created:e,random:Math.random(),instance:this},n[this._id()]=t),t}},{key:"_cached",value:function(){return n[this._id()]}},{key:"_id",value:function(){return(this.modelName||this.constructor.name)+"-"+this.id}},{key:"onUpdate",value:function(t){o[this._id()].updates.push(t)}},{key:"save",value:function(){this._cache(),r&&localStorage.setItem(this._id(),JSON.stringify(this))}}],[{key:"get",value:function(t){t=(this.prototype.modelName||this.prototype.constructor.name)+"-"+t;var e=n[t];return!e&&r?new this(JSON.parse(localStorage.getItem(t))):e.instance}}]),a}();exports.Model=a;
@@ -1755,7 +1755,7 @@ parcelRequire=function(e,r,n,t){function i(n,t){function o(e){return i(o.resolve
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0});var e=require("./model");Object.defineProperty(exports,"Model",{enumerable:!0,get:function(){return e.Model}});
 },{"./model":3}]},{},[1], null)
 //# sourceMappingURL=/index.map
-},{}],68:[function(require,module,exports) {
+},{}],83:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1795,7 +1795,7 @@ Post.prototype.modelName = 'Post';
 
 // Exports:
 exports.Post = Post;
-},{"tdmnco-model-js":75}],59:[function(require,module,exports) {
+},{"tdmnco-model-js":95}],79:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1810,7 +1810,7 @@ Object.defineProperty(exports, 'Post', {
     return _post.Post;
   }
 });
-},{"./post":68}],35:[function(require,module,exports) {
+},{"./post":83}],51:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1857,7 +1857,7 @@ var Journal = function () {
 
 
 exports.Journal = Journal;
-},{"mithril":18,"./":6,"../helpers":58,"../models":59,"../templates":57}],36:[function(require,module,exports) {
+},{"mithril":22,"./":6,"../helpers":78,"../models":79,"../templates":77}],52:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1896,7 +1896,7 @@ var Line = function () {
 
 
 exports.Line = Line;
-},{"mithril":18}],37:[function(require,module,exports) {
+},{"mithril":22}],53:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1935,7 +1935,7 @@ var Link = function () {
 
 
 exports.Link = Link;
-},{"mithril":18}],38:[function(require,module,exports) {
+},{"mithril":22}],54:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1996,7 +1996,7 @@ var Menu = function () {
 
 
 exports.Menu = Menu;
-},{"mithril":18,"./":6}],77:[function(require,module,exports) {
+},{"mithril":22,"./":6}],55:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2077,7 +2077,7 @@ var Overlay = function () {
 
 
 exports.Overlay = Overlay;
-},{"mithril":18,"./":6}],39:[function(require,module,exports) {
+},{"mithril":22,"./":6}],56:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2116,7 +2116,7 @@ var Paragraph = function () {
 
 
 exports.Paragraph = Paragraph;
-},{"mithril":18}],40:[function(require,module,exports) {
+},{"mithril":22}],57:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2159,7 +2159,7 @@ var Post = function () {
 
 
 exports.Post = Post;
-},{"mithril":18,"./":6}],41:[function(require,module,exports) {
+},{"mithril":22,"./":6}],58:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2213,7 +2213,7 @@ var PostSummary = function () {
 
 
 exports.PostSummary = PostSummary;
-},{"mithril":18,"../helpers":58,"./":6}],24:[function(require,module,exports) {
+},{"mithril":22,"../helpers":78,"./":6}],59:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2249,18 +2249,18 @@ var Software = function () {
         className: 'products'
       }, [(0, _mithril2.default)(_.SoftwareProduct, {
         class: 'data-platform',
-        description: 'The Tidemann&Co Data Platform is a distributed, fault-tolerant platform for managing data. It supports both schemaless and schema-based data and makes scaling a breeze.',
+        description: 'The Tidemann&Co Data Platform is our flagship solution for managing data. It builds upon database technologies that enable distributed, fault-tolerant operations that keep data safe and make scaling a breeze.',
         title: 'Data Platform',
         to: '/software/data-platform'
       }), (0, _mithril2.default)(_.SoftwareProduct, {
         class: 'storage-engine',
-        description: 'The Tidemann&Co Storage Engine is a distributed, fault-tolerant platform for storing files. Something more here, something more, something more and then some.',
+        description: 'The Tidemann&Co Storage Engine is an application for storing files. Optimized for storing large files across clusters of servers, it allows for simple access through interfaces familiar to any developer.',
         title: 'Storage Engine',
         to: '/software/storage-engine'
       }), (0, _mithril2.default)(_.SoftwareProduct, {
         class: 'content-editor',
-        description: 'The Tidemann&Co Content Editor something, something, something more. Something, something, something more. And some more. And then some more.',
-        title: 'Storage Engine',
+        description: 'The Tidemann&Co Content Editor puts you in control of the data stored in the Tidemann&Co stack. Upload, edit and publish any content to relevant channels in order to reach the right people.',
+        title: 'Content Editor',
         to: '/software/content-editor'
       })], undefined, undefined)])]);
     }
@@ -2273,7 +2273,93 @@ var Software = function () {
 
 
 exports.Software = Software;
-},{"mithril":18,"./":6,"../templates":57}],47:[function(require,module,exports) {
+},{"mithril":22,"./":6,"../templates":77}],32:[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.SoftwareContentEditor = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _mithril = require('mithril');
+
+var _mithril2 = _interopRequireDefault(_mithril);
+
+var _ = require('./');
+
+var _templates = require('../templates');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } } // Imports:
+
+
+// Classes:
+var SoftwareContentEditor = function () {
+  function SoftwareContentEditor() {
+    _classCallCheck(this, SoftwareContentEditor);
+  }
+
+  _createClass(SoftwareContentEditor, [{
+    key: 'view',
+    value: function view() {
+      return (0, _templates.layout)('software-content-editor', [(0, _mithril2.default)(_.Title, { content: 'The Content Editor.' }), (0, _mithril2.default)(_.Line, { class: 'hidden-on-mobile' }), (0, _templates.content)([(0, _mithril2.default)(_.Paragraph, { content: 'Information about the Content Editor.' })])]);
+    }
+  }]);
+
+  return SoftwareContentEditor;
+}();
+
+// Exports:
+
+
+exports.SoftwareContentEditor = SoftwareContentEditor;
+},{"mithril":22,"./":6,"../templates":77}],44:[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.SoftwareDataPlatform = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _mithril = require('mithril');
+
+var _mithril2 = _interopRequireDefault(_mithril);
+
+var _ = require('./');
+
+var _templates = require('../templates');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } } // Imports:
+
+
+// Classes:
+var SoftwareDataPlatform = function () {
+  function SoftwareDataPlatform() {
+    _classCallCheck(this, SoftwareDataPlatform);
+  }
+
+  _createClass(SoftwareDataPlatform, [{
+    key: 'view',
+    value: function view() {
+      return (0, _templates.layout)('software-data-platform', [(0, _mithril2.default)(_.Title, { content: 'The Data Platform.' }), (0, _mithril2.default)(_.Line, { class: 'hidden-on-mobile' }), (0, _templates.content)([(0, _mithril2.default)(_.Paragraph, { content: 'Information about the Data Platform.' })])]);
+    }
+  }]);
+
+  return SoftwareDataPlatform;
+}();
+
+// Exports:
+
+
+exports.SoftwareDataPlatform = SoftwareDataPlatform;
+},{"mithril":22,"./":6,"../templates":77}],60:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2318,7 +2404,50 @@ var SoftwareProduct = function () {
 
 
 exports.SoftwareProduct = SoftwareProduct;
-},{"mithril":18,"./":6}],43:[function(require,module,exports) {
+},{"mithril":22,"./":6}],55:[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.SoftwareStorageEngine = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _mithril = require('mithril');
+
+var _mithril2 = _interopRequireDefault(_mithril);
+
+var _ = require('./');
+
+var _templates = require('../templates');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } } // Imports:
+
+
+// Classes:
+var SoftwareStorageEngine = function () {
+  function SoftwareStorageEngine() {
+    _classCallCheck(this, SoftwareStorageEngine);
+  }
+
+  _createClass(SoftwareStorageEngine, [{
+    key: 'view',
+    value: function view() {
+      return (0, _templates.layout)('software-storage-engine', [(0, _mithril2.default)(_.Title, { content: 'The Storage Engine.' }), (0, _mithril2.default)(_.Line, { class: 'hidden-on-mobile' }), (0, _templates.content)([(0, _mithril2.default)(_.Paragraph, { content: 'Information about the Storage Engine.' })])]);
+    }
+  }]);
+
+  return SoftwareStorageEngine;
+}();
+
+// Exports:
+
+
+exports.SoftwareStorageEngine = SoftwareStorageEngine;
+},{"mithril":22,"./":6,"../templates":77}],61:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2357,7 +2486,7 @@ var Title = function () {
 
 
 exports.Title = Title;
-},{"mithril":18}],6:[function(require,module,exports) {
+},{"mithril":22}],6:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2481,12 +2610,39 @@ Object.defineProperty(exports, 'Software', {
   }
 });
 
+var _softwareContentEditor = require('./software-content-editor');
+
+Object.defineProperty(exports, 'SoftwareContentEditor', {
+  enumerable: true,
+  get: function () {
+    return _softwareContentEditor.SoftwareContentEditor;
+  }
+});
+
+var _softwareDataPlatform = require('./software-data-platform');
+
+Object.defineProperty(exports, 'SoftwareDataPlatform', {
+  enumerable: true,
+  get: function () {
+    return _softwareDataPlatform.SoftwareDataPlatform;
+  }
+});
+
 var _softwareProduct = require('./software-product');
 
 Object.defineProperty(exports, 'SoftwareProduct', {
   enumerable: true,
   get: function () {
     return _softwareProduct.SoftwareProduct;
+  }
+});
+
+var _softwareStorageEngine = require('./software-storage-engine');
+
+Object.defineProperty(exports, 'SoftwareStorageEngine', {
+  enumerable: true,
+  get: function () {
+    return _softwareStorageEngine.SoftwareStorageEngine;
   }
 });
 
@@ -2498,7 +2654,7 @@ Object.defineProperty(exports, 'Title', {
     return _title.Title;
   }
 });
-},{"./contact":31,"./footer":32,"./home":33,"./investments":34,"./journal":35,"./line":36,"./link":37,"./menu":38,"./overlay":77,"./paragraph":39,"./post":40,"./post-summary":41,"./software":24,"./software-product":47,"./title":43}],8:[function(require,module,exports) {
+},{"./contact":47,"./footer":48,"./home":49,"./investments":50,"./journal":51,"./line":52,"./link":53,"./menu":54,"./overlay":55,"./paragraph":56,"./post":57,"./post-summary":58,"./software":59,"./software-content-editor":32,"./software-data-platform":44,"./software-product":60,"./software-storage-engine":55,"./title":61}],4:[function(require,module,exports) {
 'use strict';
 
 var _mithril = require('mithril');
@@ -2519,7 +2675,10 @@ _mithril2.default.route(document.body, '/', {
   '/contact': _components.Contact,
   '/investments': _components.Investments,
   '/journal': _components.Journal,
-  '/software': _components.Software
+  '/software': _components.Software,
+  '/software/content-editor': _components.SoftwareContentEditor,
+  '/software/data-platform': _components.SoftwareDataPlatform,
+  '/software/storage-engine': _components.SoftwareStorageEngine
 });
-},{"mithril":18,"./components":6}]},{},[8], null)
+},{"mithril":22,"./components":6}]},{},[4], null)
 //# sourceMappingURL=/js.a3047206.map
