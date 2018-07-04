@@ -12,12 +12,13 @@ class Software {
       content([
         m(Paragraph, { content: 'Our craft is software. We live and breathe the art and science of computers, because it enables us to do so many amazing things. Software breaks barriers and builds bridges in business, society and life in general.' }),
         m(Paragraph, { content: 'We work with companies in a wide range of sectors, ranging from banking to food production. Our clients include local shops and high-profile enterprises that need quality software solutions to get the job done.' }),
-        m(Paragraph, { content: [
-          'For consulting needs, please ',
-          m(Link, { content: 'contact us', to: '/contact' }),
-          ' for more information - we\'re happy to hear from you. For our range of software products, read more below:'
-        ] }),
         m('div', { class: 'products' }, [
+          m(SoftwareProduct, {
+            class: 'consulting',
+            description: 'We deliver world-class consulting services in all aspects of software development. Working with us equals quality that is built on proper planning, efficient execution, and a genuine love for what you do.',
+            title: 'Consulting',
+            to: '/software/consulting'
+          }),
           m(SoftwareProduct, {
             class: 'data-platform',
             description: 'The Tidemann&Co Data Platform is our flagship solution for managing data. It builds upon database technologies that enable distributed, fault-tolerant operations that keep data safe and make scaling a breeze.',

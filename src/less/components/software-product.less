@@ -12,18 +12,24 @@ div.software-product {
   }
 
   div.icon {
-    background-position: top left;
+    background-position: center center;
     background-repeat: no-repeat;
     background-size: auto 100%;
     height: 5rem;
     position: absolute;
-    width: 7rem;
+    width: 6rem;
     top: 2rem;
     left: 0;
   }
 
   h2 {
     padding-bottom: 1rem;
+  }
+
+  &.consulting {
+    div.icon {
+      background-image: url('../gfx/ampersand-orange.svg');
+    }
   }
 
   &.content-editor {
