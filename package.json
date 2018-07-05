@@ -27,7 +27,7 @@
   },
   "scripts": {
     "dev": "rm -rf dist && parcel --no-hmr src/html/index.html",
-    "dist": "rm -rf dist && parcel build src/html/index.html"
+    "dist": "rm -rf dist && parcel build src/html/index.html --public-url ./"
   },
   "version": "0.0.1"
 }
