@@ -15,7 +15,7 @@ class SoftwareContentEditor {
         m(Paragraph, { content: [
           'For demonstration, pricing and support, please ',
           m(Link, { content: 'contact us', to: '/contact' }),
-          ' for more information - we\'re happy to hear from you.'
+          ' for more information - we\'re delighted to hear from you.'
         ] })
       ])
     ])
