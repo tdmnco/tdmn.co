@@ -3,10 +3,17 @@ import m from 'mithril'
 import { Footer, Menu, Overlay } from '../components'
 
 // Variables:
+let overlayRoute = null
 let overlayShow = false
 let showAnimations = false
 
 // Functions:
+function shouldShowOverlay() {
+  overlayShow = overlayShow && overlayRoute === window.location.href
+
+  return overlayShow
+}
+
 function show(vnode) {
   if (showAnimations) {
     vnode.dom.classList.add('layout-show')
@@ -27,10 +34,16 @@ function toggleOverlay(options) {
   overlayShow = !overlayShow
 
   if (overlayShow) {
+    overlayRoute = window.location.href
+
+    console.warn('setting overlay route to ', overlayRoute)
+
     document.body.style.overflow = 'hidden'
     document.body.style.height = '100%'
   } else {
     setTimeout(() => {
+      overlayRoute = null
+
       document.body.style.overflow = ''
       document.body.style.height = ''
     }, 500)
@@ -40,7 +53,7 @@ function toggleOverlay(options) {
 // Exports:
 export function layout(className, contents) {
   return [
-    overlayShow ? m(Overlay, { overlayShow, showAnimations, toggleOverlay }) : null,
+    shouldShowOverlay() ? m(Overlay, { overlayShow, showAnimations, toggleOverlay }) : null,
     m('div', { class: 'layout ' + (className || ''), oncreate: show }, [
       m(Menu, { toggleOverlay }),
       contents,

@@ -1362,7 +1362,7 @@ m.vnode = Vnode
 if (typeof module !== "undefined") module["exports"] = m
 else window.m = m
 }());
-},{}],93:[function(require,module,exports) {
+},{}],89:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1380,7 +1380,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function content(content) {
   return (0, _mithril2.default)('div', { class: 'content' }, content);
 } // Imports:
-},{"mithril":23}],94:[function(require,module,exports) {
+},{"mithril":23}],90:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1398,10 +1398,17 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 // Variables:
 // Imports:
+var overlayRoute = null;
 var overlayShow = false;
 var showAnimations = false;
 
 // Functions:
+function shouldShowOverlay() {
+  overlayShow = overlayShow && overlayRoute === window.location.href;
+
+  return overlayShow;
+}
+
 function show(vnode) {
   if (showAnimations) {
     vnode.dom.classList.add('layout-show');
@@ -1422,10 +1429,16 @@ function toggleOverlay(options) {
   overlayShow = !overlayShow;
 
   if (overlayShow) {
+    overlayRoute = window.location.href;
+
+    console.warn('setting overlay route to ', overlayRoute);
+
     document.body.style.overflow = 'hidden';
     document.body.style.height = '100%';
   } else {
     setTimeout(function () {
+      overlayRoute = null;
+
       document.body.style.overflow = '';
       document.body.style.height = '';
     }, 500);
@@ -1434,9 +1447,9 @@ function toggleOverlay(options) {
 
 // Exports:
 function layout(className, contents) {
-  return [overlayShow ? (0, _mithril2.default)(_components.Overlay, { overlayShow: overlayShow, showAnimations: showAnimations, toggleOverlay: toggleOverlay }) : null, _mithril2.default.vnode('div', undefined, { class: 'layout ' + (className || ''), oncreate: show }, [(0, _mithril2.default)(_components.Menu, { toggleOverlay: toggleOverlay }), _mithril2.default.vnode.normalize(contents), (0, _mithril2.default)(_components.Footer)], undefined, undefined)];
+  return [shouldShowOverlay() ? (0, _mithril2.default)(_components.Overlay, { overlayShow: overlayShow, showAnimations: showAnimations, toggleOverlay: toggleOverlay }) : null, _mithril2.default.vnode('div', undefined, { class: 'layout ' + (className || ''), oncreate: show }, [(0, _mithril2.default)(_components.Menu, { toggleOverlay: toggleOverlay }), _mithril2.default.vnode.normalize(contents), (0, _mithril2.default)(_components.Footer)], undefined, undefined)];
 }
-},{"mithril":23,"../components":25}],86:[function(require,module,exports) {
+},{"mithril":23,"../components":24}],86:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1460,7 +1473,7 @@ Object.defineProperty(exports, 'layout', {
     return _layout.layout;
   }
 });
-},{"./content":93,"./layout":94}],48:[function(require,module,exports) {
+},{"./content":89,"./layout":90}],48:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1503,7 +1516,7 @@ var Contact = function () {
 
 
 exports.Contact = Contact;
-},{"mithril":23,"./":25,"../templates":86}],49:[function(require,module,exports) {
+},{"mithril":23,"./":24,"../templates":86}],49:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1554,7 +1567,7 @@ var Footer = function () {
 
 
 exports.Footer = Footer;
-},{"mithril":23,"./":25}],50:[function(require,module,exports) {
+},{"mithril":23,"./":24}],50:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1601,7 +1614,7 @@ var Home = function () {
 
 
 exports.Home = Home;
-},{"mithril":23,"./":25,"../templates":86}],51:[function(require,module,exports) {
+},{"mithril":23,"./":24,"../templates":86}],51:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1644,7 +1657,7 @@ var Investments = function () {
 
 
 exports.Investments = Investments;
-},{"mithril":23,"./":25,"../templates":86}],95:[function(require,module,exports) {
+},{"mithril":23,"./":24,"../templates":86}],91:[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1654,7 +1667,7 @@ Object.defineProperty(exports, "__esModule", {
 var breakpoints = exports.breakpoints = {
   mobile: 450
 };
-},{}],96:[function(require,module,exports) {
+},{}],92:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1684,7 +1697,7 @@ var months = {
 
   return months[date.getMonth() + 1] + ' ' + date.getDate() + ' ' + date.getFullYear();
 }
-},{}],97:[function(require,module,exports) {
+},{}],93:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1714,7 +1727,7 @@ var posts = exports.posts = [{
   slug: 'investing-in-live-company',
   title: 'Investing in LIVE Company'
 }];
-},{}],88:[function(require,module,exports) {
+},{}],87:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1747,7 +1760,7 @@ Object.defineProperty(exports, 'posts', {
     return _posts.posts;
   }
 });
-},{"./breakpoints":95,"./date":96,"./posts":97}],98:[function(require,module,exports) {
+},{"./breakpoints":91,"./date":92,"./posts":93}],95:[function(require,module,exports) {
 var define;
 parcelRequire=function(e,r,n,t){function i(n,t){function o(e){return i(o.resolve(e))}function c(r){return e[n][1][r]||r}if(!r[n]){if(!e[n]){var l="function"==typeof parcelRequire&&parcelRequire;if(!t&&l)return l(n,!0);if(u)return u(n,!0);if(f&&"string"==typeof n)return f(n);var p=new Error("Cannot find module '"+n+"'");throw p.code="MODULE_NOT_FOUND",p}o.resolve=c;var a=r[n]=new i.Module(n);e[n][0].call(a.exports,o,a,a.exports,this)}return r[n].exports}function o(e){this.id=e,this.bundle=i,this.exports={}}var u="function"==typeof parcelRequire&&parcelRequire,f="function"==typeof require&&require;i.isParcelRequire=!0,i.Module=o,i.modules=e,i.cache=r,i.parent=u;for(var c=0;c<n.length;c++)i(n[c]);if(n.length){var l=i(n[n.length-1]);"object"==typeof exports&&"undefined"!=typeof module?module.exports=l:"function"==typeof define&&define.amd?define(function(){return l}):t&&(this[t]=l)}return i}({3:[function(require,module,exports) {
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0});var t=function(){function t(t,e){for(var n=0;n<e.length;n++){var r=e[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(t,r.key,r)}}return function(e,n,r){return n&&t(e.prototype,n),r&&t(e,r),e}}();function e(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}var n=[],r=!0,o={};try{localStorage.setItem("tdmnco-model-js",{}),localStorage.removeItem("tdmnco-model-js")}catch(t){console.warn("Model.js: localStorage not supported!",t),r=!1}var a=function(){function a(t){if(e(this,a),!t.id)throw new Error("Model.js: cannot create instance without an id!");Object.assign(this,t);var n=(this.constructor.prototype.modelName||this.constructor.name)+"-"+this.id;return o[n]={updates:[]},new Proxy(this,{get:function(t,e,n){return Reflect.get(t,e,n)},set:function(t,e,r){var a=o[n].updates;if(a.length){var i=!0,c=!1,s=void 0;try{for(var u,l=a[Symbol.iterator]();!(i=(u=l.next()).done);i=!0){(0,u.value)(e,t[e],r)}}catch(t){c=!0,s=t}finally{try{!i&&l.return&&l.return()}finally{if(c)throw s}}}return Reflect.set(t,e,r),!0}})}return t(a,[{key:"_cache",value:function(){var t=this._cached(),e=(new Date).toISOString();return t?(t.instance=this,t.updated=e):(t={created:e,random:Math.random(),instance:this},n[this._id()]=t),t}},{key:"_cached",value:function(){return n[this._id()]}},{key:"_id",value:function(){return(this.modelName||this.constructor.name)+"-"+this.id}},{key:"onUpdate",value:function(t){o[this._id()].updates.push(t)}},{key:"save",value:function(){this._cache(),r&&localStorage.setItem(this._id(),JSON.stringify(this))}}],[{key:"get",value:function(t){t=(this.prototype.modelName||this.prototype.constructor.name)+"-"+t;var e=n[t];return!e&&r?new this(JSON.parse(localStorage.getItem(t))):e.instance}}]),a}();exports.Model=a;
@@ -1755,7 +1768,7 @@ parcelRequire=function(e,r,n,t){function i(n,t){function o(e){return i(o.resolve
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0});var e=require("./model");Object.defineProperty(exports,"Model",{enumerable:!0,get:function(){return e.Model}});
 },{"./model":3}]},{},[1], null)
 //# sourceMappingURL=/index.map
-},{}],92:[function(require,module,exports) {
+},{}],94:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1795,7 +1808,7 @@ Post.prototype.modelName = 'Post';
 
 // Exports:
 exports.Post = Post;
-},{"tdmnco-model-js":98}],87:[function(require,module,exports) {
+},{"tdmnco-model-js":95}],88:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1810,7 +1823,7 @@ Object.defineProperty(exports, 'Post', {
     return _post.Post;
   }
 });
-},{"./post":92}],52:[function(require,module,exports) {
+},{"./post":94}],52:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1857,7 +1870,7 @@ var Journal = function () {
 
 
 exports.Journal = Journal;
-},{"mithril":23,"./":25,"../helpers":88,"../models":87,"../templates":86}],53:[function(require,module,exports) {
+},{"mithril":23,"./":24,"../helpers":87,"../models":88,"../templates":86}],53:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1996,7 +2009,7 @@ var Menu = function () {
 
 
 exports.Menu = Menu;
-},{"mithril":23,"./":25}],56:[function(require,module,exports) {
+},{"mithril":23,"./":24}],56:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2077,7 +2090,7 @@ var Overlay = function () {
 
 
 exports.Overlay = Overlay;
-},{"mithril":23,"./":25}],57:[function(require,module,exports) {
+},{"mithril":23,"./":24}],57:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2159,7 +2172,7 @@ var Post = function () {
 
 
 exports.Post = Post;
-},{"mithril":23,"./":25}],59:[function(require,module,exports) {
+},{"mithril":23,"./":24}],59:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2213,7 +2226,7 @@ var PostSummary = function () {
 
 
 exports.PostSummary = PostSummary;
-},{"mithril":23,"../helpers":88,"./":25}],60:[function(require,module,exports) {
+},{"mithril":23,"../helpers":87,"./":24}],60:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2278,7 +2291,7 @@ var Software = function () {
 
 
 exports.Software = Software;
-},{"mithril":23,"./":25,"../templates":86}],61:[function(require,module,exports) {
+},{"mithril":23,"./":24,"../templates":86}],61:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2321,7 +2334,7 @@ var SoftwareConsulting = function () {
 
 
 exports.SoftwareConsulting = SoftwareConsulting;
-},{"mithril":23,"./":25,"../templates":86}],62:[function(require,module,exports) {
+},{"mithril":23,"./":24,"../templates":86}],62:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2364,7 +2377,7 @@ var SoftwareContentEditor = function () {
 
 
 exports.SoftwareContentEditor = SoftwareContentEditor;
-},{"mithril":23,"./":25,"../templates":86}],63:[function(require,module,exports) {
+},{"mithril":23,"./":24,"../templates":86}],63:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2407,7 +2420,7 @@ var SoftwareDataPlatform = function () {
 
 
 exports.SoftwareDataPlatform = SoftwareDataPlatform;
-},{"mithril":23,"./":25,"../templates":86}],64:[function(require,module,exports) {
+},{"mithril":23,"./":24,"../templates":86}],64:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2452,7 +2465,7 @@ var SoftwareProduct = function () {
 
 
 exports.SoftwareProduct = SoftwareProduct;
-},{"mithril":23,"./":25}],65:[function(require,module,exports) {
+},{"mithril":23,"./":24}],65:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2495,7 +2508,7 @@ var SoftwareStorageEngine = function () {
 
 
 exports.SoftwareStorageEngine = SoftwareStorageEngine;
-},{"mithril":23,"./":25,"../templates":86}],66:[function(require,module,exports) {
+},{"mithril":23,"./":24,"../templates":86}],66:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2534,7 +2547,7 @@ var Title = function () {
 
 
 exports.Title = Title;
-},{"mithril":23}],25:[function(require,module,exports) {
+},{"mithril":23}],24:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2738,5 +2751,5 @@ _mithril2.default.route(document.body, '/', {
   '/software/data-platform': _components.SoftwareDataPlatform,
   '/software/storage-engine': _components.SoftwareStorageEngine
 });
-},{"mithril":23,"./components":25}]},{},[8], null)
-//# sourceMappingURL=/js.2fe2d921.map
+},{"mithril":23,"./components":24}]},{},[8], null)
+//# sourceMappingURL=/js.a3047206.map
