@@ -1,6 +1,11 @@
 // Imports:
 import m from 'mithril'
 
+// Functions:
+function transitionTo() {
+  
+}
+
 // Classes:
 class Link {
   view(vnode) {
