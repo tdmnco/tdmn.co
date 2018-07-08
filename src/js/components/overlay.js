@@ -7,12 +7,8 @@ let toggleOverlay = null
 
 // Functions:
 function routeTo(link, vnode) {
-  return (event) => {
-    event.preventDefault()
-
+  return () => {
     toggleOverlay({ showAnimations: true })
-
-    m.route.set(link)
   }
 }
 
