@@ -1398,9 +1398,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 // Variables:
 // Imports:
+var firstRun = true;
 var overlayRoute = null;
 var overlayShow = false;
-var showAnimations = false;
 
 // Functions:
 function shouldShowOverlay() {
@@ -1410,28 +1410,22 @@ function shouldShowOverlay() {
 }
 
 function show(vnode) {
-  if (showAnimations) {
+  if (!firstRun) {
     vnode.dom.classList.add('layout-show');
 
     setTimeout(function () {
       vnode.dom.classList.remove('layout-show');
-
-      showAnimations = false;
     }, 500);
   }
+
+  firstRun = false;
 }
 
 function toggleOverlay(options) {
-  if (options && options.showAnimations) {
-    showAnimations = true;
-  }
-
   overlayShow = !overlayShow;
 
   if (overlayShow) {
     overlayRoute = window.location.href;
-
-    console.warn('setting overlay route to ', overlayRoute);
 
     document.body.style.overflow = 'hidden';
     document.body.style.height = '100%';
@@ -1447,7 +1441,7 @@ function toggleOverlay(options) {
 
 // Exports:
 function layout(className, contents) {
-  return [shouldShowOverlay() ? (0, _mithril2.default)(_components.Overlay, { overlayShow: overlayShow, showAnimations: showAnimations, toggleOverlay: toggleOverlay }) : null, _mithril2.default.vnode('div', undefined, { class: 'layout ' + (className || ''), oncreate: show }, [(0, _mithril2.default)(_components.Menu, { toggleOverlay: toggleOverlay }), _mithril2.default.vnode.normalize(contents), (0, _mithril2.default)(_components.Footer)], undefined, undefined)];
+  return [shouldShowOverlay() ? (0, _mithril2.default)(_components.Overlay, { overlayShow: overlayShow, toggleOverlay: toggleOverlay }) : null, _mithril2.default.vnode('div', undefined, { class: 'layout ' + (className || ''), oncreate: show }, [(0, _mithril2.default)(_components.Menu, { toggleOverlay: toggleOverlay }), (0, _mithril2.default)('div', { class: 'contents' }, contents), (0, _mithril2.default)(_components.Footer)], undefined, undefined)];
 }
 },{"mithril":23,"../components":24}],51:[function(require,module,exports) {
 'use strict';
@@ -2030,13 +2024,10 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } } // Imports:
 
 
-// Variables:
-var toggleOverlay = null;
-
 // Functions:
-function routeTo(link, vnode) {
+function toggleOverlay(vnode) {
   return function () {
-    toggleOverlay({ showAnimations: true });
+    vnode.attrs.toggleOverlay();
   };
 }
 
@@ -2048,11 +2039,6 @@ var Overlay = function () {
   }
 
   _createClass(Overlay, [{
-    key: 'oninit',
-    value: function oninit(vnode) {
-      toggleOverlay = vnode.attrs.toggleOverlay;
-    }
-  }, {
     key: 'onbeforeremove',
     value: function onbeforeremove(vnode) {
       return new Promise(function (resolve) {
@@ -2075,7 +2061,7 @@ var Overlay = function () {
         className: 'links'
       }, [_mithril2.default.vnode('div', undefined, {
         className: 'ampersand',
-        onclick: vnode.attrs.toggleOverlay }, [], undefined, undefined), (0, _mithril2.default)(_.Link, { class: 'overlay-link-one', content: 'HOME', onmousedown: routeTo('/'), to: '/' }), (0, _mithril2.default)(_.Link, { class: 'overlay-link-two', content: 'SOFTWARE', onmousedown: routeTo('/software'), to: '/software' }), (0, _mithril2.default)(_.Link, { class: 'overlay-link-three', content: 'INVESTMENTS', onmousedown: routeTo('/investments'), to: '/investments' }), (0, _mithril2.default)(_.Link, { class: 'overlay-link-four', content: 'JOURNAL', onmousedown: routeTo('/journal'), to: '/journal' }), (0, _mithril2.default)(_.Link, { class: 'overlay-link-five', content: 'CONTACT', onmousedown: routeTo('/contact'), to: '/contact' })], undefined, undefined)], undefined, undefined);
+        onclick: vnode.attrs.toggleOverlay }, [], undefined, undefined), (0, _mithril2.default)(_.Link, { class: 'overlay-link-one', content: 'HOME', onmousedown: toggleOverlay(vnode), to: '/' }), (0, _mithril2.default)(_.Link, { class: 'overlay-link-two', content: 'SOFTWARE', onmousedown: toggleOverlay(vnode), to: '/software' }), (0, _mithril2.default)(_.Link, { class: 'overlay-link-three', content: 'INVESTMENTS', onmousedown: toggleOverlay(vnode), to: '/investments' }), (0, _mithril2.default)(_.Link, { class: 'overlay-link-four', content: 'JOURNAL', onmousedown: toggleOverlay(vnode), to: '/journal' }), (0, _mithril2.default)(_.Link, { class: 'overlay-link-five', content: 'CONTACT', onmousedown: toggleOverlay(vnode), to: '/contact' })], undefined, undefined)], undefined, undefined);
     }
   }]);
 

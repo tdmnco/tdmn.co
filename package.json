@@ -6,7 +6,7 @@
   "description": "This is the official repository of the Tidemann&Co website.",
   "devDependencies": {
     "babel-core": "^6.26.3",
-    "less": "^3.5.2",
+    "less": "^3.6.0",
     "mithril": "*",
     "mopt": "*",
     "node-sass": "^4.9.2",

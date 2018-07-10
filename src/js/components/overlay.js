@@ -2,22 +2,15 @@
 import m from 'mithril'
 import { Link } from './'
 
-// Variables:
-let toggleOverlay = null
-
 // Functions:
-function routeTo(link, vnode) {
+function toggleOverlay(vnode) {
   return () => {
-    toggleOverlay({ showAnimations: true })
+    vnode.attrs.toggleOverlay()
   }
 }
 
 // Classes:
 class Overlay {
-  oninit(vnode) {
-    toggleOverlay = vnode.attrs.toggleOverlay
-  }
-
   onbeforeremove(vnode) {
     return new Promise((resolve) => {
       vnode.dom.classList.remove('overlay-show')
@@ -35,11 +28,11 @@ class Overlay {
     return m('div', { class: 'overlay overlay-show' }, [
       m('div', { class: 'links' }, [
         m('div', { class: 'ampersand', onclick: vnode.attrs.toggleOverlay }),
-        m(Link, { class: 'overlay-link-one', content: 'HOME', onmousedown: routeTo('/'), to: '/' }),
-        m(Link, { class: 'overlay-link-two', content: 'SOFTWARE', onmousedown: routeTo('/software'), to: '/software' }),
-        m(Link, { class: 'overlay-link-three', content: 'INVESTMENTS', onmousedown: routeTo('/investments'), to: '/investments' }),
-        m(Link, { class: 'overlay-link-four', content: 'JOURNAL', onmousedown: routeTo('/journal'), to: '/journal' }),
-        m(Link, { class: 'overlay-link-five', content: 'CONTACT', onmousedown: routeTo('/contact'), to: '/contact' })
+        m(Link, { class: 'overlay-link-one', content: 'HOME', onmousedown: toggleOverlay(vnode), to: '/' }),
+        m(Link, { class: 'overlay-link-two', content: 'SOFTWARE', onmousedown: toggleOverlay(vnode), to: '/software' }),
+        m(Link, { class: 'overlay-link-three', content: 'INVESTMENTS', onmousedown: toggleOverlay(vnode), to: '/investments' }),
+        m(Link, { class: 'overlay-link-four', content: 'JOURNAL', onmousedown: toggleOverlay(vnode), to: '/journal' }),
+        m(Link, { class: 'overlay-link-five', content: 'CONTACT', onmousedown: toggleOverlay(vnode), to: '/contact' })
       ])
     ])
   }
