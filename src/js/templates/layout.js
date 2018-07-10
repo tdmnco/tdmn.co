@@ -1,5 +1,6 @@
 // Imports:
 import m from 'mithril'
+import { breakpoints } from '../helpers'
 import { Footer, Menu, Overlay } from '../components'
 
 // Variables:
@@ -16,10 +17,16 @@ function shouldShowOverlay() {
 
 function show(vnode) {
   if (!firstRun) {
-    vnode.dom.classList.add('layout-show')
+    let className = 'layout-show'
+
+    if (m.route.get() === '/' && breakpoints.isMobile()) {
+      className = 'layout-show-mobile-home'
+    }
+
+    vnode.dom.classList.add(className)
 
     setTimeout(() => {
-      vnode.dom.classList.remove('layout-show')
+      vnode.dom.classList.remove(className)
     }, 500)
   }
 

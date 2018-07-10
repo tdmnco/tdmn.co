@@ -1,4 +1,12 @@
 // Exports:
 export const breakpoints = {
-  mobile: 450
+
+  // Variables:
+  mobile: 450,
+
+  // Functions:
+  isMobile() {
+    return window.innerWidth <= this.mobile
+  }
+
 }
