@@ -1511,10 +1511,15 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 // Variables:
 var firstRun = true; // Imports:
 
+var logoActivated = false;
 var overlayRoute = null;
 var overlayShow = false;
 
 // Functions:
+function activateLogo() {
+  logoActivated = true;
+}
+
 function shouldShowOverlay() {
   overlayShow = overlayShow && overlayRoute === window.location.href;
 
@@ -1525,8 +1530,10 @@ function show(vnode) {
   if (!firstRun) {
     var className = 'layout-show';
 
-    if (_mithril2.default.route.get() === '/' && _helpers.breakpoints.isMobile()) {
+    if (logoActivated && _mithril2.default.route.get() === '/' && _helpers.breakpoints.isMobile()) {
       className = 'layout-mobile-show-home';
+
+      logoActivated = false;
     }
 
     vnode.dom.classList.add(className);
@@ -1573,7 +1580,7 @@ function toggleOverlay(options) {
 
 // Exports:
 function layout(className, contents) {
-  return [shouldShowOverlay() ? (0, _mithril2.default)(_components.Overlay, { overlayShow: overlayShow, toggleOverlay: toggleOverlay }) : null, _mithril2.default.vnode('div', undefined, { class: 'layout ' + (className || ''), oncreate: show }, [(0, _mithril2.default)(_components.Menu, { toggleOverlay: toggleOverlay }), (0, _mithril2.default)('div', { class: 'contents' }, contents), (0, _mithril2.default)(_components.Footer, { toggleOverlay: toggleOverlay })], undefined, undefined)];
+  return [shouldShowOverlay() ? (0, _mithril2.default)(_components.Overlay, { overlayShow: overlayShow, toggleOverlay: toggleOverlay }) : null, _mithril2.default.vnode('div', undefined, { class: 'layout ' + (className || ''), oncreate: show }, [(0, _mithril2.default)(_components.Menu, { activateLogo: activateLogo, toggleOverlay: toggleOverlay }), (0, _mithril2.default)('div', { class: 'contents' }, contents), (0, _mithril2.default)(_components.Footer, { toggleOverlay: toggleOverlay })], undefined, undefined)];
 }
 },{"mithril":23,"../helpers":86,"../components":24}],88:[function(require,module,exports) {
 'use strict';
@@ -2008,8 +2015,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 
 // Functions:
-function home() {
-  _mithril2.default.route.set('/');
+function home(vnode) {
+  return function () {
+    vnode.attrs.activateLogo();
+
+    _mithril2.default.route.set('/');
+  };
 }
 
 // Classes:
@@ -2026,7 +2037,7 @@ var Menu = function () {
         className: 'menu'
       }, [_mithril2.default.vnode('div', undefined, {
         className: 'logo',
-        onclick: home }, [], undefined, undefined), _mithril2.default.vnode('div', undefined, {
+        onclick: home(vnode) }, [], undefined, undefined), _mithril2.default.vnode('div', undefined, {
         className: 'toggle',
         onclick: vnode.attrs.toggleOverlay }, [_mithril2.default.vnode('div', undefined, {
         className: 'toggle-line toggle-line-one'

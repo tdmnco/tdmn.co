@@ -5,10 +5,15 @@ import { Footer, Menu, Overlay } from '../components'
 
 // Variables:
 let firstRun = true
+let logoActivated = false
 let overlayRoute = null
 let overlayShow = false
 
 // Functions:
+function activateLogo() {
+  logoActivated = true
+}
+
 function shouldShowOverlay() {
   overlayShow = overlayShow && overlayRoute === window.location.href
 
@@ -19,8 +24,10 @@ function show(vnode) {
   if (!firstRun) {
     let className = 'layout-show'
 
-    if (m.route.get() === '/' && breakpoints.isMobile()) {
+    if (logoActivated && m.route.get() === '/' && breakpoints.isMobile()) {
       className = 'layout-mobile-show-home'
+
+      logoActivated = false
     }
 
     vnode.dom.classList.add(className)
@@ -70,7 +77,7 @@ export function layout(className, contents) {
   return [
     shouldShowOverlay() ? m(Overlay, { overlayShow, toggleOverlay }) : null,
     m('div', { class: 'layout ' + (className || ''), oncreate: show }, [
-      m(Menu, { toggleOverlay }),
+      m(Menu, { activateLogo, toggleOverlay }),
       m('div', { class: 'contents' }, contents),
       m(Footer, { toggleOverlay })
     ])
