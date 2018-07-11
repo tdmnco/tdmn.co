@@ -627,6 +627,56 @@ div.content p.paragraph:last-child {
     transform: scale(1);
   }
 }
+@-moz-keyframes layout-mobile-show-home {
+  0% {
+    opacity: 0;
+    transform: translateX(-2rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@-ms-keyframes layout-mobile-show-home {
+  0% {
+    opacity: 0;
+    transform: translateX(-2rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@-o-keyframes layout-mobile-show-home {
+  0% {
+    opacity: 0;
+    transform: translateX(-2rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@-webkit-keyframes layout-mobile-show-home {
+  0% {
+    opacity: 0;
+    transform: translateX(-2rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes layout-mobile-show-home {
+  0% {
+    opacity: 0;
+    transform: translateX(-2rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
 div.layout {
   margin: 0 auto;
   max-width: 900px;
@@ -645,4 +695,11 @@ div.layout {
     -o-animation: layout-mobile-show 500ms 0s 1 ease normal both;
     animation: layout-mobile-show 500ms 0s 1 ease normal both;
   }
+}
+div.layout.layout-mobile-show-home div.contents {
+  -webkit-animation: layout-mobile-show-home 1s 0s 1 ease normal both;
+  -moz-animation: layout-mobile-show-home 1s 0s 1 ease normal both;
+  -ms-animation: layout-mobile-show-home 1s 0s 1 ease normal both;
+  -o-animation: layout-mobile-show-home 1s 0s 1 ease normal both;
+  animation: layout-mobile-show-home 1s 0s 1 ease normal both;
 }

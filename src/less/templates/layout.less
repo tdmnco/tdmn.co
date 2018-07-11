@@ -16,6 +16,18 @@
   }
 });
 
+.keyframes(layout-mobile-show-home; {
+  0% {
+    opacity: 0;
+    transform: translateX(-2rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+});
+
 // Styles:
 div.layout {
   margin: 0 auto;
@@ -29,6 +41,12 @@ div.layout {
   &.layout-show {
     @media (max-width: @breakpoint-mobile) {
       .animation(layout-mobile-show, 500ms, 0s, 1, ease);
+    }
+  }
+
+  &.layout-mobile-show-home {
+    div.contents {
+      .animation(layout-mobile-show-home, 1s, 0s, 1, ease);
     }
   }
 }

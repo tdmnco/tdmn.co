@@ -20,7 +20,7 @@ function show(vnode) {
     let className = 'layout-show'
 
     if (m.route.get() === '/' && breakpoints.isMobile()) {
-      className = 'layout-show-mobile-home'
+      className = 'layout-mobile-show-home'
     }
 
     vnode.dom.classList.add(className)
