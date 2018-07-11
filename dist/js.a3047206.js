@@ -1542,17 +1542,31 @@ function show(vnode) {
 function toggleOverlay(options) {
   overlayShow = !overlayShow;
 
+  var $html = document.getElementsByTagName('html')[0];
+
   if (overlayShow) {
     overlayRoute = window.location.href;
 
-    document.body.style.overflow = 'hidden';
+    $html.style.height = '100%';
+    $html.style.overflow = 'hidden';
+
     document.body.style.height = '100%';
+    document.body.style.overflow = 'hidden';
+
+    setTimeout(function () {
+      $html.style.backgroundColor = '#f7941d';
+    }, 500);
   } else {
+    $html.style.backgroundColor = '';
+
     setTimeout(function () {
       overlayRoute = null;
 
-      document.body.style.overflow = '';
+      $html.style.height = '';
+      $html.style.overflow = '';
+
       document.body.style.height = '';
+      document.body.style.overflow = '';
     }, 500);
   }
 }
