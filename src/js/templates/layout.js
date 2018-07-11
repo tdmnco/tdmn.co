@@ -72,7 +72,7 @@ export function layout(className, contents) {
     m('div', { class: 'layout ' + (className || ''), oncreate: show }, [
       m(Menu, { toggleOverlay }),
       m('div', { class: 'contents' }, contents),
-      m(Footer)
+      m(Footer, { toggleOverlay })
     ])
   ]
 }

@@ -1573,7 +1573,7 @@ function toggleOverlay(options) {
 
 // Exports:
 function layout(className, contents) {
-  return [shouldShowOverlay() ? (0, _mithril2.default)(_components.Overlay, { overlayShow: overlayShow, toggleOverlay: toggleOverlay }) : null, _mithril2.default.vnode('div', undefined, { class: 'layout ' + (className || ''), oncreate: show }, [(0, _mithril2.default)(_components.Menu, { toggleOverlay: toggleOverlay }), (0, _mithril2.default)('div', { class: 'contents' }, contents), (0, _mithril2.default)(_components.Footer)], undefined, undefined)];
+  return [shouldShowOverlay() ? (0, _mithril2.default)(_components.Overlay, { overlayShow: overlayShow, toggleOverlay: toggleOverlay }) : null, _mithril2.default.vnode('div', undefined, { class: 'layout ' + (className || ''), oncreate: show }, [(0, _mithril2.default)(_components.Menu, { toggleOverlay: toggleOverlay }), (0, _mithril2.default)('div', { class: 'contents' }, contents), (0, _mithril2.default)(_components.Footer, { toggleOverlay: toggleOverlay })], undefined, undefined)];
 }
 },{"mithril":23,"../helpers":86,"../components":24}],88:[function(require,module,exports) {
 'use strict';
@@ -1666,6 +1666,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 // Variables:
 var year = new Date().getFullYear();
 
+// Functions:
+function toggleOverlay(vnode) {
+  return function () {
+    window.scrollTo(0, 0);
+
+    vnode.attrs.toggleOverlay();
+  };
+}
+
 // Classes:
 
 var Footer = function () {
@@ -1675,12 +1684,12 @@ var Footer = function () {
 
   _createClass(Footer, [{
     key: 'view',
-    value: function view() {
+    value: function view(vnode) {
       return _mithril2.default.vnode('div', undefined, {
         className: 'footer'
       }, [_mithril2.default.vnode('div', undefined, {
         className: 'links'
-      }, [(0, _mithril2.default)(_.Link, { content: 'JOURNAL', to: '/journal' }), (0, _mithril2.default)(_.Link, { content: 'CONTACT', to: '/contact' }), (0, _mithril2.default)(_.Link, { content: 'MORE', to: '/contact' })], undefined, undefined), (0, _mithril2.default)(_.Paragraph, { class: 'copyright', content: ['Copyright © ' + year + ', Tidemann&Co – All rights reserved.'] }), _mithril2.default.vnode('div', undefined, {
+      }, [(0, _mithril2.default)(_.Link, { content: 'JOURNAL', to: '/journal' }), (0, _mithril2.default)(_.Link, { content: 'CONTACT', to: '/contact' }), (0, _mithril2.default)(_.Link, { content: 'MORE', onmousedown: toggleOverlay(vnode) })], undefined, undefined), (0, _mithril2.default)(_.Paragraph, { class: 'copyright', content: ['Copyright © ' + year + ', Tidemann&Co – All rights reserved.'] }), _mithril2.default.vnode('div', undefined, {
         className: 'ampersand'
       }, [], undefined, undefined)], undefined, undefined);
     }
