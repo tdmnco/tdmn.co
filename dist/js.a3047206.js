@@ -1937,7 +1937,13 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } } // Imports:
 
 
+// Functions:
+function scrollTop() {
+  window.scrollTo(0, 0);
+}
+
 // Classes:
+
 var Link = function () {
   function Link() {
     _classCallCheck(this, Link);
@@ -1946,7 +1952,7 @@ var Link = function () {
   _createClass(Link, [{
     key: 'view',
     value: function view(vnode) {
-      return (0, _mithril2.default)('a', { class: 'link ' + (vnode.attrs.class || ''), href: vnode.attrs.to, oncreate: _mithril2.default.route.link, onmousedown: vnode.attrs.onmousedown }, vnode.attrs.content);
+      return (0, _mithril2.default)('a', { class: 'link ' + (vnode.attrs.class || ''), href: vnode.attrs.to, oncreate: _mithril2.default.route.link, onmousedown: vnode.attrs.onmousedown, onmouseup: scrollTop }, vnode.attrs.content);
     }
   }]);
 
