@@ -6,11 +6,11 @@
   "description": "This is the official repository of the Tidemann&Co website.",
   "devDependencies": {
     "babel-core": "^6.26.3",
-    "less": "^3.7.0",
+    "less": "^3.7.1",
     "mithril": "*",
     "mopt": "*",
     "node-sass": "^4.9.2",
-    "parcel-bundler": "^1.9.4",
+    "parcel-bundler": "^1.9.7",
     "tdmnco-model-js": "^0.0.6"
   },
   "homepage": "https://tdmn.co",

@@ -2,6 +2,7 @@
 export { Contact } from './contact'
 export { Footer } from './footer'
 export { Home } from './home'
+export { Investment } from './investment'
 export { Investments } from './investments'
 export { Journal } from './journal'
 export { Line } from './line'

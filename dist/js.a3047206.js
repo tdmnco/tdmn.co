@@ -103,7 +103,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   // Override the current require with this new one
   return newRequire;
-})({23:[function(require,module,exports) {
+})({"../../node_modules/mithril/mithril.js":[function(require,module,exports) {
 var global = arguments[3];
 ;(function() {
 "use strict"
@@ -1362,7 +1362,7 @@ m.vnode = Vnode
 if (typeof module !== "undefined") module["exports"] = m
 else window.m = m
 }());
-},{}],92:[function(require,module,exports) {
+},{}],"../js/templates/content.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1380,7 +1380,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function content(content) {
   return (0, _mithril2.default)('div', { class: 'content' }, content);
 } // Imports:
-},{"mithril":23}],95:[function(require,module,exports) {
+},{"mithril":"../../node_modules/mithril/mithril.js"}],"../js/helpers/breakpoints.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1397,7 +1397,7 @@ var breakpoints = exports.breakpoints = {
     return window.innerWidth <= this.mobile;
   }
 };
-},{}],96:[function(require,module,exports) {
+},{}],"../js/helpers/date.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1427,7 +1427,7 @@ var months = {
 
   return months[date.getMonth() + 1] + ' ' + date.getDate() + ' ' + date.getFullYear();
 }
-},{}],97:[function(require,module,exports) {
+},{}],"../js/helpers/posts.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1457,7 +1457,7 @@ var posts = exports.posts = [{
   slug: 'investing-in-live-company',
   title: 'Investing in LIVE Company'
 }];
-},{}],86:[function(require,module,exports) {
+},{}],"../js/helpers/index.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1490,7 +1490,7 @@ Object.defineProperty(exports, 'posts', {
     return _posts.posts;
   }
 });
-},{"./breakpoints":95,"./date":96,"./posts":97}],93:[function(require,module,exports) {
+},{"./breakpoints":"../js/helpers/breakpoints.js","./date":"../js/helpers/date.js","./posts":"../js/helpers/posts.js"}],"../js/templates/layout.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1582,7 +1582,7 @@ function toggleOverlay(options) {
 function layout(className, contents) {
   return [shouldShowOverlay() ? (0, _mithril2.default)(_components.Overlay, { overlayShow: overlayShow, toggleOverlay: toggleOverlay }) : null, _mithril2.default.vnode('div', undefined, { class: 'layout ' + (className || ''), oncreate: show }, [(0, _mithril2.default)(_components.Menu, { activateLogo: activateLogo, toggleOverlay: toggleOverlay }), (0, _mithril2.default)('div', { class: 'contents' }, contents), (0, _mithril2.default)(_components.Footer, { toggleOverlay: toggleOverlay })], undefined, undefined)];
 }
-},{"mithril":23,"../helpers":86,"../components":24}],88:[function(require,module,exports) {
+},{"mithril":"../../node_modules/mithril/mithril.js","../helpers":"../js/helpers/index.js","../components":"../js/components/index.js"}],"../js/templates/index.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1606,7 +1606,7 @@ Object.defineProperty(exports, 'layout', {
     return _layout.layout;
   }
 });
-},{"./content":92,"./layout":93}],48:[function(require,module,exports) {
+},{"./content":"../js/templates/content.js","./layout":"../js/templates/layout.js"}],"../js/components/contact.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1649,7 +1649,7 @@ var Contact = function () {
 
 
 exports.Contact = Contact;
-},{"mithril":23,"./":24,"../templates":88}],49:[function(require,module,exports) {
+},{"mithril":"../../node_modules/mithril/mithril.js","./":"../js/components/index.js","../templates":"../js/templates/index.js"}],"../js/components/footer.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1709,7 +1709,7 @@ var Footer = function () {
 
 
 exports.Footer = Footer;
-},{"mithril":23,"./":24}],50:[function(require,module,exports) {
+},{"mithril":"../../node_modules/mithril/mithril.js","./":"../js/components/index.js"}],"../js/components/home.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1756,7 +1756,52 @@ var Home = function () {
 
 
 exports.Home = Home;
-},{"mithril":23,"./":24,"../templates":88}],51:[function(require,module,exports) {
+},{"mithril":"../../node_modules/mithril/mithril.js","./":"../js/components/index.js","../templates":"../js/templates/index.js"}],"../js/components/investment.js":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.Investment = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _mithril = require('mithril');
+
+var _mithril2 = _interopRequireDefault(_mithril);
+
+var _ = require('./');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } } // Imports:
+
+
+// Classes:
+var Investment = function () {
+  function Investment() {
+    _classCallCheck(this, Investment);
+  }
+
+  _createClass(Investment, [{
+    key: 'view',
+    value: function view(vnode) {
+      return _mithril2.default.vnode('div', undefined, { class: 'investment ' + (vnode.attrs.class || '') }, [_mithril2.default.vnode('div', undefined, {
+        className: 'icon'
+      }, [], undefined, undefined), _mithril2.default.vnode('div', undefined, {
+        className: 'description'
+      }, [_mithril2.default.vnode('h2', undefined, undefined, [(0, _mithril2.default)(_.Link, { content: vnode.attrs.title, to: vnode.attrs.to })], undefined, undefined), (0, _mithril2.default)(_.Paragraph, { content: vnode.attrs.description })], undefined, undefined)], undefined, undefined);
+    }
+  }]);
+
+  return Investment;
+}();
+
+// Exports:
+
+
+exports.Investment = Investment;
+},{"mithril":"../../node_modules/mithril/mithril.js","./":"../js/components/index.js"}],"../js/components/investments.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1788,7 +1833,21 @@ var Investments = function () {
   _createClass(Investments, [{
     key: 'view',
     value: function view() {
-      return (0, _templates.layout)('investments', [(0, _mithril2.default)(_.Title, { content: 'We invest in people.' }), (0, _mithril2.default)(_.Line, { class: 'hidden-on-mobile' }), (0, _templates.content)([(0, _mithril2.default)(_.Paragraph, { content: 'That is why we invest our money where people put their hearts and hard work at.' })])]);
+      return (0, _templates.layout)('investments', [(0, _mithril2.default)(_.Title, { content: 'We invest in people.' }), (0, _mithril2.default)(_.Line, { class: 'hidden-on-mobile' }), (0, _templates.content)([(0, _mithril2.default)(_.Paragraph, { content: 'We invest in people, not ideas. We bet on the ability to make things happen and we match with anyone who cares deeply for what they do.' }), (0, _mithril2.default)(_.Paragraph, { content: 'We currently have investments in the following companies:' }), _mithril2.default.vnode('div', undefined, {
+        className: 'investments'
+      }, [(0, _mithril2.default)(_.Investment, {
+        class: 'alefarm-brewing',
+        description: 'Alefarm Brewing has a description here that has some words in it, that contains information about the company. Write something excellent here about the company.',
+        title: 'Alefarm Brewing IVS'
+      }), (0, _mithril2.default)(_.Investment, {
+        class: 'live-company',
+        description: 'Live Company A/S has a description here that has some words in it, that contains information about the company. Write something excellent here about the company.',
+        title: 'Live Company A/S'
+      }), (0, _mithril2.default)(_.Investment, {
+        class: 'helium',
+        description: 'HELIUM ApS has a description here that has some words in it, that contains information about the company. Write something excellent here about the company.',
+        title: 'HELIUM ApS'
+      })], undefined, undefined)])]);
     }
   }]);
 
@@ -1799,7 +1858,7 @@ var Investments = function () {
 
 
 exports.Investments = Investments;
-},{"mithril":23,"./":24,"../templates":88}],104:[function(require,module,exports) {
+},{"mithril":"../../node_modules/mithril/mithril.js","./":"../js/components/index.js","../templates":"../js/templates/index.js"}],"../../node_modules/tdmnco-model-js/dist/index.js":[function(require,module,exports) {
 var define;
 parcelRequire=function(e,r,n,t){function i(n,t){function o(e){return i(o.resolve(e))}function c(r){return e[n][1][r]||r}if(!r[n]){if(!e[n]){var l="function"==typeof parcelRequire&&parcelRequire;if(!t&&l)return l(n,!0);if(u)return u(n,!0);if(f&&"string"==typeof n)return f(n);var p=new Error("Cannot find module '"+n+"'");throw p.code="MODULE_NOT_FOUND",p}o.resolve=c;var a=r[n]=new i.Module(n);e[n][0].call(a.exports,o,a,a.exports,this)}return r[n].exports}function o(e){this.id=e,this.bundle=i,this.exports={}}var u="function"==typeof parcelRequire&&parcelRequire,f="function"==typeof require&&require;i.isParcelRequire=!0,i.Module=o,i.modules=e,i.cache=r,i.parent=u;for(var c=0;c<n.length;c++)i(n[c]);if(n.length){var l=i(n[n.length-1]);"object"==typeof exports&&"undefined"!=typeof module?module.exports=l:"function"==typeof define&&define.amd?define(function(){return l}):t&&(this[t]=l)}return i}({3:[function(require,module,exports) {
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0});var t=function(){function t(t,e){for(var n=0;n<e.length;n++){var r=e[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(t,r.key,r)}}return function(e,n,r){return n&&t(e.prototype,n),r&&t(e,r),e}}();function e(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}var n=[],r=!0,o={};try{localStorage.setItem("tdmnco-model-js",{}),localStorage.removeItem("tdmnco-model-js")}catch(t){console.warn("Model.js: localStorage not supported!",t),r=!1}var a=function(){function a(t){if(e(this,a),!t.id)throw new Error("Model.js: cannot create instance without an id!");Object.assign(this,t);var n=(this.constructor.prototype.modelName||this.constructor.name)+"-"+this.id;return o[n]={updates:[]},new Proxy(this,{get:function(t,e,n){return Reflect.get(t,e,n)},set:function(t,e,r){var a=o[n].updates;if(a.length){var i=!0,c=!1,s=void 0;try{for(var u,l=a[Symbol.iterator]();!(i=(u=l.next()).done);i=!0){(0,u.value)(e,t[e],r)}}catch(t){c=!0,s=t}finally{try{!i&&l.return&&l.return()}finally{if(c)throw s}}}return Reflect.set(t,e,r),!0}})}return t(a,[{key:"_cache",value:function(){var t=this._cached(),e=(new Date).toISOString();return t?(t.instance=this,t.updated=e):(t={created:e,random:Math.random(),instance:this},n[this._id()]=t),t}},{key:"_cached",value:function(){return n[this._id()]}},{key:"_id",value:function(){return(this.modelName||this.constructor.name)+"-"+this.id}},{key:"onUpdate",value:function(t){o[this._id()].updates.push(t)}},{key:"save",value:function(){this._cache(),r&&localStorage.setItem(this._id(),JSON.stringify(this))}}],[{key:"get",value:function(t){t=(this.prototype.modelName||this.prototype.constructor.name)+"-"+t;var e=n[t];return!e&&r?new this(JSON.parse(localStorage.getItem(t))):e.instance}}]),a}();exports.Model=a;
@@ -1807,7 +1866,7 @@ parcelRequire=function(e,r,n,t){function i(n,t){function o(e){return i(o.resolve
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0});var e=require("./model");Object.defineProperty(exports,"Model",{enumerable:!0,get:function(){return e.Model}});
 },{"./model":3}]},{},[1], null)
 //# sourceMappingURL=/index.map
-},{}],94:[function(require,module,exports) {
+},{}],"../js/models/post.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1847,7 +1906,7 @@ Post.prototype.modelName = 'Post';
 
 // Exports:
 exports.Post = Post;
-},{"tdmnco-model-js":104}],87:[function(require,module,exports) {
+},{"tdmnco-model-js":"../../node_modules/tdmnco-model-js/dist/index.js"}],"../js/models/index.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1862,7 +1921,7 @@ Object.defineProperty(exports, 'Post', {
     return _post.Post;
   }
 });
-},{"./post":94}],52:[function(require,module,exports) {
+},{"./post":"../js/models/post.js"}],"../js/components/journal.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1909,7 +1968,7 @@ var Journal = function () {
 
 
 exports.Journal = Journal;
-},{"mithril":23,"./":24,"../helpers":86,"../models":87,"../templates":88}],53:[function(require,module,exports) {
+},{"mithril":"../../node_modules/mithril/mithril.js","./":"../js/components/index.js","../helpers":"../js/helpers/index.js","../models":"../js/models/index.js","../templates":"../js/templates/index.js"}],"../js/components/line.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1948,7 +2007,7 @@ var Line = function () {
 
 
 exports.Line = Line;
-},{"mithril":23}],54:[function(require,module,exports) {
+},{"mithril":"../../node_modules/mithril/mithril.js"}],"../js/components/link.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1993,7 +2052,7 @@ var Link = function () {
 
 
 exports.Link = Link;
-},{"mithril":23}],55:[function(require,module,exports) {
+},{"mithril":"../../node_modules/mithril/mithril.js"}],"../js/components/menu.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2058,7 +2117,7 @@ var Menu = function () {
 
 
 exports.Menu = Menu;
-},{"mithril":23,"./":24}],56:[function(require,module,exports) {
+},{"mithril":"../../node_modules/mithril/mithril.js","./":"../js/components/index.js"}],"../js/components/overlay.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2127,7 +2186,7 @@ var Overlay = function () {
 
 
 exports.Overlay = Overlay;
-},{"mithril":23,"./":24}],57:[function(require,module,exports) {
+},{"mithril":"../../node_modules/mithril/mithril.js","./":"../js/components/index.js"}],"../js/components/paragraph.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2166,7 +2225,7 @@ var Paragraph = function () {
 
 
 exports.Paragraph = Paragraph;
-},{"mithril":23}],58:[function(require,module,exports) {
+},{"mithril":"../../node_modules/mithril/mithril.js"}],"../js/components/post.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2209,7 +2268,7 @@ var Post = function () {
 
 
 exports.Post = Post;
-},{"mithril":23,"./":24}],59:[function(require,module,exports) {
+},{"mithril":"../../node_modules/mithril/mithril.js","./":"../js/components/index.js"}],"../js/components/post-summary.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2263,7 +2322,7 @@ var PostSummary = function () {
 
 
 exports.PostSummary = PostSummary;
-},{"mithril":23,"../helpers":86,"./":24}],60:[function(require,module,exports) {
+},{"mithril":"../../node_modules/mithril/mithril.js","../helpers":"../js/helpers/index.js","./":"../js/components/index.js"}],"../js/components/software.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2328,7 +2387,7 @@ var Software = function () {
 
 
 exports.Software = Software;
-},{"mithril":23,"./":24,"../templates":88}],61:[function(require,module,exports) {
+},{"mithril":"../../node_modules/mithril/mithril.js","./":"../js/components/index.js","../templates":"../js/templates/index.js"}],"../js/components/software-consulting.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2371,7 +2430,7 @@ var SoftwareConsulting = function () {
 
 
 exports.SoftwareConsulting = SoftwareConsulting;
-},{"mithril":23,"./":24,"../templates":88}],62:[function(require,module,exports) {
+},{"mithril":"../../node_modules/mithril/mithril.js","./":"../js/components/index.js","../templates":"../js/templates/index.js"}],"../js/components/software-content-editor.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2414,7 +2473,7 @@ var SoftwareContentEditor = function () {
 
 
 exports.SoftwareContentEditor = SoftwareContentEditor;
-},{"mithril":23,"./":24,"../templates":88}],63:[function(require,module,exports) {
+},{"mithril":"../../node_modules/mithril/mithril.js","./":"../js/components/index.js","../templates":"../js/templates/index.js"}],"../js/components/software-data-platform.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2457,7 +2516,7 @@ var SoftwareDataPlatform = function () {
 
 
 exports.SoftwareDataPlatform = SoftwareDataPlatform;
-},{"mithril":23,"./":24,"../templates":88}],64:[function(require,module,exports) {
+},{"mithril":"../../node_modules/mithril/mithril.js","./":"../js/components/index.js","../templates":"../js/templates/index.js"}],"../js/components/software-product.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2502,7 +2561,7 @@ var SoftwareProduct = function () {
 
 
 exports.SoftwareProduct = SoftwareProduct;
-},{"mithril":23,"./":24}],65:[function(require,module,exports) {
+},{"mithril":"../../node_modules/mithril/mithril.js","./":"../js/components/index.js"}],"../js/components/software-storage-engine.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2545,7 +2604,7 @@ var SoftwareStorageEngine = function () {
 
 
 exports.SoftwareStorageEngine = SoftwareStorageEngine;
-},{"mithril":23,"./":24,"../templates":88}],66:[function(require,module,exports) {
+},{"mithril":"../../node_modules/mithril/mithril.js","./":"../js/components/index.js","../templates":"../js/templates/index.js"}],"../js/components/title.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2584,7 +2643,7 @@ var Title = function () {
 
 
 exports.Title = Title;
-},{"mithril":23}],24:[function(require,module,exports) {
+},{"mithril":"../../node_modules/mithril/mithril.js"}],"../js/components/index.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2615,6 +2674,15 @@ Object.defineProperty(exports, 'Home', {
   enumerable: true,
   get: function () {
     return _home.Home;
+  }
+});
+
+var _investment = require('./investment');
+
+Object.defineProperty(exports, 'Investment', {
+  enumerable: true,
+  get: function () {
+    return _investment.Investment;
   }
 });
 
@@ -2761,7 +2829,7 @@ Object.defineProperty(exports, 'Title', {
     return _title.Title;
   }
 });
-},{"./contact":48,"./footer":49,"./home":50,"./investments":51,"./journal":52,"./line":53,"./link":54,"./menu":55,"./overlay":56,"./paragraph":57,"./post":58,"./post-summary":59,"./software":60,"./software-consulting":61,"./software-content-editor":62,"./software-data-platform":63,"./software-product":64,"./software-storage-engine":65,"./title":66}],8:[function(require,module,exports) {
+},{"./contact":"../js/components/contact.js","./footer":"../js/components/footer.js","./home":"../js/components/home.js","./investment":"../js/components/investment.js","./investments":"../js/components/investments.js","./journal":"../js/components/journal.js","./line":"../js/components/line.js","./link":"../js/components/link.js","./menu":"../js/components/menu.js","./overlay":"../js/components/overlay.js","./paragraph":"../js/components/paragraph.js","./post":"../js/components/post.js","./post-summary":"../js/components/post-summary.js","./software":"../js/components/software.js","./software-consulting":"../js/components/software-consulting.js","./software-content-editor":"../js/components/software-content-editor.js","./software-data-platform":"../js/components/software-data-platform.js","./software-product":"../js/components/software-product.js","./software-storage-engine":"../js/components/software-storage-engine.js","./title":"../js/components/title.js"}],"../js/index.js":[function(require,module,exports) {
 'use strict';
 
 var _mithril = require('mithril');
@@ -2788,5 +2856,5 @@ _mithril2.default.route(document.body, '/', {
   '/software/data-platform': _components.SoftwareDataPlatform,
   '/software/storage-engine': _components.SoftwareStorageEngine
 });
-},{"mithril":23,"./components":24}]},{},[8], null)
+},{"mithril":"../../node_modules/mithril/mithril.js","./components":"../js/components/index.js"}]},{},["../js/index.js"], null)
 //# sourceMappingURL=/js.a3047206.map
