@@ -15,18 +15,21 @@ class Investments {
         m('div', { class: 'investments' }, [
           m(Investment, {
             class: 'alefarm-brewing',
-            description: 'Alefarm Brewing has a description here that has some words in it, that contains information about the company. Write something excellent here about the company.',
-            title: 'Alefarm Brewing IVS'
+            description: 'Alefarm Brewing is a Copenhagen-based craft brewery with a focus on modern hoppy offerings and a wide array of unique, flavorful mixed fermentation farmhouse ales.',
+            title: 'Alefarm Brewing IVS',
+            url: 'https://alefarm.dk/'
           }),
           m(Investment, {
             class: 'live-company',
-            description: 'Live Company A/S has a description here that has some words in it, that contains information about the company. Write something excellent here about the company.',
-            title: 'Live Company A/S'
+            description: 'Live Company is the one-stop shop for professional audio and visual solutions for events, concerts, festivals, conferences and more. With expert staff ready to assist, everything from planning to the running of an event is a breeze.',
+            title: 'Live Company A/S',
+            url: 'https://livecompany.dk/'
           }),
           m(Investment, {
             class: 'helium',
-            description: 'HELIUM ApS has a description here that has some words in it, that contains information about the company. Write something excellent here about the company.',
-            title: 'HELIUM ApS'
+            description: 'HELIUM is a creative and experimental cocktail bar located in one of the most decadent streets of Copenhagen. Served at the bar is marvellous combinations featuring different kinds of spirits, bitters, syrups, juices and cordials.',
+            title: 'HELIUM ApS',
+            url: 'http://heliumcph.dk'
           }),
         ])
       ])

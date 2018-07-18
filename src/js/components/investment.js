@@ -8,7 +8,7 @@ class Investment {
     return m('div', { class: 'investment ' + (vnode.attrs.class || '') }, [
       m('div', { class: 'icon' }),
       m('div', { class: 'description' }, [
-        m('h2', m(Link, { content: vnode.attrs.title, to: vnode.attrs.to })),
+        m('h2', m(Link, { content: vnode.attrs.title, external: true, to: vnode.attrs.url })),
         m(Paragraph, { content: vnode.attrs.description })
       ])
     ])
