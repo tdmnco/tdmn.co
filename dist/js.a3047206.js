@@ -1390,7 +1390,7 @@ Object.defineProperty(exports, "__esModule", {
 var breakpoints = exports.breakpoints = {
 
   // Variables:
-  mobile: 450,
+  mobile: 600,
 
   // Functions:
   isMobile: function isMobile() {

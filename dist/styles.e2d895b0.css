@@ -1,4 +1,4 @@
-@media (max-width: 450px) {
+@media (max-width: 650px) {
   .hidden-on-mobile {
     display: none !important;
   }
@@ -16,12 +16,12 @@ div.footer div.ampersand {
   margin: 2rem auto 0 auto;
   width: 2rem;
 }
-@media (max-width: 450px) {
+@media (max-width: 650px) {
   div.footer div.ampersand {
     display: none;
   }
 }
-@media (min-width: 450px) {
+@media (min-width: 650px) {
   div.footer div.links {
     display: none;
   }
@@ -36,7 +36,7 @@ div.footer p.copyright {
   line-height: 2rem;
   text-align: center;
 }
-@media (max-width: 450px) {
+@media (max-width: 650px) {
   div.footer p.copyright {
     font-size: 1.1rem;
     line-height: 2rem;
@@ -104,7 +104,7 @@ div.line {
   margin: 4rem auto;
   width: 10rem;
 }
-@media (max-width: 450px) {
+@media (max-width: 650px) {
   div.line {
     height: 0.2rem;
     margin: 2rem 0;
@@ -121,7 +121,7 @@ a.link.center {
   text-align: center;
   width: 100%;
 }
-@media (max-width: 450px) {
+@media (max-width: 650px) {
   a.link.center {
     text-align: left;
   }
@@ -148,7 +148,7 @@ div.menu div.links {
   float: right;
   text-align: right;
 }
-@media (max-width: 450px) {
+@media (max-width: 650px) {
   div.menu div.links {
     display: none;
   }
@@ -166,7 +166,7 @@ div.menu div.toggle {
   top: 0.8rem;
   width: 1.6rem;
 }
-@media (max-width: 450px) {
+@media (max-width: 650px) {
   div.menu div.toggle {
     display: block;
   }
@@ -479,7 +479,7 @@ div.post-summary.last-post {
 div.post-summary h2 {
   margin-bottom: 2rem;
 }
-@media (max-width: 450px) {
+@media (max-width: 650px) {
   div.post-summary p.author {
     font-size: 1.4rem;
     line-height: 2.5rem;
@@ -529,7 +529,7 @@ h1.title {
   padding: 4rem 0;
   width: 100%;
 }
-@media (max-width: 450px) {
+@media (max-width: 650px) {
   h1.title {
     padding: 2rem 0;
   }
@@ -568,7 +568,7 @@ h1 {
   line-height: 5rem;
   text-align: center;
 }
-@media (max-width: 450px) {
+@media (max-width: 650px) {
   h1 {
     font-size: 2.4rem;
     line-height: 3.4rem;
@@ -580,7 +580,7 @@ h2 {
   font-size: 2rem;
   line-height: 3rem;
 }
-@media (max-width: 450px) {
+@media (max-width: 650px) {
   h2 {
     font-size: 1.8rem;
     line-height: 2.8rem;
@@ -598,7 +598,7 @@ div.content {
   padding: 4rem 0;
   width: 75%;
 }
-@media (max-width: 450px) {
+@media (max-width: 650px) {
   div.content {
     padding: 2rem 0;
     width: 100%;
@@ -715,12 +715,12 @@ div.layout {
   max-width: 900px;
   width: 90%;
 }
-@media (max-width: 450px) {
+@media (max-width: 650px) {
   div.layout {
     width: 80%;
   }
 }
-@media (max-width: 450px) {
+@media (max-width: 650px) {
   div.layout.layout-show {
     -webkit-animation: layout-mobile-show 500ms 0s 1 ease normal both;
     -moz-animation: layout-mobile-show 500ms 0s 1 ease normal both;
