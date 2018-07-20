@@ -160,6 +160,7 @@ div.menu div.links a {
   text-decoration: none;
 }
 div.menu div.toggle {
+  cursor: pointer;
   display: none;
   float: right;
   height: 1.4rem;
@@ -379,6 +380,7 @@ div.overlay div.ampersand {
   background-repeat: no-repeat;
   background-position: center center;
   background-size: auto 100%;
+  cursor: pointer;
   height: 5rem;
   position: absolute;
   right: 1rem;
