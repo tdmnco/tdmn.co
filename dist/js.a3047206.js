@@ -1638,7 +1638,7 @@ var Contact = function () {
   _createClass(Contact, [{
     key: 'view',
     value: function view() {
-      return (0, _templates.layout)('contact', [(0, _mithril2.default)(_.Title, { content: 'Get in touch.' }), (0, _mithril2.default)(_.Line, { class: 'hidden-on-mobile' }), (0, _templates.content)([(0, _mithril2.default)(_.Paragraph, { content: 'Contact info.' })])]);
+      return (0, _templates.layout)('contact', [(0, _mithril2.default)(_.Title, { content: 'Get in touch.' }), (0, _mithril2.default)(_.Line, { class: 'hidden-on-mobile' }), (0, _templates.content)([(0, _mithril2.default)(_.Paragraph, { content: 'At Tidemann&Co, we are here to help. We offer consulting, software development, startup advice and everything else to companies and people who are ready to embrace bold ideas and new ways of thinking.' }), (0, _mithril2.default)(_.Paragraph, { content: ['Let us know what\'s on your mind at ', (0, _mithril2.default)(_.Link, { content: 'hey@tdmn.co', external: true, to: 'mailto:hey@tdmn.co' }), ' and we will get right back to you.'] })])]);
     }
   }]);
 
