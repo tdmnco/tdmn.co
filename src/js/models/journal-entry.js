@@ -2,17 +2,17 @@
 import { Model } from 'tdmnco-model-js'
 
 // Classes:
-class Post extends Model {
+class JournalEntry extends Model {
   constructor(data) {
     super(data, {
       endpoint: '',
-      modelName: 'Post'
+      modelName: 'JournalEntry'
     })
   }
 }
 
 // Prototyping:
-Post.prototype.modelName = 'Post'
+JournalEntry.prototype.modelName = 'JournalEntry'
 
 // Exports:
-export { Post }
+export { JournalEntry }

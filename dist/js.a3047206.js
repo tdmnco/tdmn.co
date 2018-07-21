@@ -1390,7 +1390,7 @@ Object.defineProperty(exports, "__esModule", {
 var breakpoints = exports.breakpoints = {
 
   // Variables:
-  mobile: 600,
+  mobile: 650,
 
   // Functions:
   isMobile: function isMobile() {
@@ -1427,35 +1427,26 @@ var months = {
 
   return months[date.getMonth() + 1] + ' ' + date.getDate() + ' ' + date.getFullYear();
 }
-},{}],"../js/helpers/posts.js":[function(require,module,exports) {
+},{}],"../js/helpers/journal-entries.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 // Posts:
-var posts = exports.posts = [{
+var journalEntries = exports.journalEntries = [{
   author: {
+    email: 'kt@tdmn.co',
     firstname: 'Kasper',
     id: '1',
     lastname: 'Tidemann'
   },
-  content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.',
+  content: '<p>Greve, Denmark – We are tremendously happy and proud to announce the opening of the brand new Alefarm Brewing.</p>We have been on a journey that took nearly a year from finding the right location to getting all equipment installed and running smoothly. It has been quite the ride - fun, challenging and deeply rewarding.<p></p>At the new brewery, we\'ll have a fixed line-up of beers supplemented by seasonal offerings, new releases and collaborations. The production is carried forward by an explorative, creative and spontaneous brewing philosophy.</p><p>I would like to say a profound thank you to everyone involved in the process. Good times await and excellent beers are to be made. We are so excited!</p>',
   created: new Date().toISOString(),
+  excerpt: 'We are tremendously happy and proud to announce the opening of the brand new Alefarm Brewing at the new location in Greve, just outside Copenhagen.',
   id: '1',
   slug: 'proudly-presenting-alefarm-brewing-2-0',
   title: 'Proudly presenting Alefarm Brewing 2.0'
-}, {
-  author: {
-    firstname: 'Kasper',
-    id: '1',
-    lastname: 'Tidemann'
-  },
-  content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.',
-  created: new Date().toISOString(),
-  id: '2',
-  slug: 'investing-in-live-company',
-  title: 'Investing in LIVE Company'
 }];
 },{}],"../js/helpers/index.js":[function(require,module,exports) {
 'use strict';
@@ -1482,15 +1473,15 @@ Object.defineProperty(exports, 'date', {
   }
 });
 
-var _posts = require('./posts');
+var _journalEntries = require('./journal-entries');
 
-Object.defineProperty(exports, 'posts', {
+Object.defineProperty(exports, 'journalEntries', {
   enumerable: true,
   get: function () {
-    return _posts.posts;
+    return _journalEntries.journalEntries;
   }
 });
-},{"./breakpoints":"../js/helpers/breakpoints.js","./date":"../js/helpers/date.js","./posts":"../js/helpers/posts.js"}],"../js/templates/layout.js":[function(require,module,exports) {
+},{"./breakpoints":"../js/helpers/breakpoints.js","./date":"../js/helpers/date.js","./journal-entries":"../js/helpers/journal-entries.js"}],"../js/templates/layout.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1509,8 +1500,9 @@ var _components = require('../components');
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // Variables:
-var firstRun = true; // Imports:
+var $html = null; // Imports:
 
+var firstRun = true;
 var logoActivated = false;
 var overlayRoute = null;
 var overlayShow = false;
@@ -1549,7 +1541,9 @@ function show(vnode) {
 function toggleOverlay(options) {
   overlayShow = !overlayShow;
 
-  var $html = document.getElementsByTagName('html')[0];
+  if (!$html) {
+    $html = document.getElementsByTagName('html')[0];
+  }
 
   if (overlayShow) {
     overlayRoute = window.location.href;
@@ -1560,9 +1554,11 @@ function toggleOverlay(options) {
     document.body.style.height = '100%';
     document.body.style.overflow = 'hidden';
 
-    setTimeout(function () {
-      $html.style.backgroundColor = '#f7941d';
-    }, 500);
+    if (_helpers.breakpoints.isMobile()) {
+      setTimeout(function () {
+        $html.style.backgroundColor = '#f7941d';
+      }, 500);
+    }
   } else {
     $html.style.backgroundColor = '';
 
@@ -1869,13 +1865,13 @@ parcelRequire=function(e,r,n,t){function i(n,t){function o(e){return i(o.resolve
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0});var e=require("./model");Object.defineProperty(exports,"Model",{enumerable:!0,get:function(){return e.Model}});
 },{"./model":3}]},{},[1], null)
 //# sourceMappingURL=/index.map
-},{}],"../js/models/post.js":[function(require,module,exports) {
+},{}],"../js/models/journal-entry.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.Post = undefined;
+exports.JournalEntry = undefined;
 
 var _tdmncoModelJs = require('tdmnco-model-js');
 
@@ -1887,28 +1883,28 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 // Classes:
-var Post = function (_Model) {
-  _inherits(Post, _Model);
+var JournalEntry = function (_Model) {
+  _inherits(JournalEntry, _Model);
 
-  function Post(data) {
-    _classCallCheck(this, Post);
+  function JournalEntry(data) {
+    _classCallCheck(this, JournalEntry);
 
-    return _possibleConstructorReturn(this, (Post.__proto__ || Object.getPrototypeOf(Post)).call(this, data, {
+    return _possibleConstructorReturn(this, (JournalEntry.__proto__ || Object.getPrototypeOf(JournalEntry)).call(this, data, {
       endpoint: '',
-      modelName: 'Post'
+      modelName: 'JournalEntry'
     }));
   }
 
-  return Post;
+  return JournalEntry;
 }(_tdmncoModelJs.Model);
 
 // Prototyping:
 
 
-Post.prototype.modelName = 'Post';
+JournalEntry.prototype.modelName = 'JournalEntry';
 
 // Exports:
-exports.Post = Post;
+exports.JournalEntry = JournalEntry;
 },{"tdmnco-model-js":"../../node_modules/tdmnco-model-js/dist/index.js"}],"../js/models/index.js":[function(require,module,exports) {
 'use strict';
 
@@ -1916,15 +1912,15 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _post = require('./post');
+var _journalEntry = require('./journal-entry');
 
-Object.defineProperty(exports, 'Post', {
+Object.defineProperty(exports, 'JournalEntry', {
   enumerable: true,
   get: function () {
-    return _post.Post;
+    return _journalEntry.JournalEntry;
   }
 });
-},{"./post":"../js/models/post.js"}],"../js/components/journal.js":[function(require,module,exports) {
+},{"./journal-entry":"../js/models/journal-entry.js"}],"../js/components/journal.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1951,7 +1947,11 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } } // Imports:
 
 
+// Variables:
+var journalEntry1 = new _models.JournalEntry(_helpers.journalEntries[0]);
+
 // Classes:
+
 var Journal = function () {
   function Journal() {
     _classCallCheck(this, Journal);
@@ -1960,7 +1960,7 @@ var Journal = function () {
   _createClass(Journal, [{
     key: 'view',
     value: function view() {
-      return (0, _templates.layout)('journal', [(0, _mithril2.default)(_.Title, { content: 'Journal.' }), (0, _mithril2.default)(_.Line, { class: 'hidden-on-mobile' }), (0, _templates.content)([(0, _mithril2.default)(_.PostSummary, { post: new _models.Post(_helpers.posts[0]) }), (0, _mithril2.default)(_.PostSummary, { class: 'last-post', post: new _models.Post(_helpers.posts[1]) })])]);
+      return (0, _templates.layout)('journal', [(0, _mithril2.default)(_.Title, { content: 'Journal.' }), (0, _mithril2.default)(_.Line, { class: 'hidden-on-mobile' }), (0, _templates.content)([(0, _mithril2.default)(_.JournalEntrySummary, { journalEntry: journalEntry1 })])]);
     }
   }]);
 
@@ -1971,7 +1971,97 @@ var Journal = function () {
 
 
 exports.Journal = Journal;
-},{"mithril":"../../node_modules/mithril/mithril.js","./":"../js/components/index.js","../helpers":"../js/helpers/index.js","../models":"../js/models/index.js","../templates":"../js/templates/index.js"}],"../js/components/line.js":[function(require,module,exports) {
+},{"mithril":"../../node_modules/mithril/mithril.js","./":"../js/components/index.js","../helpers":"../js/helpers/index.js","../models":"../js/models/index.js","../templates":"../js/templates/index.js"}],"../js/components/journal-entry.js":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.JournalEntry = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _mithril = require('mithril');
+
+var _mithril2 = _interopRequireDefault(_mithril);
+
+var _ = require('./');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } } // Imports:
+
+
+// Classes:
+var JournalEntry = function () {
+  function JournalEntry() {
+    _classCallCheck(this, JournalEntry);
+  }
+
+  _createClass(JournalEntry, [{
+    key: 'view',
+    value: function view(vnode) {
+      console.log('HEJ!');
+
+      return _mithril2.default.vnode('div', undefined, {
+        className: 'journal-entry'
+      }, undefined, 'HEJ!', undefined);
+    }
+  }]);
+
+  return JournalEntry;
+}();
+
+// Exports:
+
+
+exports.JournalEntry = JournalEntry;
+},{"mithril":"../../node_modules/mithril/mithril.js","./":"../js/components/index.js"}],"../js/components/journal-entry-summary.js":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.JournalEntrySummary = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _mithril = require('mithril');
+
+var _mithril2 = _interopRequireDefault(_mithril);
+
+var _helpers = require('../helpers');
+
+var _ = require('./');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } } // Imports:
+
+
+// Classes:
+var JournalEntrySummary = function () {
+  function JournalEntrySummary() {
+    _classCallCheck(this, JournalEntrySummary);
+  }
+
+  _createClass(JournalEntrySummary, [{
+    key: 'view',
+    value: function view(vnode) {
+      return _mithril2.default.vnode('div', undefined, { class: 'journal-entry-summary ' + (vnode.attrs.class || '') }, [_mithril2.default.vnode('h2', undefined, {
+        className: 'title'
+      }, [(0, _mithril2.default)(_.Link, { content: vnode.attrs.journalEntry.title, to: '/journal/' + vnode.attrs.journalEntry.slug })], undefined, undefined), (0, _mithril2.default)(_.Paragraph, { content: vnode.attrs.journalEntry.excerpt }), (0, _mithril2.default)(_.Paragraph, { class: 'author', content: ['By ', (0, _mithril2.default)(_.Link, { content: vnode.attrs.journalEntry.author.firstname + ' ' + vnode.attrs.journalEntry.author.lastname, external: true, to: 'mailto:' + vnode.attrs.journalEntry.author.email }), ', ', (0, _helpers.date)(vnode.attrs.journalEntry.created)] })], undefined, undefined);
+    }
+  }]);
+
+  return JournalEntrySummary;
+}();
+
+// Exports:
+
+
+exports.JournalEntrySummary = JournalEntrySummary;
+},{"mithril":"../../node_modules/mithril/mithril.js","../helpers":"../js/helpers/index.js","./":"../js/components/index.js"}],"../js/components/line.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2145,15 +2235,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } } // Imports:
 
 
-// Functions:
-function toggleOverlay(vnode) {
-  return function () {
-    vnode.attrs.toggleOverlay();
-  };
-}
-
 // Classes:
-
 var Overlay = function () {
   function Overlay() {
     _classCallCheck(this, Overlay);
@@ -2182,7 +2264,7 @@ var Overlay = function () {
         className: 'links'
       }, [_mithril2.default.vnode('div', undefined, {
         className: 'ampersand',
-        onclick: vnode.attrs.toggleOverlay }, [], undefined, undefined), (0, _mithril2.default)(_.Link, { class: 'overlay-link-one', content: 'HOME', onmousedown: toggleOverlay(vnode), to: '/' }), (0, _mithril2.default)(_.Link, { class: 'overlay-link-two', content: 'SOFTWARE', onmousedown: toggleOverlay(vnode), to: '/software' }), (0, _mithril2.default)(_.Link, { class: 'overlay-link-three', content: 'INVESTMENTS', onmousedown: toggleOverlay(vnode), to: '/investments' }), (0, _mithril2.default)(_.Link, { class: 'overlay-link-four', content: 'JOURNAL', onmousedown: toggleOverlay(vnode), to: '/journal' }), (0, _mithril2.default)(_.Link, { class: 'overlay-link-five', content: 'CONTACT', onmousedown: toggleOverlay(vnode), to: '/contact' })], undefined, undefined)], undefined, undefined);
+        onclick: vnode.attrs.toggleOverlay }, [], undefined, undefined), (0, _mithril2.default)(_.Link, { class: 'overlay-link-one', content: 'HOME', onmousedown: vnode.attrs.toggleOverlay, to: '/' }), (0, _mithril2.default)(_.Link, { class: 'overlay-link-two', content: 'SOFTWARE', onmousedown: vnode.attrs.toggleOverlay, to: '/software' }), (0, _mithril2.default)(_.Link, { class: 'overlay-link-three', content: 'INVESTMENTS', onmousedown: vnode.attrs.toggleOverlay, to: '/investments' }), (0, _mithril2.default)(_.Link, { class: 'overlay-link-four', content: 'JOURNAL', onmousedown: vnode.attrs.toggleOverlay, to: '/journal' }), (0, _mithril2.default)(_.Link, { class: 'overlay-link-five', content: 'CONTACT', onmousedown: vnode.attrs.toggleOverlay, to: '/contact' })], undefined, undefined)], undefined, undefined);
     }
   }]);
 
@@ -2232,104 +2314,7 @@ var Paragraph = function () {
 
 
 exports.Paragraph = Paragraph;
-},{"mithril":"../../node_modules/mithril/mithril.js"}],"../js/components/post.js":[function(require,module,exports) {
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.Post = undefined;
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _mithril = require('mithril');
-
-var _mithril2 = _interopRequireDefault(_mithril);
-
-var _ = require('./');
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } } // Imports:
-
-
-// Classes:
-var Post = function () {
-  function Post() {
-    _classCallCheck(this, Post);
-  }
-
-  _createClass(Post, [{
-    key: 'view',
-    value: function view(vnode) {
-      return _mithril2.default.vnode('div', undefined, {
-        className: 'post'
-      }, [], undefined, undefined);
-    }
-  }]);
-
-  return Post;
-}();
-
-// Exports:
-
-
-exports.Post = Post;
-},{"mithril":"../../node_modules/mithril/mithril.js","./":"../js/components/index.js"}],"../js/components/post-summary.js":[function(require,module,exports) {
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.PostSummary = undefined;
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _mithril = require('mithril');
-
-var _mithril2 = _interopRequireDefault(_mithril);
-
-var _helpers = require('../helpers');
-
-var _ = require('./');
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } } // Imports:
-
-
-// Variables:
-var post = null;
-
-// Classes:
-
-var PostSummary = function () {
-  function PostSummary() {
-    _classCallCheck(this, PostSummary);
-  }
-
-  _createClass(PostSummary, [{
-    key: 'oninit',
-    value: function oninit(vnode) {
-      post = vnode.attrs.post;
-    }
-  }, {
-    key: 'view',
-    value: function view(vnode) {
-      return _mithril2.default.vnode('div', undefined, { class: 'post-summary ' + (vnode.attrs.class || '') }, [_mithril2.default.vnode('h2', undefined, {
-        className: 'title'
-      }, [(0, _mithril2.default)('a', { href: '/posts/' + post.slug }, post.title)], undefined, undefined), (0, _mithril2.default)(_.Paragraph, { content: post.content }), (0, _mithril2.default)(_.Paragraph, { class: 'author', content: ['By ', (0, _mithril2.default)('a', { href: '/people/' + post.author.id, oncreate: _mithril2.default.route.link }, post.author.firstname + ' ' + post.author.lastname), ', ', (0, _helpers.date)(post.created)] })], undefined, undefined);
-    }
-  }]);
-
-  return PostSummary;
-}();
-
-// Exports:
-
-
-exports.PostSummary = PostSummary;
-},{"mithril":"../../node_modules/mithril/mithril.js","../helpers":"../js/helpers/index.js","./":"../js/components/index.js"}],"../js/components/software.js":[function(require,module,exports) {
+},{"mithril":"../../node_modules/mithril/mithril.js"}],"../js/components/software.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2711,6 +2696,24 @@ Object.defineProperty(exports, 'Journal', {
   }
 });
 
+var _journalEntry = require('./journal-entry');
+
+Object.defineProperty(exports, 'JournalEntry', {
+  enumerable: true,
+  get: function () {
+    return _journalEntry.JournalEntry;
+  }
+});
+
+var _journalEntrySummary = require('./journal-entry-summary');
+
+Object.defineProperty(exports, 'JournalEntrySummary', {
+  enumerable: true,
+  get: function () {
+    return _journalEntrySummary.JournalEntrySummary;
+  }
+});
+
 var _line = require('./line');
 
 Object.defineProperty(exports, 'Line', {
@@ -2753,24 +2756,6 @@ Object.defineProperty(exports, 'Paragraph', {
   enumerable: true,
   get: function () {
     return _paragraph.Paragraph;
-  }
-});
-
-var _post = require('./post');
-
-Object.defineProperty(exports, 'Post', {
-  enumerable: true,
-  get: function () {
-    return _post.Post;
-  }
-});
-
-var _postSummary = require('./post-summary');
-
-Object.defineProperty(exports, 'PostSummary', {
-  enumerable: true,
-  get: function () {
-    return _postSummary.PostSummary;
   }
 });
 
@@ -2836,7 +2821,7 @@ Object.defineProperty(exports, 'Title', {
     return _title.Title;
   }
 });
-},{"./contact":"../js/components/contact.js","./footer":"../js/components/footer.js","./home":"../js/components/home.js","./investment":"../js/components/investment.js","./investments":"../js/components/investments.js","./journal":"../js/components/journal.js","./line":"../js/components/line.js","./link":"../js/components/link.js","./menu":"../js/components/menu.js","./overlay":"../js/components/overlay.js","./paragraph":"../js/components/paragraph.js","./post":"../js/components/post.js","./post-summary":"../js/components/post-summary.js","./software":"../js/components/software.js","./software-consulting":"../js/components/software-consulting.js","./software-content-editor":"../js/components/software-content-editor.js","./software-data-platform":"../js/components/software-data-platform.js","./software-product":"../js/components/software-product.js","./software-storage-engine":"../js/components/software-storage-engine.js","./title":"../js/components/title.js"}],"../js/index.js":[function(require,module,exports) {
+},{"./contact":"../js/components/contact.js","./footer":"../js/components/footer.js","./home":"../js/components/home.js","./investment":"../js/components/investment.js","./investments":"../js/components/investments.js","./journal":"../js/components/journal.js","./journal-entry":"../js/components/journal-entry.js","./journal-entry-summary":"../js/components/journal-entry-summary.js","./line":"../js/components/line.js","./link":"../js/components/link.js","./menu":"../js/components/menu.js","./overlay":"../js/components/overlay.js","./paragraph":"../js/components/paragraph.js","./software":"../js/components/software.js","./software-consulting":"../js/components/software-consulting.js","./software-content-editor":"../js/components/software-content-editor.js","./software-data-platform":"../js/components/software-data-platform.js","./software-product":"../js/components/software-product.js","./software-storage-engine":"../js/components/software-storage-engine.js","./title":"../js/components/title.js"}],"../js/index.js":[function(require,module,exports) {
 'use strict';
 
 var _mithril = require('mithril');
@@ -2857,6 +2842,7 @@ _mithril2.default.route(document.body, '/', {
   '/contact': _components.Contact,
   '/investments': _components.Investments,
   '/journal': _components.Journal,
+  '/journal/:slug': _components.JournalEntry,
   '/software': _components.Software,
   '/software/consulting': _components.SoftwareConsulting,
   '/software/content-editor': _components.SoftwareContentEditor,

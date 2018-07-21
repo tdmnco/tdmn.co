@@ -98,6 +98,30 @@ div.investment.helium div.icon {
 div.investment.live-company div.icon {
   background-image: url('logo-live-company.69509214.svg');
 }
+div.journal-entry {
+  width: 100%;
+}
+div.journal-entry-summary {
+  padding-bottom: 4rem;
+  width: 100%;
+}
+div.journal-entry-summary.last-post {
+  padding: 0;
+}
+div.journal-entry-summary h2 {
+  margin-bottom: 2rem;
+}
+@media (max-width: 650px) {
+  div.journal-entry-summary p.author {
+    font-size: 1.4rem;
+    line-height: 2.5rem;
+  }
+}
+div.journal-entry-summary p a {
+  font-size: inherit;
+  line-height: inherit;
+  font-weight: 700;
+}
 div.line {
   background: #f7941d;
   height: 0.4rem;
@@ -468,30 +492,6 @@ p.paragraph {
   font-size: 1.5rem;
   line-height: 2.6rem;
 }
-div.post {
-  width: 100%;
-}
-div.post-summary {
-  padding-bottom: 4rem;
-  width: 100%;
-}
-div.post-summary.last-post {
-  padding: 0;
-}
-div.post-summary h2 {
-  margin-bottom: 2rem;
-}
-@media (max-width: 650px) {
-  div.post-summary p.author {
-    font-size: 1.4rem;
-    line-height: 2.5rem;
-  }
-}
-div.post-summary p a {
-  font-size: inherit;
-  line-height: inherit;
-  font-weight: 700;
-}
 div.software-product {
   padding: 2rem 0;
   min-height: 4rem;
@@ -563,6 +563,11 @@ body {
 }
 html {
   height: 100%;
+}
+@media (max-width: 650px) {
+  html {
+    transition: all 500ms ease;
+  }
 }
 h1 {
   font-family: 'Bitter', serif;

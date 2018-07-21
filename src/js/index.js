@@ -1,6 +1,6 @@
 // Imports:
 import m from 'mithril'
-import { Contact, Home, Investments, Journal, Software, SoftwareConsulting, SoftwareContentEditor, SoftwareDataPlatform, SoftwareStorageEngine } from './components'
+import { Contact, Home, Investments, Journal, JournalEntry, Software, SoftwareConsulting, SoftwareContentEditor, SoftwareDataPlatform, SoftwareStorageEngine } from './components'
 
 // Prefix:
 m.route.prefix('')
@@ -11,6 +11,7 @@ m.route(document.body, '/', {
   '/contact': Contact,
   '/investments': Investments,
   '/journal': Journal,
+  '/journal/:slug': JournalEntry,
   '/software': Software,
   '/software/consulting': SoftwareConsulting,
   '/software/content-editor': SoftwareContentEditor,

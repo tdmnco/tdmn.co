@@ -4,6 +4,7 @@ import { breakpoints } from '../helpers'
 import { Footer, Menu, Overlay } from '../components'
 
 // Variables:
+let $html = null
 let firstRun = true
 let logoActivated = false
 let overlayRoute = null
@@ -43,7 +44,9 @@ function show(vnode) {
 function toggleOverlay(options) {
   overlayShow = !overlayShow
 
-  let $html = document.getElementsByTagName('html')[0]
+  if (!$html) {
+    $html = document.getElementsByTagName('html')[0]
+  }
 
   if (overlayShow) {
     overlayRoute = window.location.href
@@ -54,9 +57,11 @@ function toggleOverlay(options) {
     document.body.style.height = '100%'
     document.body.style.overflow = 'hidden'
 
-    setTimeout(() => {
-      $html.style.backgroundColor = '#f7941d'
-    }, 500)
+    if (breakpoints.isMobile()) {
+      setTimeout(() => {
+        $html.style.backgroundColor = '#f7941d'
+      }, 500)
+    }
   } else {
     $html.style.backgroundColor = ''
 

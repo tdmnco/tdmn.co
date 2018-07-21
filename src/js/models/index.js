@@ -1,2 +1,2 @@
 // Exports:
-export { Post } from './post'
+export { JournalEntry } from './journal-entry'

@@ -2,7 +2,7 @@
 export const breakpoints = {
 
   // Variables:
-  mobile: 600,
+  mobile: 650,
 
   // Functions:
   isMobile() {

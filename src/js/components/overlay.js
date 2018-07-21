@@ -2,13 +2,6 @@
 import m from 'mithril'
 import { Link } from './'
 
-// Functions:
-function toggleOverlay(vnode) {
-  return () => {
-    vnode.attrs.toggleOverlay()
-  }
-}
-
 // Classes:
 class Overlay {
   onbeforeremove(vnode) {
@@ -28,11 +21,11 @@ class Overlay {
     return m('div', { class: 'overlay overlay-show' }, [
       m('div', { class: 'links' }, [
         m('div', { class: 'ampersand', onclick: vnode.attrs.toggleOverlay }),
-        m(Link, { class: 'overlay-link-one', content: 'HOME', onmousedown: toggleOverlay(vnode), to: '/' }),
-        m(Link, { class: 'overlay-link-two', content: 'SOFTWARE', onmousedown: toggleOverlay(vnode), to: '/software' }),
-        m(Link, { class: 'overlay-link-three', content: 'INVESTMENTS', onmousedown: toggleOverlay(vnode), to: '/investments' }),
-        m(Link, { class: 'overlay-link-four', content: 'JOURNAL', onmousedown: toggleOverlay(vnode), to: '/journal' }),
-        m(Link, { class: 'overlay-link-five', content: 'CONTACT', onmousedown: toggleOverlay(vnode), to: '/contact' })
+        m(Link, { class: 'overlay-link-one', content: 'HOME', onmousedown: vnode.attrs.toggleOverlay, to: '/' }),
+        m(Link, { class: 'overlay-link-two', content: 'SOFTWARE', onmousedown: vnode.attrs.toggleOverlay, to: '/software' }),
+        m(Link, { class: 'overlay-link-three', content: 'INVESTMENTS', onmousedown: vnode.attrs.toggleOverlay, to: '/investments' }),
+        m(Link, { class: 'overlay-link-four', content: 'JOURNAL', onmousedown: vnode.attrs.toggleOverlay, to: '/journal' }),
+        m(Link, { class: 'overlay-link-five', content: 'CONTACT', onmousedown: vnode.attrs.toggleOverlay, to: '/contact' })
       ])
     ])
   }

@@ -1,9 +1,12 @@
 // Imports:
 import m from 'mithril'
-import { Line, Paragraph, PostSummary, Title } from './'
-import { posts } from '../helpers'
-import { Post } from '../models'
+import { JournalEntrySummary, Line, Paragraph, Title } from './'
+import { journalEntries } from '../helpers'
+import { JournalEntry } from '../models'
 import { content, layout } from '../templates'
+
+// Variables:
+const journalEntry1 = new JournalEntry(journalEntries[0])
 
 // Classes:
 class Journal {
@@ -12,8 +15,7 @@ class Journal {
       m(Title, { content: 'Journal.' }),
       m(Line, { class: 'hidden-on-mobile' }),
       content([
-        m(PostSummary, { post: new Post(posts[0]) }),
-        m(PostSummary, { class: 'last-post', post: new Post(posts[1]) })
+        m(JournalEntrySummary, { journalEntry: journalEntry1 })
       ])
     ])
   }
