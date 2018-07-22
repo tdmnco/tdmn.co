@@ -25,8 +25,6 @@ function shouldShowOverlay() {
 
 function show(vnode) {
   if (!firstRun) {
-    console.log('overlayShow', overlayShow)
-
     let className = ''
 
     if (logoActivated && m.route.get() === '/' && breakpoints.isMobile()) {

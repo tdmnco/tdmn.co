@@ -1522,8 +1522,6 @@ function shouldShowOverlay() {
 
 function show(vnode) {
   if (!firstRun) {
-    console.log('overlayShow', overlayShow);
-
     var className = '';
 
     if (logoActivated && _mithril2.default.route.get() === '/' && _helpers.breakpoints.isMobile()) {
