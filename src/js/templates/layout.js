@@ -9,6 +9,8 @@ let firstRun = true
 let logoActivated = false
 let overlayRoute = null
 let overlayShow = false
+let overlayToggled = false
+let overlayToggling = false
 
 // Functions:
 function activateLogo() {
@@ -23,57 +25,71 @@ function shouldShowOverlay() {
 
 function show(vnode) {
   if (!firstRun) {
-    let className = 'layout-show'
+    console.log('overlayShow', overlayShow)
+
+    let className = ''
 
     if (logoActivated && m.route.get() === '/' && breakpoints.isMobile()) {
       className = 'layout-mobile-show-home'
 
       logoActivated = false
+    } else if (overlayToggled) {
+      className = 'layout-show'
     }
 
-    vnode.dom.classList.add(className)
+    if (className) {
+      vnode.dom.classList.add(className)
 
-    setTimeout(() => {
-      vnode.dom.classList.remove(className)
-    }, 500)
+      setTimeout(() => {
+        vnode.dom.classList.remove(className)
+      }, 500)
+    }
   }
 
   firstRun = false
 }
 
 function toggleOverlay(options) {
-  overlayShow = !overlayShow
+  if (!overlayToggling) {
+    overlayShow = !overlayShow
+    overlayToggling = true
 
-  if (!$html) {
-    $html = document.getElementsByTagName('html')[0]
-  }
+    if (!$html) {
+      $html = document.getElementsByTagName('html')[0]
+    }
 
-  if (overlayShow) {
-    overlayRoute = window.location.href
+    if (overlayShow) {
+      overlayRoute = window.location.href
+      overlayToggled = true
 
-    $html.style.height = '100%'
-    $html.style.overflow = 'hidden'
+      $html.style.height = '100%'
+      $html.style.overflow = 'hidden'
 
-    document.body.style.height = '100%'
-    document.body.style.overflow = 'hidden'
+      document.body.style.height = '100%'
+      document.body.style.overflow = 'hidden'
 
-    if (breakpoints.isMobile()) {
+      if (breakpoints.isMobile()) {
+        setTimeout(() => {
+          $html.style.backgroundColor = '#f7941d'
+
+          overlayToggling = false
+        }, 500)
+      }
+    } else {
+      $html.style.backgroundColor = ''
+
       setTimeout(() => {
-        $html.style.backgroundColor = '#f7941d'
+        overlayRoute = null
+        overlayToggled = false
+        overlayToggling = false
+
+        $html.style.height = ''
+        $html.style.overflow = ''
+
+        document.body.style.height = ''
+        document.body.style.overflow = ''
       }, 500)
     }
-  } else {
-    $html.style.backgroundColor = ''
-
-    setTimeout(() => {
-      overlayRoute = null
-
-      $html.style.height = ''
-      $html.style.overflow = ''
-
-      document.body.style.height = ''
-      document.body.style.overflow = ''
-    }, 500)
   }
 }
 

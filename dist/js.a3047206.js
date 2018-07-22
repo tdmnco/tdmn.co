@@ -1506,6 +1506,8 @@ var firstRun = true;
 var logoActivated = false;
 var overlayRoute = null;
 var overlayShow = false;
+var overlayToggled = false;
+var overlayToggling = false;
 
 // Functions:
 function activateLogo() {
@@ -1520,57 +1522,71 @@ function shouldShowOverlay() {
 
 function show(vnode) {
   if (!firstRun) {
-    var className = 'layout-show';
+    console.log('overlayShow', overlayShow);
+
+    var className = '';
 
     if (logoActivated && _mithril2.default.route.get() === '/' && _helpers.breakpoints.isMobile()) {
       className = 'layout-mobile-show-home';
 
       logoActivated = false;
+    } else if (overlayToggled) {
+      className = 'layout-show';
     }
 
-    vnode.dom.classList.add(className);
+    if (className) {
+      vnode.dom.classList.add(className);
 
-    setTimeout(function () {
-      vnode.dom.classList.remove(className);
-    }, 500);
+      setTimeout(function () {
+        vnode.dom.classList.remove(className);
+      }, 500);
+    }
   }
 
   firstRun = false;
 }
 
 function toggleOverlay(options) {
-  overlayShow = !overlayShow;
+  if (!overlayToggling) {
+    overlayShow = !overlayShow;
+    overlayToggling = true;
 
-  if (!$html) {
-    $html = document.getElementsByTagName('html')[0];
-  }
+    if (!$html) {
+      $html = document.getElementsByTagName('html')[0];
+    }
 
-  if (overlayShow) {
-    overlayRoute = window.location.href;
+    if (overlayShow) {
+      overlayRoute = window.location.href;
+      overlayToggled = true;
 
-    $html.style.height = '100%';
-    $html.style.overflow = 'hidden';
+      $html.style.height = '100%';
+      $html.style.overflow = 'hidden';
 
-    document.body.style.height = '100%';
-    document.body.style.overflow = 'hidden';
+      document.body.style.height = '100%';
+      document.body.style.overflow = 'hidden';
 
-    if (_helpers.breakpoints.isMobile()) {
+      if (_helpers.breakpoints.isMobile()) {
+        setTimeout(function () {
+          $html.style.backgroundColor = '#f7941d';
+
+          overlayToggling = false;
+        }, 500);
+      }
+    } else {
+      $html.style.backgroundColor = '';
+
       setTimeout(function () {
-        $html.style.backgroundColor = '#f7941d';
+        overlayRoute = null;
+        overlayToggled = false;
+        overlayToggling = false;
+
+        $html.style.height = '';
+        $html.style.overflow = '';
+
+        document.body.style.height = '';
+        document.body.style.overflow = '';
       }, 500);
     }
-  } else {
-    $html.style.backgroundColor = '';
-
-    setTimeout(function () {
-      overlayRoute = null;
-
-      $html.style.height = '';
-      $html.style.overflow = '';
-
-      document.body.style.height = '';
-      document.body.style.overflow = '';
-    }, 500);
   }
 }
 
