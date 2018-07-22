@@ -1,0 +1,18 @@
+// Imports:
+@import '../variables/_breakpoints';
+@import '../variables/_colors';
+
+// Styles:
+h3.subtitle {
+  font-size: 1.3rem;
+  line-height: 1.7rem;
+  text-align: center;
+  width: 100%;
+
+  @media (max-width: @breakpoint-mobile) {
+    font-size: 1.2rem;
+    line-height: 1.6rem;
+    padding-bottom: 2rem;
+    text-align: left;
+  }
+}

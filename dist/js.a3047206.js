@@ -1441,7 +1441,7 @@ var journalEntries = exports.journalEntries = [{
     id: '1',
     lastname: 'Tidemann'
   },
-  content: '<p>Greve, Denmark – We are tremendously happy and proud to announce the opening of the brand new Alefarm Brewing.</p>We have been on a journey that took nearly a year from finding the right location to getting all equipment installed and running smoothly. It has been quite the ride - fun, challenging and deeply rewarding.<p></p>At the new brewery, we\'ll have a fixed line-up of beers supplemented by seasonal offerings, new releases and collaborations. The production is carried forward by an explorative, creative and spontaneous brewing philosophy.</p><p>I would like to say a profound thank you to everyone involved in the process. Good times await and excellent beers are to be made. We are so excited!</p>',
+  content: 'Greve, Denmark – We are tremendously happy and proud to announce the opening of the brand new Alefarm Brewing.\n\nWe have been on a journey that took nearly a year from finding the right location to getting all equipment installed and running smoothly. It has been quite the ride - fun, challenging and deeply rewarding.\n\nAt the new brewery, we\'ll have a fixed line-up of beers supplemented by seasonal offerings, new releases and collaborations. The production is carried forward by an explorative, creative and spontaneous brewing philosophy.\n\nOur brewing family has embraced two new brewers to help us grow. Having the right people on board is key to succeeding in any business - therefore, we are investing heavily in the people behind the brand. Every single person at Alefarm Brewing is a part of our common story.\n\nI would like to say a profound thank you to everyone involved in the process. Thank you for helping out, for believing in us and for lending an ear.\n\nAlefarm Brewing is the single-most large investment we have made at Tidemann&Co. We have spent millions on all the shiny, new equipment, so opening the doors means the world to us.\n\nGood times await and excellent beers are to be made. We are so excited and look forward to welcoming you to the new brewery. Cheers!',
   created: new Date().toISOString(),
   excerpt: 'We are tremendously happy and proud to announce the opening of the brand new Alefarm Brewing at the new location in Greve, just outside Copenhagen.',
   id: '1',
@@ -1737,11 +1737,7 @@ var Home = function () {
   _createClass(Home, [{
     key: 'view',
     value: function view() {
-      return (0, _templates.layout)('home', [(0, _mithril2.default)(_.Title, { content: 'Quality is built on love.' }), (0, _mithril2.default)(_.Line, { class: 'hidden-on-mobile' }), (0, _templates.content)([(0, _mithril2.default)(_.Paragraph, { content: 'Tidemann&Co is a Copenhagen-based corporation with activities in software and investments. We believe that quality is built on proper planning, efficient execution and a genuine love for what you do.' }), (0, _mithril2.default)(_.Paragraph, { content: 'Our craft is software. We live and breathe the art and science of computers, because it enables us to do so many amazing things. Software breaks barriers and builds bridges in business, society and life in general.' }), (0, _mithril2.default)(_.Paragraph, { content: 'We invest in people, not ideas. We bet on the ability to make things happen and we match with anyone who cares deeply for what they do.' }), (0, _mithril2.default)(_.Paragraph, { content: 'All the best,' }), (0, _mithril2.default)(_.Paragraph, { class: 'signature', content: [_mithril2.default.vnode('span', undefined, {
-          className: 'name'
-        }, undefined, 'Kasper Tidemann', undefined), _mithril2.default.vnode('span', undefined, {
-          className: 'title'
-        }, undefined, 'CEO, Tidemann&Co', undefined), _mithril2.default.vnode('div', undefined, undefined, [], undefined, undefined)] })])]);
+      return (0, _templates.layout)('home', [(0, _mithril2.default)(_.Title, { content: 'Quality is built on love.' }), (0, _mithril2.default)(_.Line, { class: 'hidden-on-mobile' }), (0, _templates.content)([(0, _mithril2.default)(_.Paragraph, { content: 'Tidemann&Co is a Copenhagen-based corporation with activities in software and investments. We believe that quality is built on proper planning, efficient execution and a genuine love for what you do.' }), (0, _mithril2.default)(_.Paragraph, { content: 'Our craft is software. We live and breathe the art and science of computers, because it enables us to do so many amazing things. Software breaks barriers and builds bridges in business, society and life in general.' }), (0, _mithril2.default)(_.Paragraph, { content: 'We invest in people, not ideas. We bet on the ability to make things happen and we match with anyone who cares deeply for what they do.' }), (0, _mithril2.default)(_.Signature)])]);
     }
   }]);
 
@@ -1950,6 +1946,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 // Variables:
 var journalEntry1 = new _models.JournalEntry(_helpers.journalEntries[0]);
 
+// Context:
+journalEntry1.save();
+
 // Classes:
 
 var Journal = function () {
@@ -1987,6 +1986,12 @@ var _mithril2 = _interopRequireDefault(_mithril);
 
 var _ = require('./');
 
+var _helpers = require('../helpers');
+
+var _models = require('../models');
+
+var _templates = require('../templates');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } } // Imports:
@@ -1999,13 +2004,16 @@ var JournalEntry = function () {
   }
 
   _createClass(JournalEntry, [{
+    key: 'oninit',
+    value: function oninit(vnode) {
+      vnode.attrs.journalEntry = _models.JournalEntry.get('1'); // m.route.param('slug')
+    }
+  }, {
     key: 'view',
     value: function view(vnode) {
-      console.log('HEJ!');
-
-      return _mithril2.default.vnode('div', undefined, {
-        className: 'journal-entry'
-      }, undefined, 'HEJ!', undefined);
+      return (0, _templates.layout)('journal-entry', [(0, _mithril2.default)(_.Title, { content: vnode.attrs.journalEntry.title }), (0, _mithril2.default)(_.Subtitle, { content: ['By ', (0, _mithril2.default)(_.Link, { content: vnode.attrs.journalEntry.author.firstname + ' ' + vnode.attrs.journalEntry.author.lastname, external: true, to: 'mailto:' + vnode.attrs.journalEntry.author.email }), ', ', (0, _helpers.date)(vnode.attrs.journalEntry.created)] }), (0, _mithril2.default)(_.Line, { class: 'hidden-on-mobile' }), (0, _templates.content)([vnode.attrs.journalEntry.content.split('\n\n').map(function (paragraph) {
+        return (0, _mithril2.default)(_.Paragraph, { content: paragraph });
+      }), (0, _mithril2.default)(_.Signature)])]);
     }
   }]);
 
@@ -2016,7 +2024,7 @@ var JournalEntry = function () {
 
 
 exports.JournalEntry = JournalEntry;
-},{"mithril":"../../node_modules/mithril/mithril.js","./":"../js/components/index.js"}],"../js/components/journal-entry-summary.js":[function(require,module,exports) {
+},{"mithril":"../../node_modules/mithril/mithril.js","./":"../js/components/index.js","../helpers":"../js/helpers/index.js","../models":"../js/models/index.js","../templates":"../js/templates/index.js"}],"../js/components/journal-entry-summary.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2314,7 +2322,52 @@ var Paragraph = function () {
 
 
 exports.Paragraph = Paragraph;
-},{"mithril":"../../node_modules/mithril/mithril.js"}],"../js/components/software.js":[function(require,module,exports) {
+},{"mithril":"../../node_modules/mithril/mithril.js"}],"../js/components/signature.js":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.Signature = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _mithril = require('mithril');
+
+var _mithril2 = _interopRequireDefault(_mithril);
+
+var _ = require('./');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } } // Imports:
+
+
+// Classes:
+var Signature = function () {
+  function Signature() {
+    _classCallCheck(this, Signature);
+  }
+
+  _createClass(Signature, [{
+    key: 'view',
+    value: function view(vnode) {
+      return [(0, _mithril2.default)(_.Paragraph, { content: 'All the best,' }), (0, _mithril2.default)(_.Paragraph, { class: 'signature', content: [_mithril2.default.vnode('span', undefined, {
+          className: 'name'
+        }, undefined, 'Kasper Tidemann', undefined), _mithril2.default.vnode('span', undefined, {
+          className: 'title'
+        }, undefined, 'CEO, Tidemann&Co', undefined), _mithril2.default.vnode('div', undefined, undefined, [], undefined, undefined)] })];
+    }
+  }]);
+
+  return Signature;
+}();
+
+// Exports:
+
+
+exports.Signature = Signature;
+},{"mithril":"../../node_modules/mithril/mithril.js","./":"../js/components/index.js"}],"../js/components/software.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2596,7 +2649,46 @@ var SoftwareStorageEngine = function () {
 
 
 exports.SoftwareStorageEngine = SoftwareStorageEngine;
-},{"mithril":"../../node_modules/mithril/mithril.js","./":"../js/components/index.js","../templates":"../js/templates/index.js"}],"../js/components/title.js":[function(require,module,exports) {
+},{"mithril":"../../node_modules/mithril/mithril.js","./":"../js/components/index.js","../templates":"../js/templates/index.js"}],"../js/components/subtitle.js":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.Subtitle = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _mithril = require('mithril');
+
+var _mithril2 = _interopRequireDefault(_mithril);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } } // Imports:
+
+
+// Classes:
+var Subtitle = function () {
+  function Subtitle() {
+    _classCallCheck(this, Subtitle);
+  }
+
+  _createClass(Subtitle, [{
+    key: 'view',
+    value: function view(vnode) {
+      return (0, _mithril2.default)('h3', { class: 'subtitle' }, vnode.attrs.content);
+    }
+  }]);
+
+  return Subtitle;
+}();
+
+// Exports:
+
+
+exports.Subtitle = Subtitle;
+},{"mithril":"../../node_modules/mithril/mithril.js"}],"../js/components/title.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2759,6 +2851,15 @@ Object.defineProperty(exports, 'Paragraph', {
   }
 });
 
+var _signature = require('./signature');
+
+Object.defineProperty(exports, 'Signature', {
+  enumerable: true,
+  get: function () {
+    return _signature.Signature;
+  }
+});
+
 var _software = require('./software');
 
 Object.defineProperty(exports, 'Software', {
@@ -2813,6 +2914,15 @@ Object.defineProperty(exports, 'SoftwareStorageEngine', {
   }
 });
 
+var _subtitle = require('./subtitle');
+
+Object.defineProperty(exports, 'Subtitle', {
+  enumerable: true,
+  get: function () {
+    return _subtitle.Subtitle;
+  }
+});
+
 var _title = require('./title');
 
 Object.defineProperty(exports, 'Title', {
@@ -2821,7 +2931,7 @@ Object.defineProperty(exports, 'Title', {
     return _title.Title;
   }
 });
-},{"./contact":"../js/components/contact.js","./footer":"../js/components/footer.js","./home":"../js/components/home.js","./investment":"../js/components/investment.js","./investments":"../js/components/investments.js","./journal":"../js/components/journal.js","./journal-entry":"../js/components/journal-entry.js","./journal-entry-summary":"../js/components/journal-entry-summary.js","./line":"../js/components/line.js","./link":"../js/components/link.js","./menu":"../js/components/menu.js","./overlay":"../js/components/overlay.js","./paragraph":"../js/components/paragraph.js","./software":"../js/components/software.js","./software-consulting":"../js/components/software-consulting.js","./software-content-editor":"../js/components/software-content-editor.js","./software-data-platform":"../js/components/software-data-platform.js","./software-product":"../js/components/software-product.js","./software-storage-engine":"../js/components/software-storage-engine.js","./title":"../js/components/title.js"}],"../js/index.js":[function(require,module,exports) {
+},{"./contact":"../js/components/contact.js","./footer":"../js/components/footer.js","./home":"../js/components/home.js","./investment":"../js/components/investment.js","./investments":"../js/components/investments.js","./journal":"../js/components/journal.js","./journal-entry":"../js/components/journal-entry.js","./journal-entry-summary":"../js/components/journal-entry-summary.js","./line":"../js/components/line.js","./link":"../js/components/link.js","./menu":"../js/components/menu.js","./overlay":"../js/components/overlay.js","./paragraph":"../js/components/paragraph.js","./signature":"../js/components/signature.js","./software":"../js/components/software.js","./software-consulting":"../js/components/software-consulting.js","./software-content-editor":"../js/components/software-content-editor.js","./software-data-platform":"../js/components/software-data-platform.js","./software-product":"../js/components/software-product.js","./software-storage-engine":"../js/components/software-storage-engine.js","./subtitle":"../js/components/subtitle.js","./title":"../js/components/title.js"}],"../js/index.js":[function(require,module,exports) {
 'use strict';
 
 var _mithril = require('mithril');

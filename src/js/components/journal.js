@@ -8,6 +8,9 @@ import { content, layout } from '../templates'
 // Variables:
 const journalEntry1 = new JournalEntry(journalEntries[0])
 
+// Context:
+journalEntry1.save()
+
 // Classes:
 class Journal {
   view() {

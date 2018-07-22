@@ -43,29 +43,6 @@ div.footer p.copyright {
     text-align: left;
   }
 }
-div.home p.signature div {
-  background-image: url('signature.ec13006b.svg');
-  background-position: left center;
-  background-repeat: no-repeat;
-  background-size: auto 100%;
-  height: 2.5rem;
-  margin-top: 2rem;
-  opacity: 0.5;
-  width: 12rem;
-}
-div.home p.signature span {
-  clear: both;
-  display: block;
-}
-div.home p.signature span.name {
-  font-size: inherit;
-  line-height: inherit;
-  font-weight: 700;
-}
-div.home p.signature span.title {
-  font-size: 1.2rem;
-  line-height: 2.2rem;
-}
 div.investment {
   padding: 2rem 0;
   min-height: 4rem;
@@ -120,7 +97,6 @@ div.journal-entry-summary h2 {
 div.journal-entry-summary p a {
   font-size: inherit;
   line-height: inherit;
-  font-weight: 700;
 }
 div.line {
   background: #f7941d;
@@ -179,6 +155,7 @@ div.menu div.links {
 }
 div.menu div.links a {
   font-size: 1.3rem;
+  font-weight: 700;
   line-height: 3rem;
   margin-left: 1.5rem;
   text-decoration: none;
@@ -428,6 +405,7 @@ div.overlay div.links a {
   color: #fff;
   float: left;
   font-size: 2rem;
+  font-weight: 700;
   line-height: 3rem;
   margin-bottom: 1rem;
   padding: 0 1rem;
@@ -492,6 +470,29 @@ p.paragraph {
   font-size: 1.5rem;
   line-height: 2.6rem;
 }
+p.signature div {
+  background-image: url('signature.ec13006b.svg');
+  background-position: left center;
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  height: 2.5rem;
+  margin-top: 2rem;
+  opacity: 0.5;
+  width: 12rem;
+}
+p.signature span {
+  clear: both;
+  display: block;
+}
+p.signature span.name {
+  font-size: inherit;
+  line-height: inherit;
+  font-weight: 700;
+}
+p.signature span.title {
+  font-size: 1.2rem;
+  line-height: 2.2rem;
+}
 div.software-product {
   padding: 2rem 0;
   min-height: 4rem;
@@ -527,19 +528,35 @@ div.software-product.data-platform div.icon {
 div.software-product.storage-engine div.icon {
   background-image: url('storage-engine.5334160f.svg');
 }
-h1.title {
-  padding: 4rem 0;
+h3.subtitle {
+  font-size: 1.3rem;
+  line-height: 1.7rem;
+  text-align: center;
   width: 100%;
+}
+@media (max-width: 650px) {
+  h3.subtitle {
+    font-size: 1.2rem;
+    line-height: 1.6rem;
+    padding-bottom: 2rem;
+    text-align: left;
+  }
+}
+h1.title {
+  margin: 0 auto;
+  padding: 4rem 0;
+  width: 70%;
 }
 @media (max-width: 650px) {
   h1.title {
     padding: 2rem 0;
+    width: 100%;
   }
 }
 a {
   cursor: pointer;
   font-size: inherit;
-  font-weight: 700;
+  font-weight: 600;
   text-decoration: none;
   transition: all 500ms ease;
 }
@@ -552,7 +569,7 @@ html {
   color: #5e5e5e;
   font-family: 'Raleway', sans-serif;
   font-size: 10px;
-  font-weight: 300;
+  font-weight: 400;
   line-height: 0;
   margin: 0;
   padding: 0;
