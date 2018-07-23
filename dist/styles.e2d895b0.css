@@ -576,6 +576,7 @@ html {
   position: relative;
 }
 body {
+  overflow-y: scroll;
   padding-bottom: 5rem;
 }
 html {
