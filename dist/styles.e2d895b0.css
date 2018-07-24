@@ -4,8 +4,13 @@
   }
 }
 div.footer {
-  margin-top: 4rem;
+  margin-top: 3rem;
   width: 100%;
+}
+@media (max-width: 650px) {
+  div.footer {
+    margin-top: 4rem;
+  }
 }
 div.footer div.ampersand {
   background-image: url('ampersand-orange.2f8cebe3.svg');
@@ -101,13 +106,13 @@ div.journal-entry-summary p a {
 div.line {
   background: #f7941d;
   height: 0.4rem;
-  margin: 4rem auto;
+  margin: 3rem auto;
   width: 10rem;
 }
 @media (max-width: 650px) {
   div.line {
     height: 0.2rem;
-    margin: 2rem 0;
+    margin: 4rem 0;
     width: 5rem;
   }
 }
@@ -544,7 +549,7 @@ h3.subtitle {
 }
 h1.title {
   margin: 0 auto;
-  padding: 4rem 0;
+  padding: 3rem 0;
   width: 70%;
 }
 @media (max-width: 650px) {
@@ -620,7 +625,7 @@ h2 a {
 }
 div.content {
   margin: 0 auto;
-  padding: 4rem 0;
+  padding: 3rem 0;
   width: 75%;
 }
 @media (max-width: 650px) {

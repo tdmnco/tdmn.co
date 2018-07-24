@@ -3,8 +3,12 @@
 
 // Styles:
 div.footer {
-  margin-top: 4rem;
+  margin-top: 3rem;
   width: 100%;
+
+  @media (max-width: @breakpoint-mobile) {
+    margin-top: 4rem;
+  }
 
   div.ampersand {
     background-image: url('../gfx/ampersand-orange.svg');
