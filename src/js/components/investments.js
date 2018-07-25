@@ -10,8 +10,8 @@ class Investments {
       m(Title, { content: 'We invest in people.' }),
       m(Line, { class: 'hidden-on-mobile' }),
       content([
-        m(Paragraph, { content: 'We invest in people, not ideas. We bet on the ability to make things happen and we match with anyone who cares deeply for what they do.' }),
-        m(Paragraph, { content: 'We currently have investments in the following companies, funds and trusts:' }),
+        m(Paragraph, { content: 'We invest in people, not ideas. We bet on the ability to make things happen and we match with anyone who cares deeply for what they do. Our investment strategy is built on the idea of investing in a mix of startups, well-established companies, trusts and funds.' }),
+        m(Paragraph, { content: 'These are our current investments:' }),
         m('div', { class: 'investments' }, [
           m(Investment, {
             class: 'akademisk-boldklub',
@@ -48,6 +48,12 @@ class Investments {
             description: 'Nordea Invest is a unit trust that invests in a broad range of stocks, shares and bonds in Denmark and internationally. Following an active investment strategy, the trust has delivered consistent results across a wide range of sectors for many years.',
             title: 'Nordea Invest',
             url: 'https://nordeainvest.dk/'
+          }),
+          m(Investment, {
+            class: 'seb-invest',
+            description: 'SEB Invest offers a broad range of funds and tailored portfolios for institutional investors as well as retail and private banking clients. Featured are both single-niche products and full-scale tailored solutions based on a multi-boutique concept.',
+            title: 'SEB Invest',
+            url: 'https://sebinvest.dk/'
           }),
           m(Investment, {
             class: 'sparinvest',

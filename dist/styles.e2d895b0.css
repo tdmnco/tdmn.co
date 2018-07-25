@@ -107,6 +107,12 @@ div.investment.nordea-invest a:hover {
 div.investment.nordea-invest div.icon {
   background-image: url('logo-nordea-invest.847eb4fd.png');
 }
+div.investment.seb-invest a:hover {
+  color: #000;
+}
+div.investment.seb-invest div.icon {
+  background-image: url('logo-seb-invest.a93b3c64.png');
+}
 div.investment.sparinvest a:hover {
   color: #646b50;
 }

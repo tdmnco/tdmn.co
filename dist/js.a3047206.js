@@ -1839,7 +1839,7 @@ var Investments = function () {
   _createClass(Investments, [{
     key: 'view',
     value: function view() {
-      return (0, _templates.layout)('investments', [(0, _mithril2.default)(_.Title, { content: 'We invest in people.' }), (0, _mithril2.default)(_.Line, { class: 'hidden-on-mobile' }), (0, _templates.content)([(0, _mithril2.default)(_.Paragraph, { content: 'We invest in people, not ideas. We bet on the ability to make things happen and we match with anyone who cares deeply for what they do.' }), (0, _mithril2.default)(_.Paragraph, { content: 'We currently have investments in the following companies, funds and trusts:' }), _mithril2.default.vnode('div', undefined, {
+      return (0, _templates.layout)('investments', [(0, _mithril2.default)(_.Title, { content: 'We invest in people.' }), (0, _mithril2.default)(_.Line, { class: 'hidden-on-mobile' }), (0, _templates.content)([(0, _mithril2.default)(_.Paragraph, { content: 'We invest in people, not ideas. We bet on the ability to make things happen and we match with anyone who cares deeply for what they do. Our investment strategy is built on the idea of investing in a mix of startups, well-established companies, trusts and funds.' }), (0, _mithril2.default)(_.Paragraph, { content: 'These are our current investments:' }), _mithril2.default.vnode('div', undefined, {
         className: 'investments'
       }, [(0, _mithril2.default)(_.Investment, {
         class: 'akademisk-boldklub',
@@ -1871,6 +1871,11 @@ var Investments = function () {
         description: 'Nordea Invest is a unit trust that invests in a broad range of stocks, shares and bonds in Denmark and internationally. Following an active investment strategy, the trust has delivered consistent results across a wide range of sectors for many years.',
         title: 'Nordea Invest',
         url: 'https://nordeainvest.dk/'
+      }), (0, _mithril2.default)(_.Investment, {
+        class: 'seb-invest',
+        description: 'SEB Invest offers a broad range of funds and tailored portfolios for institutional investors as well as retail and private banking clients. Featured are both single-niche products and full-scale tailored solutions based on a multi-boutique concept.',
+        title: 'SEB Invest',
+        url: 'https://sebinvest.dk/'
       }), (0, _mithril2.default)(_.Investment, {
         class: 'sparinvest',
         description: 'Sparinvest provides professional asset management services throughout the world through its fund range and bespoke products and services. Sparinvest is known internationally as a specialist in value investment – both for equities and bonds.',
