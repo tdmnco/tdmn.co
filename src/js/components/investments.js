@@ -27,7 +27,7 @@ class Investments {
           }),
           m(Investment, {
             class: 'chr-hansen',
-            description: 'Chr. Hansen is a global bioscience company that develops natural solutions for the food, nutritional, pharmaceutical and agricultural industries.',
+            description: 'Chr. Hansen is a global bioscience company that develops natural solutions for the food, nutritional, pharmaceutical and agricultural industries, providing cultures, enzymes and probiotics for a rich variety of foods, beverages etc.',
             title: 'Chr. Hansen A/S',
             url: 'https://chr-hansen.com/'
           }),
