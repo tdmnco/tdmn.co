@@ -1868,7 +1868,7 @@ var Investments = function () {
         url: 'https://livecompany.dk/'
       }), (0, _mithril2.default)(_.Investment, {
         class: 'nordea-invest',
-        description: 'Nordea Invest is a unit trust that invests in a broad range of stocks, shares and bonds both in Denmark and abroad. Following an active investment strategy, the trust is good for placing surplus company liquidity.',
+        description: 'Nordea Invest is a unit trust that invests in a broad range of stocks, shares and bonds in Denmark and internationally. Following an active investment strategy, the trust has delivered consistent results across a wide range of sectors for many years.',
         title: 'Nordea Invest',
         url: 'https://nordeainvest.dk/'
       }), (0, _mithril2.default)(_.Investment, {
