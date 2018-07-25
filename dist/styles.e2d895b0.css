@@ -89,6 +89,9 @@ div.investment.live-company div.icon {
 div.investment.nordea-invest div.icon {
   background-image: url('logo-nordea-invest.847eb4fd.png');
 }
+div.investment.sparinvest div.icon {
+  background-image: url('logo-sparinvest.8ed56657.png');
+}
 div.journal-entry {
   width: 100%;
 }

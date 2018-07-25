@@ -1871,6 +1871,11 @@ var Investments = function () {
         description: 'Nordea Invest is a unit trust that invests in a broad range of stocks, shares and bonds both in Denmark and abroad. Following an active investment strategy, the trust is good for placing surplus company liquidity.',
         title: 'Nordea Invest',
         url: 'https://nordeainvest.dk/'
+      }), (0, _mithril2.default)(_.Investment, {
+        class: 'sparinvest',
+        description: 'Sparinvest provides professional asset management services throughout the world through its fund range and bespoke products and services. Sparinvest is known internationally as a specialist in value investment – both for equities and bonds.',
+        title: 'Sparinvest',
+        url: 'https://sparinvest.dk/'
       })], undefined, undefined)])]);
     }
   }]);
