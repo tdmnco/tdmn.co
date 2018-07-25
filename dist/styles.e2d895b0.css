@@ -71,14 +71,23 @@ div.investment div.icon {
 div.investment h2 {
   padding-bottom: 1rem;
 }
+div.investment.akademisk-boldklub div.icon {
+  background-image: url('logo-akademisk-boldklub.516840af.png');
+}
 div.investment.alefarm-brewing div.icon {
   background-image: url('logo-alefarm-brewing.13d00157.png');
+}
+div.investment.chr-hansen div.icon {
+  background-image: url('logo-chr-hansen.1a7a39dd.png');
 }
 div.investment.helium div.icon {
   background-image: url('logo-helium.d5b39669.png');
 }
 div.investment.live-company div.icon {
   background-image: url('logo-live-company.ea962264.png');
+}
+div.investment.nordea-invest div.icon {
+  background-image: url('logo-nordea-invest.847eb4fd.png');
 }
 div.journal-entry {
   width: 100%;

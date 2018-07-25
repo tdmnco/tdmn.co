@@ -1839,23 +1839,38 @@ var Investments = function () {
   _createClass(Investments, [{
     key: 'view',
     value: function view() {
-      return (0, _templates.layout)('investments', [(0, _mithril2.default)(_.Title, { content: 'We invest in people.' }), (0, _mithril2.default)(_.Line, { class: 'hidden-on-mobile' }), (0, _templates.content)([(0, _mithril2.default)(_.Paragraph, { content: 'We invest in people, not ideas. We bet on the ability to make things happen and we match with anyone who cares deeply for what they do.' }), (0, _mithril2.default)(_.Paragraph, { content: 'We currently have investments in the following companies:' }), _mithril2.default.vnode('div', undefined, {
+      return (0, _templates.layout)('investments', [(0, _mithril2.default)(_.Title, { content: 'We invest in people.' }), (0, _mithril2.default)(_.Line, { class: 'hidden-on-mobile' }), (0, _templates.content)([(0, _mithril2.default)(_.Paragraph, { content: 'We invest in people, not ideas. We bet on the ability to make things happen and we match with anyone who cares deeply for what they do.' }), (0, _mithril2.default)(_.Paragraph, { content: 'We currently have investments in the following companies, funds and trusts:' }), _mithril2.default.vnode('div', undefined, {
         className: 'investments'
       }, [(0, _mithril2.default)(_.Investment, {
+        class: 'akademisk-boldklub',
+        description: 'Akademisk Boldklub - or just AB - is a historical football club dating back to 1889 that is rich in traditions and trophies. Many famous players have worn the green jersey with pride - and many will follow still.',
+        title: 'Akademisk Boldklub A/S',
+        url: 'http://ab-fodbold.dk/'
+      }), (0, _mithril2.default)(_.Investment, {
         class: 'alefarm-brewing',
         description: 'Alefarm Brewing is a Copenhagen-based craft brewery with a focus on modern hoppy offerings and a wide array of unique, flavorful mixed fermentation farmhouse ales.',
         title: 'Alefarm Brewing IVS',
         url: 'https://alefarm.dk/'
+      }), (0, _mithril2.default)(_.Investment, {
+        class: 'chr-hansen',
+        description: 'Chr. Hansen is a global bioscience company that develops natural solutions for the food, nutritional, pharmaceutical and agricultural industries.',
+        title: 'Chr. Hansen A/S',
+        url: 'https://chr-hansen.com/'
+      }), (0, _mithril2.default)(_.Investment, {
+        class: 'helium',
+        description: 'HELIUM is a creative and experimental cocktail bar located in one of the most decadent streets of Copenhagen. Served at the bar is marvellous combinations featuring different kinds of spirits, bitters, syrups, juices and cordials.',
+        title: 'HELIUM ApS',
+        url: 'http://heliumcph.dk'
       }), (0, _mithril2.default)(_.Investment, {
         class: 'live-company',
         description: 'Live Company is the one-stop shop for professional audio and visual solutions for events, concerts, festivals, conferences and more. With expert staff ready to assist, everything from planning to the running of an event is a breeze.',
         title: 'Live Company A/S',
         url: 'https://livecompany.dk/'
       }), (0, _mithril2.default)(_.Investment, {
-        class: 'helium',
-        description: 'HELIUM is a creative and experimental cocktail bar located in one of the most decadent streets of Copenhagen. Served at the bar is marvellous combinations featuring different kinds of spirits, bitters, syrups, juices and cordials.',
-        title: 'HELIUM ApS',
-        url: 'http://heliumcph.dk'
+        class: 'nordea-invest',
+        description: 'Nordea Invest is a unit trust that invests in a broad range of stocks, shares and bonds both in Denmark and abroad. Following an active investment strategy, the trust is good for placing surplus company liquidity.',
+        title: 'Nordea Invest',
+        url: 'https://nordeainvest.dk/'
       })], undefined, undefined)])]);
     }
   }]);
