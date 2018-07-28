@@ -11,7 +11,7 @@
     "mopt": "*",
     "node-sass": "^4.9.2",
     "parcel-bundler": "^1.9.7",
-    "tdmnco-model-js": "^0.0.6"
+    "tdmnco-model-js": "^0.1.0"
   },
   "homepage": "https://tdmn.co",
   "keywords": [
@@ -29,5 +29,5 @@
     "dev": "rm -rf dist && parcel --no-hmr src/html/index.html",
     "dist": "rm -rf dist && parcel build src/html/index.html --public-url ./"
   },
-  "version": "1.1.0"
+  "version": "1.2.0"
 }

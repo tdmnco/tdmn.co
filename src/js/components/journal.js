@@ -1,15 +1,13 @@
 // Imports:
 import m from 'mithril'
 import { JournalEntrySummary, Line, Paragraph, Title } from './'
-import { journalEntries } from '../helpers'
 import { JournalEntry } from '../models'
 import { content, layout } from '../templates'
 
 // Variables:
-const journalEntry1 = new JournalEntry(journalEntries[0])
-
-// Context:
-journalEntry1.save()
+const journalEntries = JournalEntry.get().sort((a, b) => {
+  return a.created > b.created ? -1 : 1
+})
 
 // Classes:
 class Journal {
@@ -18,7 +16,9 @@ class Journal {
       m(Title, { content: 'Journal.' }),
       m(Line, { class: 'hidden-on-mobile' }),
       content([
-        m(JournalEntrySummary, { journalEntry: journalEntry1 })
+        journalEntries.map((journalEntry) => {
+          return m(JournalEntrySummary, { journalEntry: journalEntry })
+        })
       ])
     ])
   }

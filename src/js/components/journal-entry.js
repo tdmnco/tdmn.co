@@ -8,7 +8,7 @@ import { content, layout } from '../templates'
 // Classes:
 class JournalEntry {
   oninit(vnode) {
-    vnode.attrs.journalEntry = JournalEntryModel.get('1') // m.route.param('slug')
+    vnode.attrs.journalEntry = JournalEntryModel.first({ slug: m.route.param('slug') })
   }
 
   view(vnode) {
@@ -23,7 +23,7 @@ class JournalEntry {
       m(Line, { class: 'hidden-on-mobile' }),
       content([
         vnode.attrs.journalEntry.content.split('\n\n').map((paragraph) => {
-          return m(Paragraph, { content: paragraph })
+          return m(Paragraph, { content: m.trust(paragraph) })
         }),
         m(Signature)
       ])

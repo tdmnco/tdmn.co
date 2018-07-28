@@ -1,5 +1,8 @@
-// Posts:
-export const journalEntries = [
+// Imports:
+import { JournalEntry } from '../models'
+
+// Constants:
+const journalEntries = [
   {
     author: {
       email: 'kt@tdmn.co',
@@ -13,5 +16,27 @@ export const journalEntries = [
     id: '1',
     slug: 'proudly-presenting-alefarm-brewing-2-0',
     title: 'Proudly presenting Alefarm Brewing 2.0'
+  },
+  {
+    author: {
+      email: 'kt@tdmn.co',
+      firstname: 'Kasper',
+      id: '1',
+      lastname: 'Tidemann'
+    },
+    content: 'Gentofte, Denmark – We are pleased to announce the general availability of <a href="https://github.com/tdmnco/model-js/releases/tag/0.1.0">Model.js in version 0.1.0</a>, a fresh release that contains new features for working with data models in modern web applications.\n\nNotable additions to the library include enhanced querying capabilities along with improved test coverage and bug fixes. All changes are listed in <a href="https://github.com/tdmnco/model-js/blob/master/CHANGELOG.md">the changelog</a> of the project.\n\nThis release is a part of our ongoing effort to open source the work that we do. Sharing is caring and open source benefits all of us. We are excited to share even more with you in the future. Happy coding!',
+    created: '2018-07-28T10:13:23.120Z',
+    excerpt: 'Fresh off the code press is the release of Model.js version 0.1.0, our simple model layer for modern web applications.',
+    id: '2',
+    slug: 'release-of-model-js-version-0-1-0',
+    title: 'Release of Model.js version 0.1.0'
   }
 ]
+
+// Context:
+for (let journalEntry of journalEntries) {
+  new JournalEntry(journalEntry).save()
+}
+
+// Exports:
+export { journalEntries }
