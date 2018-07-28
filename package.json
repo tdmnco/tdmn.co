@@ -29,5 +29,5 @@
     "dev": "rm -rf dist && parcel --no-hmr src/html/index.html",
     "dist": "rm -rf dist && parcel build src/html/index.html"
   },
-  "version": "1.2.0"
+  "version": "1.2.1"
 }
