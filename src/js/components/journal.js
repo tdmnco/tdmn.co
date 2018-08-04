@@ -13,7 +13,7 @@ const journalEntries = JournalEntry.get().sort((a, b) => {
 class Journal {
   view() {
     return layout('journal', [
-      m(Title, { content: 'Journal.' }),
+      m(Title, { content: 'From our hands we give.' }),
       m(Line, { class: 'hidden-on-mobile' }),
       content([
         journalEntries.map((journalEntry) => {
