@@ -23,7 +23,6 @@ class Menu {
       ]),
       m('div', { class: 'links' }, [
         m(Link, { content: 'SOFTWARE', to: '/software' }),
-        m(Link, { content: 'INVESTMENTS', to: '/investments' }),
         m(Link, { content: 'JOURNAL', to: '/journal' }),
         m(Link, { content: 'CONTACT', to: '/contact' })
       ])

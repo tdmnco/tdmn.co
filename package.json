@@ -6,6 +6,7 @@
   "description": "This is the official repository of the Tidemann&Co website.",
   "devDependencies": {
     "babel-core": "^6.26.3",
+    "eslint": "^5.4.0",
     "less": "^3.8.1",
     "mithril": "*",
     "mopt": "*",
@@ -29,5 +30,5 @@
     "dev": "rm -rf dist && parcel --no-hmr src/html/index.html",
     "dist": "rm -rf dist && parcel build src/html/index.html"
   },
-  "version": "1.2.1"
+  "version": "1.3.0"
 }

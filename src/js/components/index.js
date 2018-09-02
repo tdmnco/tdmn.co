@@ -2,8 +2,6 @@
 export { Contact } from './contact'
 export { Footer } from './footer'
 export { Home } from './home'
-export { Investment } from './investment'
-export { Investments } from './investments'
 export { Journal } from './journal'
 export { JournalEntry } from './journal-entry'
 export { JournalEntrySummary } from './journal-entry-summary'
