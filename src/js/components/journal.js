@@ -1,6 +1,6 @@
 // Imports:
 import m from 'mithril'
-import { JournalEntrySummary, Line, Paragraph, Title } from './'
+import { JournalEntrySummary, Line, Title } from './'
 import { JournalEntry } from '../models'
 import { content, layout } from '../templates'
 
