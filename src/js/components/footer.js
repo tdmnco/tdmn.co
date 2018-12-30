@@ -19,7 +19,6 @@ class Footer {
   view(vnode) {
     return m('div', { class: 'footer' }, [
       m('div', { class: 'links' }, [
-        m(Link, { content: 'JOURNAL', to: '/journal' }),
         m(Link, { content: 'CONTACT', to: '/contact' }),
         m(Link, { content: 'MORE', onmousedown: toggleOverlay(vnode) })
       ]),
