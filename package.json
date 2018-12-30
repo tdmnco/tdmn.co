@@ -6,10 +6,10 @@
   "description": "This is the official repository of the Tidemann&Co website.",
   "devDependencies": {
     "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
     "eslint": "^5.11.1",
     "less": "^3.9.0",
     "mithril": "*",
-    "mopt": "*",
     "node-sass": "^4.11.0",
     "parcel-bundler": "^1.11.0",
     "tdmnco-model-js": "^0.2.0"
